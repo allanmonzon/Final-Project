@@ -1,0 +1,15 @@
+{
+  "name": "final-project",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0",
+    "ember": "~1.7.1",
+    "bourbon": "~4.0.2",
+    "neat": "~1.7.0",
+    "ember-data": "1.0.0-beta.8",
+    "bitters": "~0.10.1",
+    "refills": "~0.0.2"
+  },
+  "devDependencies": {}
+}
