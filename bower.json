@@ -9,7 +9,8 @@
     "neat": "~1.7.0",
     "ember-data": "1.0.0-beta.8",
     "bitters": "~0.10.1",
-    "refills": "~0.0.2"
+    "refills": "~0.0.2",
+    "emberfire": "~1.2.7"
   },
   "devDependencies": {}
 }

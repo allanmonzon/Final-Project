@@ -21,20 +21,32 @@
         <!-- endbuild -->
     </head>
     <body>
+      
+      <script type="text/x-handlebars" data-template-name="application">     
+        {{outlet}}
+      </script> 
 
-        <h1>Cool!</h1>
+      <script type="text/x-handlebars" data-template-name="post-job">
+        <h1>Post Job</h1> 
+      </script> 
 
 
+
+      
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
         <script src="bower_components/handlebars/handlebars.js"></script>
         <script src="bower_components/ember/ember.js"></script>
+        <script src="bower_components/ember-data/ember-data.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="bower_components/emberfire/dist/emberfire.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/router.js"></script>
         <!-- endbuild -->
 </body>
 </html>
