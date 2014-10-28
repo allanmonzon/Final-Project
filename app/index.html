@@ -21,13 +21,14 @@
         <!-- endbuild -->
     </head>
     <body>
-      
-      <script type="text/x-handlebars" data-template-name="application">     
+
+      <script type="text/x-handlebars" data-template-name="application">
         {{outlet}}
-      </script> 
+      </script>
 
             <!--//////////////// Client ///////////////////-->
 
+<<<<<<< HEAD
       <!-- Client Profile Template -->
       <script type="text/x-handlebars" data-template-name="client-profile">
         <h1>Post Job</h1> 
@@ -41,20 +42,48 @@
       <script type="text/x-handlebars" data-template-name="client-home">
         <h1>Post Job</h1> 
       </script>       
-
+=======
       <!-- Post-Job Template -->
       <script type="text/x-handlebars" data-template-name="post-job">
-        <h1>Post Job</h1> 
+        <h1>Post Job</h1>
         Type of project {{input type="text" placeholder="project" value=typeOfProject action="createJob"}}
         <input type="text">
         <input type="text">
         <input type="text">
         <input type="text">
-      </script> 
+      </script>
 
+      <!-- Post-Job Template -->
+      <script type="text/x-handlebars" data-template-name="post-job">
+        <h1>Post Job</h1>
+        Type of project {{input type="text" placeholder="project" value=typeOfProject action="createJob"}}
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+      </script>
+>>>>>>> c06b303787da9bee1f770ac008a61dc10b814478
+
+      <!-- Post-Job Template -->
+      <script type="text/x-handlebars" data-template-name="post-job">
+        <h1>Post Job</h1>
+        Type of project {{input type="text" placeholder="project" value=typeOfProject action="createJob"}}
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+      </script>
+
+<<<<<<< HEAD
       <!-- Job Bids Template -->
       <script type="text/x-handlebars" data-template-name="job-bids">
         <h1>Post Job</h1> 
+=======
+      <!-- Post-Job Template -->
+      <script type="text/x-handlebars" data-template-name="post-job">
+        <h1>Post Job</h1>
+        Type of project {{input type="text" placeholder="project" value=typeOfProject action="createJob"}}
+>>>>>>> c06b303787da9bee1f770ac008a61dc10b814478
         <input type="text">
         <input type="text">
         <input type="text">
@@ -173,33 +202,34 @@
 
       <!-- Create-Profile Template -->
       <script type="text/x-handlebars" data-template-name="create-profile">
-        <h1>Contact Info</h1> 
+        <h1>Contact Info</h1>
         {{input type="email" placeholder="email" value=email action="createProfile"}}
         <input type="text">
         <input type="text">
         <input type="text">
         <input type="text">
-      </script> 
+      </script>
+
+      <!--build:js scripts/vendor.js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/handlebars/handlebars.js"></script>
+      <script src="bower_components/ember/ember.js"></script>
+      <script src="bower_components/ember-data/ember-data.js"></script>
+      <script src="bower_components/firebase/firebase.js"></script>
+      <script src="bower_components/emberfire/dist/emberfire.js"></script>
+      <!--endbuild -->
 
 
-
-      
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/handlebars/handlebars.js"></script>
-        <script src="bower_components/ember/ember.js"></script>
-        <script src="bower_components/ember-data/ember-data.js"></script>
-        <script src="bower_components/firebase/firebase.js"></script>
-        <script src="bower_components/emberfire/dist/emberfire.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/router.js"></script>
-        <script src="scripts/models/final_models.js"></script>     
-        <script src="scripts/controllers/postJob_controller.js"></script>  
+        <script src="scripts/models/final_models.js"></script>
+        <script src="scripts/controllers/postJob_controller.js"></script>
         <!-- endbuild -->
+
+
 </body>
 </html>
