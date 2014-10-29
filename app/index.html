@@ -19,6 +19,7 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     </head>
     <body>
 
@@ -52,6 +53,7 @@
         <input type="text">
         <input type="text">
       </script>
+
           
       <!-- Job Bids Template -->
       <script type="text/x-handlebars" data-template-name="job-bids">
@@ -61,13 +63,8 @@
             
 
 
+
           
-
-
-
-
-
-
 
 
 
@@ -170,13 +167,87 @@
             <!--//////////////// Freelance ///////////////////-->
 
       <!-- Create-Profile Template -->
-      <script type="text/x-handlebars" data-template-name="create-profile">
-        <h1>Contact Info</h1>
-        {{input type="email" placeholder="email" value=email action="createProfile"}}
-        <input type="text">
-        <input type="text">
-        <input type="text">
-        <input type="text">
+      <script type="text/x-handlebars" data-template-name="profile/create">
+        <div class="wrapper">
+          <h1>Username</h1>
+          <div class="avatar"><img src=""/></div>
+
+          <div class="bio">
+            <h3>Bio</h3>
+            <textarea>Chia 3 wolf moon meh Carles, Thundercats YOLO Kickstarter High Life irony kogi occupy asymmetrical fanny pack deep v typewriter. Pop-up messenger bag literally synth dreamcatcher, freegan Carles Truffaut iPhone. Put a bird on it mixtape fingerstache, occupy farm-to-table High Life</textarea>
+          </div>
+
+          <div class="hourly-rate">
+            <span>Hourly Rate</span>
+            {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+          </div>
+
+          <div class="portfolio">
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+          </div>
+
+          {{#link-to 'profile.myprofile'}}<button>Save Profile</button>{{/link-to}}
+
+        </div>
+      </script>
+
+      <script type="text/x-handlebars" data-template-name="profile/myprofile">
+        <div class="wrapper">
+          <h1>Username</h1>
+          <div class="avatar"><img src=""/></div>
+
+          <div class="bio">
+            <h3>Bio</h3>
+            <p>Chia 3 wolf moon meh Carles, Thundercats YOLO Kickstarter High Life irony kogi occupy asymmetrical fanny pack deep v typewriter. Pop-up messenger bag literally synth dreamcatcher, freegan Carles Truffaut iPhone. Put a bird on it mixtape fingerstache, occupy farm-to-table High Life</p>
+          </div>
+
+          <div class="hourly-rate">
+            <span>Hourly Rate</span>
+            {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+          </div>
+
+          <div class="portfolio">
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+            <div class="p-item"></div>
+          </div>
+        </div>
+
+        <div class="jobs-bids">
+          {{#link-to 'jobs.all'}}<span>View All Jobs</span>{{/link-to}}
+          {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
+        </div>
+      </script>
+
+      <!--//////////////// Landing Page ///////////////////-->
+
+      <script type="text/x-handlebars" data-template-name="index">
+        <div class="container">
+
+          <header>
+            <div class="logo"></div>
+            <div class="login-buttons">
+              <button class="client-login">Client Login</button>
+              <button class="freelance-login">Freelance Login</button>
+            </div>
+          </header>
+
+          <section class="signup">
+            <div class="signup-button">
+              <button class="client-signup">Client Sign Up</button>
+              <button class="freelance-signup">Freelance Sign Up</button>
+            </div>
+          </section>
+
+        </div>
       </script>
 
       <!--build:js scripts/vendor.js -->
@@ -192,12 +263,14 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
+        <!-- build:js scripts/**.js -->
+        <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
         <script src="scripts/models/final_models.js"></script>
         <script src="scripts/controllers/postJob_controller.js"></script>
-        <script src="scripts/routes/create_account_route.js"></script>
+
+        <script src="scripts/controllers/profile_create_controller.js"></script>
+
         <!-- endbuild -->
 
 
