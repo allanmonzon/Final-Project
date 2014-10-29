@@ -32,11 +32,15 @@
       
       <!-- Client Profile Template -->
       <script type="text/x-handlebars" data-template-name="client-profile">
-        <h1>My Profile</h1> 
+        <h1>My Profile</h1>
+        <span>Name</span> 
         {{input type="text" placeholder="name" value=name action="createProfile"}}
-        {{input type="text" }}
-        {{input type="text"}}
-        {{input type="text"}}
+        <span>Info</span> 
+        {{input type="text" placeholder="info" value=info action="createProfile"}}
+        <span>Email</span> 
+        {{input type="email" placeholder="email" value=email action="createProfile"}}
+        <span>Number</span>
+        {{input type="number" placeholder="number" value=number action="createProfile"}}
       </script>   
       
       <!-- Client Home Template -->
@@ -250,27 +254,24 @@
         </div>
       </script>
 
-      <!--build:js scripts/vendor.js -->
-      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <!-- build:js scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/jquery.js"></script>
       <script src="bower_components/handlebars/handlebars.js"></script>
       <script src="bower_components/ember/ember.js"></script>
       <script src="bower_components/ember-data/ember-data.js"></script>
       <script src="bower_components/firebase/firebase.js"></script>
       <script src="bower_components/emberfire/dist/emberfire.js"></script>
-      <!--endbuild -->
-
-
-        <!-- endbower -->
-        <!-- endbuild -->
+     
+      <!-- endbower -->
+      <!-- endbuild -->
 
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
         <script src="scripts/models/final_models.js"></script>
         <script src="scripts/controllers/postJob_controller.js"></script>
-
-        <script src="scripts/controllers/profile_create_controller.js"></script>
-
+        <script src="scripts/controllers/clientProfile_controller.js"></script>
         <!-- endbuild -->
 
 
