@@ -3,12 +3,16 @@ Final.PostJob = DS.Model.extend({
 
 });
 
+Final.ClientProfile = DS.Model.extend({
+	name: DS.attr('string'),
+  	
+});
 
 
 
 Final.Profile = DS.Model.extend({
 	email: DS.attr('string'),
-
+	
 });
 
 

@@ -2,12 +2,13 @@ Final.Router.map(function(){
 
 	/* ============ General ============ */
 
-	this.route('home')
+	this.route('home');
 
 	/* ============ Client ============ */
 
 	this.route('post-job');
-	this.route('create-profile');
+	// this.route('create-profile');
+	this.route('client-profile', { path: '/my-profile' });
 
 	/* ============ Freelance ============ */
 
@@ -22,3 +23,7 @@ Final.Router.map(function(){
 
 	this.route('my-bids');
 });
+
+
+
+
