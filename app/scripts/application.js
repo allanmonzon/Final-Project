@@ -1,5 +1,9 @@
-window.Final = Ember.Application.create();
+window.Final = Ember.Application.create({
+	LOG_TRANSITIONS: true
+});
 
-Final.ApplicationAdapted = DS.FirebaseAdapter.extend({
-	firebase: new Firebase('https://final-project-1.firebaseio.com/')
+var ref = new Firebase('https://final-project-1.firebaseio.com/');
+
+Final.ApplicationAdapter = DS.FirebaseAdapter.extend({
+	firebase: ref
 });

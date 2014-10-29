@@ -203,26 +203,37 @@
         </div>
       </script>
 
-      <!--//////////////// Landing Page ///////////////////-->
 
+      <!--//////////////// Landing Page ///////////////////-->
       <script type="text/x-handlebars" data-template-name="index">
         <div class="container">
 
           <header>
             <div class="logo"></div>
             <div class="login-buttons">
-              <button class="client-login">Client Login</button>
-              <button class="freelance-login">Freelance Login</button>
+              {{#link-to 'login.client'}}<button class="client-login">Client Login</button>{{/link-to}}
+              {{#link-to 'login.freelancer'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
             </div>
           </header>
 
           <section class="signup">
             <div class="signup-button">
-              <button class="client-signup">Client Sign Up</button>
-              <button class="freelance-signup">Freelance Sign Up</button>
+              {{#link-to 'signup.client'}}<button class="client-signup">Client Sign Up</button>{{/link-to}}
+              {{#link-to 'signup.freelancer'}}<button class="freelance-signup" {{action 'freelanceSignUp'}}>Freelance Sign Up</button>{{/link-to}}
             </div>
           </section>
 
+        </div>
+      </script>
+
+
+      <!--//////////////// signup ///////////////////-->
+
+      <script type="text/x-handlebars" data-template-name="signup/client">
+        <div class="container">
+          {{input type ="email" value=email placeholder="Email"}}
+          {{input type ="password" value=password placeholder="Password"}}
+          <button {{action "signup"}}>Sign Up</button>
         </div>
       </script>
 
@@ -230,7 +241,7 @@
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/handlebars/handlebars.js"></script>
       <script src="bower_components/ember/ember.js"></script>
-      <script src="bower_components/ember-data/ember-data.js"></script>
+      <script src="/bower_components/ember-data/ember-data.js"></script>
       <script src="bower_components/firebase/firebase.js"></script>
       <script src="bower_components/emberfire/dist/emberfire.js"></script>
       <!--endbuild -->
@@ -242,6 +253,9 @@
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
+        <script src="scripts/models/user_model.js"></script>
+        <script src="scripts/controllers/application_controller.js"></script>
+        <script src="scripts/controllers/signup_client_controller.js"</script>
         <script src="scripts/models/final_models.js"></script>
         <script src="scripts/controllers/postJob_controller.js"></script>
         <script src="scripts/controllers/profile_create_controller.js"></script>

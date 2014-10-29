@@ -26,7 +26,7 @@ body {
     .login-buttons {
       @include span-columns(6);
       float: right;
-      padding: rem(20);
+      padding: rem(30);
 
       button {
         float: right;
@@ -37,7 +37,7 @@ body {
 
   .signup {
     height: 100vh;
-    background-image: url("/images/photo_1.jpg");
+    background-image: url("/images/photo_2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -51,10 +51,10 @@ body {
 
     button {
       display: inline-block;
+    }
 
-      &:last-child {
-        float: right;
-      }
+    .freelance-signup {
+      float: right;
     }
   }
 }
