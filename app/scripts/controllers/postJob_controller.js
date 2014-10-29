@@ -7,6 +7,8 @@ Final.PostJobController = Ember.ArrayController.extend({
 				typeOfProject: this.get('typeOfProject')
 			});
 
+			console.log(job);
+
 			job.save();
 			this.set('typeOfProject', '');
 		} 
