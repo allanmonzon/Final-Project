@@ -1,9 +1,9 @@
 Final.ApplicationController = Ember.Controller.extend({
   currentUser: null,
 
-  authenticate: function () {
+  authenticate: function (credentials) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      ref.authWithPassword(credentials, function(error, authData){
+      Final.ref.authWithPassword(credentials, function(error, authData){
         resolve(authData);
       });
     });

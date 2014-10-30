@@ -14,6 +14,8 @@ body {
 
   header {
     @include span-columns(12);
+    position: fixed;
+    z-index: 1000;
     background: #000;
 
     .logo {
@@ -37,8 +39,10 @@ body {
 
   .signup {
     height: 100vh;
+    text-align: center;
     background-image: url("/images/photo_2.jpg");
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -49,12 +53,54 @@ body {
     padding: 0;
     margin-top: 20%;
 
-    button {
-      display: inline-block;
+    .client-signup {
+      float: left;
     }
 
     .freelance-signup {
       float: right;
+    }
+  }
+
+  .info {
+    height: rem(400);
+    text-align: center;
+    padding: rem(150) rem(100);
+  }
+
+  .steps {
+    height: rem(400);
+    text-align: center;
+    color:#fff;
+    padding: rem(150) rem(30);
+    background-image: url("/images/photo_3.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+  }
+
+  .step {
+    @include span-columns(4);
+    display: inline-block;
+  }
+
+  footer {
+    height: rem(200);
+    background: #000;
+    padding: rem(90) 0;
+
+    .logo {
+      @include span-columns(2);
+      @include shift(5);
+      height: 40px;
+      outline: solid 1px #fff;
+    }
+
+    span {
+      @include span-columns(2);
+      @include shift(5);
+      clear: both;
     }
   }
 }
