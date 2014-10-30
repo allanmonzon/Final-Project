@@ -6,7 +6,7 @@ Final.ClientProfile = DS.Model.extend({
 	name: DS.attr('string'),
 	info: DS.attr('string'),
 	email: DS.attr('string'),
-	number: DS.attr('number'),
+	number: DS.attr('string'),
   	
 });
 

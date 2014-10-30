@@ -33,14 +33,17 @@
       <!-- Client Profile Template -->
       <script type="text/x-handlebars" data-template-name="client-profile">
         <h1>My Profile</h1>
-        <span>Name</span>
-        {{input type="text" placeholder="name" value=name action="createProfile"}}
-        <span>Info</span>
-        {{input type="text" placeholder="info" value=info action="createProfile"}}
-        <span>Email</span>
-        {{input type="email" placeholder="email" value=email action="createProfile"}}
-        <span>Number</span>
-        {{input type="number" placeholder="number" value=number action="createProfile"}}
+        <form>
+          <span>Name</span>
+          {{input type="text" placeholder="name" value=name}}
+          <span>Info</span>
+          {{input type="text" placeholder="info" value=info}}
+          <span>Email</span>
+          {{input type="email" placeholder="email" value=email}}
+          <span>Number</span>
+          {{input type="tel" placeholder="number" value=number}}
+          <button {{action 'createProfile'}}>Submit</button>
+        </form>
       </script>
 
       <!-- Client Home Template -->
