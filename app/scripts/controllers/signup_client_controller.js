@@ -5,8 +5,8 @@ Final.SignupClientController = Ember.Controller.extend({
     signup: function () {
       var self = this;
       var credentials = self.getProperties('email', 'password');
-      console.log(self);
-      ref.createUser(credentials, function (error) {
+      console.log(credentials);
+      ref.createUser(credentials, function(error){
         if (!error) {
           console.log('success');
           self.get('controllers.application').authenticate(credentials)
@@ -17,15 +17,15 @@ Final.SignupClientController = Ember.Controller.extend({
             });
             user.save();
           });
-          setTimeout(transition, 2000);
+          //setTimeout(transition, 2000);
         } else {
           console.log('failure');
         }
       });
 
-      function transition () {
-        self.transitionToRoute('login');
-      }
+      //function transition () {
+      //  self.transitionToRoute('login');
+      //}
     }
   }
 });
