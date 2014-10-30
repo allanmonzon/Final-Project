@@ -1,4 +1,4 @@
-Final.SignupClientController = Ember.Controller.extend({
+Final.SignupFreelancerController = Ember.Controller.extend({
   needs: ['application'],
 
   actions: {
@@ -9,7 +9,7 @@ Final.SignupClientController = Ember.Controller.extend({
         if (!error) {
           self.get('controllers.application').authenticate(credentials)
           .then(function (authData) {
-            var user = self.store.createRecord('client', {
+            var user = self.store.createRecord('freelancer', {
               id: authData.uid,
               email: credentials.email,
             });
