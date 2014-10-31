@@ -2,7 +2,7 @@ Final.ClientProfileController = Ember.ArrayController.extend({
   needs: ['application'],
 
   actions: {
-		createProfile: function(){
+		createProfile: function(){ 
 			var profile = this.store.createRecord('ClientProfile', {
 				name: this.get('name'),
 				info: this.get('info'),
