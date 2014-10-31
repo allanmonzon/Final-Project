@@ -48,8 +48,19 @@
 
       <!-- Client Home Template -->
       <script type="text/x-handlebars" data-template-name="client-home">
-        <h1>Post Job</h1>
+        <h1>Home</h1>
+        <ul>
+        {{#each}}
+          <li>
+            <h3>{{name}}</h3>
+            <h3>{{info}}</h3>
+            <h3>{{email}}</h3>
+            <h3>{{number}}</h3>
+          </li>
+        {{/each}}
+        </ul>
       </script>
+
 
       <!-- Post-Job Template -->
       <script type="text/x-handlebars" data-template-name="post-job">
@@ -232,6 +243,8 @@
           {{#link-to 'jobs.all'}}<span>View All Jobs</span>{{/link-to}}
           {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
         </div>
+
+        <button {{action "logOut"}}>Log Out</button>
       </script>
 
 
@@ -322,12 +335,6 @@
         </div>
       </script>
       
-
-
-
-
-
-
       <script type="text/x-handlebars" data-template-name="login/freelancer">
         <div class="container">
           <form>
@@ -354,25 +361,19 @@
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
-
         <script src="scripts/models/signup_client_model.js"></script>
-        <script src="scripts/controllers/signup_client_controller.js"></script>
-        <script src="scripts/controllers/signup_freelancer_controller.js"></script>
-
-        <script src="scripts/controllers/login_client_controller.js"></script>
-
-
-        <script src="scripts/models/signup_freelancer_model.js"></script>
-
-        <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/models/final_models.js"></script>
+        <script src="scripts/models/signup_freelancer_model.js"></script>
+        <script src="scripts/controllers/application_controller.js"></script>  
+        <script src="scripts/controllers/client/signup_client_controller.js"></script>        
+        <script src="scripts/controllers/client/login_client_controller.js"></script>
+        <script src="scripts/controllers/client/postJob_controller.js"></script>
+        <script src="scripts/controllers/client/clientProfile_controller.js"></script>     
+        <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
+        <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>        
+        <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
+        <script src="scripts/routes/client_home_route.js"></script>
 
-        <script src="scripts/controllers/login_freelancer_controller.js"></script>
-
-        <script src="scripts/controllers/profile_myprofile_controller.js"></script>
-
-        <script src="scripts/controllers/postJob_controller.js"></script>
-        <script src="scripts/controllers/clientProfile_controller.js"></script>
         <!-- endbuild -->
 
 

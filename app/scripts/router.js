@@ -19,12 +19,13 @@ Final.Router.map(function(){
 	this.route('post-job');
 	// this.route('create-profile');
 	this.route('client-profile', { path: '/my-profile' });
+	this.route('client-home');
 
 	/* ============ Freelance ============ */
 
 	this.resource('profile', function (){
 		this.route('create');
-		this.route('myprofile', {path: '/:_id'});
+		this.route('myprofile');
 	});
 
 	this.resource('jobs', function (){
@@ -33,3 +34,11 @@ Final.Router.map(function(){
 
   this.route('my-bids');
 });
+
+
+// actions: {
+//     logOut: function () {
+//       Final.ref.unauth();
+//       this.transitionToRoute('index');
+//     }
+//   }
