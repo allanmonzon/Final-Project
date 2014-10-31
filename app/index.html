@@ -301,19 +301,14 @@
       <script type="text/x-handlebars" data-template-name="signup/freelancer">
         <div class="container">
           <form>
-            {{input type ="email" value=email placeholder="Email"}}
-            {{input type ="password" value=password placeholder="Password"}}
-            <select class="freelance-type-select">
-              <option value="Front End Developer">Front End Developer</option>
-              <option value="Back End Developer">Back End Developer</option>
-              <option value="Graphic Designer">Graphic Designer</option>
-              <option value="Web Designer">Web Designer</option>
-              <option value="Copywriter">Copywriter</option>
-            </select>
+            {{input type="email" value=email placeholder="Email"}}
+            {{input type="password" value=password placeholder="Password"}}
+            {{view Ember.Select content=type value=selectedType}}
             <button {{action "signup"}}>Sign Up</button>
           </form>
         </div>
       </script>
+
 
       <!--//////////////// login ///////////////////-->
       
@@ -333,6 +328,17 @@
 
 
 
+      <script type="text/x-handlebars" data-template-name="login/freelancer">
+        <div class="container">
+          <form>
+            {{input type="email" value=email placeholder="Email"}}
+            {{input type="password" value=password placeholder="Password"}}
+            <button {{action "login"}}>Login</button>
+          </form>
+        </div>
+      </script>
+
+
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/jquery.js"></script>
@@ -348,12 +354,23 @@
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
+
         <script src="scripts/models/signup_client_model.js"></script>
         <script src="scripts/controllers/signup_client_controller.js"></script>
         <script src="scripts/controllers/signup_freelancer_controller.js"></script>
+
         <script src="scripts/controllers/login_client_controller.js"></script>
+
+
+        <script src="scripts/models/signup_freelancer_model.js"></script>
+
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/models/final_models.js"></script>
+
+        <script src="scripts/controllers/login_freelancer_controller.js"></script>
+
+        <script src="scripts/controllers/profile_myprofile_controller.js"></script>
+
         <script src="scripts/controllers/postJob_controller.js"></script>
         <script src="scripts/controllers/clientProfile_controller.js"></script>
         <!-- endbuild -->

@@ -1,10 +1,12 @@
 Final.SignupFreelancerController = Ember.Controller.extend({
   needs: ['application'],
+  selectedType: null,
+  type: ["Front End Developer", "Back End Developer", "Graphic Designer", "Web Designer", "Copywriter"],
 
   actions: {
     signup: function () {
       var self = this;
-      var credentials = this.getProperties('email', 'password');
+      var credentials = this.getProperties('email', 'password', 'selectedType');
       Final.ref.createUser(credentials, function(error){
         if (!error) {
           self.get('controllers.application').authenticate(credentials)
@@ -12,9 +14,11 @@ Final.SignupFreelancerController = Ember.Controller.extend({
             var user = self.store.createRecord('freelancer', {
               id: authData.uid,
               email: credentials.email,
+              type: credentials.selectedType
             });
             user.save();
-          });
+            console.log("user saved")
+;          });
           setTimeout(transition, 1000);
         } else {
           console.log('failure');
@@ -22,7 +26,7 @@ Final.SignupFreelancerController = Ember.Controller.extend({
       });
 
       function transition () {
-        self.transitionToRoute('login');
+        self.transitionToRoute('login.freelancer');
       }
     }
   }

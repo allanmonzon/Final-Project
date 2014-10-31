@@ -24,7 +24,7 @@ Final.Router.map(function(){
 
 	this.resource('profile', function (){
 		this.route('create');
-		this.route('myprofile');
+		this.route('myprofile', {path: '/:_id'});
 	});
 
 	this.resource('jobs', function (){
