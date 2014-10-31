@@ -250,7 +250,7 @@
           <section class="signup">
             <div class="signup-button">
               <h1>Sign Up</h1>
-              <p>A place where clients and freelancer's can invest in each other to bring your project to life.</p>
+              <p>A place where clients and freelancers can invest in each other to bring your project to life.</p>
               {{#link-to 'signup.client'}}<button class="client-signup">Client Sign Up</button>{{/link-to}}
               {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
             </div>
@@ -258,26 +258,26 @@
 
           <section class="info">
             <h1>Info</h1>
-            <p>Wayfarers meditation fingerstache Etsy ennui sustainable. Health goth disrupt occupy, pork belly you probably haven't heard of them selvage gastropub squid hoodie cliche normcore chillwave asymmetrical. Mixtape fanny pack forage Pinterest, taxidermy wayfarers Brooklyn Thundercats</p>
+            <p>Wayfarers meditation fingerstache Etsy ennui sustainable. Health goth disrupt occupy, pork belly you probably havent heard of them selvage gastropub squid hoodie cliche normcore chillwave asymmetrical. Mixtape fanny pack forage Pinterest, taxidermy wayfarers Brooklyn Thundercats</p>
           </section>
 
           <section class="steps">
             <div class="step">
               <h3>Step One</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90's Williamsburg gluten-free.</p>
+              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
             </div>
 
             <div class="step">
               <h3>Step Two</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90's Williamsburg gluten-free.</p>
+              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
             </div>
 
             <div class="step">
               <h3>Step Three</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90's Williamsburg gluten-free.</p>
+              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
             </div>
           </section>
-
+        
           <footer>
             <div class="logo"></div>
             <span>&copy; 2014 Name of Company</span>
@@ -315,6 +315,24 @@
         </div>
       </script>
 
+      <!--//////////////// login ///////////////////-->
+      
+      <script type="text/x-handlebars" data-template-name="login/client">
+        <div class="container">
+          <form>
+            {{input type ="email" value=email placeholder="Email"}}
+            {{input type ="password" value=password placeholder="Password"}}
+            <button {{action "login"}}>Sign Up</button>
+          </form>
+        </div>
+      </script>
+      
+
+
+
+
+
+
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/jquery.js"></script>
@@ -333,6 +351,7 @@
         <script src="scripts/models/signup_client_model.js"></script>
         <script src="scripts/controllers/signup_client_controller.js"></script>
         <script src="scripts/controllers/signup_freelancer_controller.js"></script>
+        <script src="scripts/controllers/login_client_controller.js"></script>
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/models/final_models.js"></script>
         <script src="scripts/controllers/postJob_controller.js"></script>

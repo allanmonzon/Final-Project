@@ -22,7 +22,7 @@ Final.SignupClientController = Ember.Controller.extend({
       });
 
       function transition () {
-        self.transitionToRoute('login');
+        self.transitionToRoute('login.client');
       }
     }
   }
