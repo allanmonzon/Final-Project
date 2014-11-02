@@ -2,7 +2,7 @@ Final.ClientProfileController = Ember.ArrayController.extend({
   needs: ['application'],
 
   actions: {
-		createProfile: function(){ 
+		createProfile: function(){
 			var profile = this.store.createRecord('ClientProfile', {
 				name: this.get('name'),
 				info: this.get('info'),
@@ -15,7 +15,14 @@ Final.ClientProfileController = Ember.ArrayController.extend({
 			this.set('info', '');
 			this.set('email', '');
 			this.set('number', '');
-		} 
+		},
+
+    logOut: function(){
+      this.set('currentUser', null);
+      localStorage.removeItem('userAuth');
+      Final.ref.unauth();
+      this.transitionToRoute('index');
+    } 
 	}
 
 });

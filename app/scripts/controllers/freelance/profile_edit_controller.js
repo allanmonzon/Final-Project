@@ -1,14 +1,15 @@
 Final.ProfileEditController = Ember.Controller.extend({
+  needs: ['application'],
+
   actions: {
 
     saveProfile: function(){
-      var self = this;
-      this.setProperties('curerntUser', {
-        name: self.get('name'),
-        rate: self.get('rate'),
-        bio: self.get('bio'),
-      });
-      this.model.save();
+      //var self = this;
+      var profileInfo = this.getProperties('name', 'rate', 'bio');
+      console.log(profileInfo);
+      var store = this.get('store');
+      console.log(strore);
+      //this.save();
     }
 
   }

@@ -43,6 +43,7 @@
           <span>Number</span>
           {{input type="tel" placeholder="number" value=number}}
           <button {{action 'createProfile'}}>Submit</button>
+          <button {{action "logOut"}}>Log Out</button>
         </form>
       </script>
 
@@ -202,7 +203,7 @@
 
           <div class="bio">
             <h3>Bio</h3>
-            {{textarea name="bio" value="Fill out a brief bio about yourself..."}}
+            {{textarea name="bio" value=bio placeholder="Fill out a brief bio about yourself..."}}
           </div>
 
           <div class="portfolio">
@@ -336,7 +337,7 @@
           <form>
             {{input type ="email" value=email placeholder="Email"}}
             {{input type ="password" value=password placeholder="Password"}}
-            <button {{action "login"}}>Sign Up</button>
+            <button {{action "login"}}>Login</button>
           </form>
         </div>
       </script>

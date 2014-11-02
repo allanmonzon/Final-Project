@@ -1,7 +1,12 @@
-// Final.ProfileMyprofileController = Ember.Controller.extend({
-//   needs: ['application'],
+ Final.ProfileMyprofileController = Ember.Controller.extend({
+   needs: ['application'],
 
-//   if (current) {
-//     this.transitionToRoute('index');
-//   }
-// });
+   actions: {
+     logOut: function(){
+       this.set('currentUser', null);
+       localStorage.removeItem('userAuth');
+       Final.ref.unauth();
+       this.transitionToRoute('index');
+     }
+   }
+ });
