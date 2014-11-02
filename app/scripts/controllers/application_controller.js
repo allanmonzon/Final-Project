@@ -11,7 +11,11 @@ Final.ApplicationController = Ember.Controller.extend({
         if (!error) {
           self.store.find('freelancer' || 'client', authData.uid).then(function(credentials) {
             self.set('currentUser', credentials);
-            self.transitionToRoute('profile.myprofile')
+            if ('freelancer') {
+              self.transitionToRoute('profile.myprofile');
+            } else {
+              self.transitionToRoute('/my-profile');
+            }
           });
         } else {
           console.log('Error authenticating user:', error);
