@@ -1,6 +1,6 @@
 Final.LoginFreelancerController = Ember.Controller.extend({
   needs: ['application'],
-
+  currentUser: Ember.computed.alias('controllers.application.currentUser'),
   actions: {
 
     login: function(){
@@ -8,13 +8,16 @@ Final.LoginFreelancerController = Ember.Controller.extend({
       var credentials = this.getProperties('email', 'password');
       Final.ref.authWithPassword(credentials, function(error, authData){
         if (!error) {
-          self.get('controllers.application').authenticate(credentials);
+          localStorage.setItem('userAuth', JSON.stringify(authData));
+          self.store.find('freelancer', authData.uid).then(function(credentials){
+            self.set('currentUser', credentials);
+          });
           self.transitionToRoute('profile.myprofile');
         } else {
-          console.log("Error authenticating user:", error);
+          console.log('Error authenticating user:', error);
         }
       }, {
-      remember: "sessionOnly"
+      remember: 'sessionOnly'
       });
     }
 

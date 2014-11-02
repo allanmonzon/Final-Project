@@ -105,14 +105,29 @@ body {
   }
 }
 
-.wrapper {
+.freelance-profile {
   @include outer-container;
 }
 
-.avatar {
-  @include span-columns(2);
-  height: rem(150);
-  background: #eee;
+.profile-img {
+  @include span-columns(8);
+  @include shift(2);
+
+  .avatar {
+    @include span-columns(3);
+    height: rem(150);
+    background: #eee;
+  }
+
+  .profile-image-upload {
+    @include span-columns(7);
+  }
+
+  .hourly-rate {
+    @include span-columns(2);
+    display: inline-block;
+    margin: 0;
+  }
 }
 
 .bio {
@@ -124,12 +139,6 @@ body {
   }
 }
 
-.hourly-rate {
-  @include span-columns(2);
-  display: inline-block;
-  margin: 0;
-}
-
 .portfolio {
   @include span-columns(12);
 
@@ -139,4 +148,10 @@ body {
     height: rem(150);
     margin-top: rem(10);
   }
+}
+
+.saveProfile {
+  @include span-columns(2);
+  @include shift(5);
+  margin-top: 2%;
 }

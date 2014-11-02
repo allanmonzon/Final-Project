@@ -24,7 +24,7 @@ Final.Router.map(function(){
 	/* ============ Freelance ============ */
 
 	this.resource('profile', function (){
-		this.route('create');
+		this.route('edit');
 		this.route('myprofile');
 	});
 
@@ -35,4 +35,12 @@ Final.Router.map(function(){
   this.route('my-bids');
 });
 
+
+
+// actions: {
+//     logOut: function () {
+//       Final.ref.unauth();
+//       this.transitionToRoute('index');
+//     }
+//   }
 
