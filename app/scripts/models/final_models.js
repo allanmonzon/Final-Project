@@ -1,9 +1,5 @@
-Final.PostJob = DS.Model.extend({
-	typeOfProject: DS.attr('string'),
-});
-
-
 Final.ClientProfile = DS.Model.extend({
+	user: DS.belongsTo('client'),
 	name: DS.attr('string'),
 	info: DS.attr('string'),
 	email: DS.attr('string'),

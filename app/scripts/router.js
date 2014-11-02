@@ -36,9 +36,3 @@ Final.Router.map(function(){
 });
 
 
-// actions: {
-//     logOut: function () {
-//       Final.ref.unauth();
-//       this.transitionToRoute('index');
-//     }
-//   }

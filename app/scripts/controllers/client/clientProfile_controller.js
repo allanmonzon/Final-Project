@@ -15,7 +15,26 @@ Final.ClientProfileController = Ember.ArrayController.extend({
 			this.set('info', '');
 			this.set('email', '');
 			this.set('number', '');
+
 		} 
+
 	}
 
 });
+
+// Final.ClientProfileController = Ember.ObjectController.extend({
+//   isEditing: false,
+
+//   actions: {
+// 		edit: function() {
+// 			this.set('isEditing', true);
+// 		},
+
+// 		doneEditing: function() {
+// 			this.set('isEditing', false);
+// 		}
+
+// 	}
+
+// });
+

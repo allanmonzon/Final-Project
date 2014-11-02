@@ -8,7 +8,7 @@ Final.LoginClientController = Ember.Controller.extend({
       Final.ref.authWithPassword(credentials, function(error, authData){
         if (!error) {
           self.get('controllers.application').authenticate(credentials);
-          self.transitionToRoute('/my-profile');
+          self.transitionToRoute('client-home');
         } else {
           console.log("Error authenticating user:", error);
         }
