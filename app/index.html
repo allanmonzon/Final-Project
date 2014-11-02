@@ -19,7 +19,7 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
-        <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
     </head>
     <body>
 
@@ -185,19 +185,24 @@
             <!--//////////////// Freelance ///////////////////-->
 
       <!-- Create-Profile Template -->
-      <script type="text/x-handlebars" data-template-name="profile/create">
-        <div class="wrapper">
-          <h1>Username</h1>
-          <div class="avatar"><img src=""/></div>
+      <script type="text/x-handlebars" data-template-name="profile/edit">
+        <form class="wrapper">
+          <div class="profile-img">
+            {{input class="name" value=name placeholder="Name"}}
+            <div class="avatar"><img src=""/ id="profileImg"></div>
+            <div class="profile-image-upload">
+              <input type="file" id="profileUpload" class="imgUpload">
+              <button>Save</button>
+            </div>
+            <div class="hourly-rate">
+              <span>Hourly Rate</span>
+              {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+            </div>
+          </div>
 
           <div class="bio">
             <h3>Bio</h3>
-            <textarea>Chia 3 wolf moon meh Carles, Thundercats YOLO Kickstarter High Life irony kogi occupy asymmetrical fanny pack deep v typewriter. Pop-up messenger bag literally synth dreamcatcher, freegan Carles Truffaut iPhone. Put a bird on it mixtape fingerstache, occupy farm-to-table High Life</textarea>
-          </div>
-
-          <div class="hourly-rate">
-            <span>Hourly Rate</span>
-            {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+            {{textarea name="bio" value="Fill out a brief bio about yourself..."}}
           </div>
 
           <div class="portfolio">
@@ -209,9 +214,9 @@
             <div class="p-item"></div>
           </div>
 
-          {{#link-to 'profile.myprofile'}}<button>Save Profile</button>{{/link-to}}
+          <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
 
-        </div>
+        </form>
       </script>
 
       <script type="text/x-handlebars" data-template-name="profile/myprofile">
@@ -244,6 +249,8 @@
           {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
         </div>
 
+        {{#link-to 'profile.edit'}}<button>Edit</button>{{/link-to}}
+
         <button {{action "logOut"}}>Log Out</button>
       </script>
 
@@ -257,6 +264,7 @@
             <div class="login-buttons">
               {{#link-to 'login.client'}}<button class="client-login">Client Login</button>{{/link-to}}
               {{#link-to 'login.freelancer'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
+              <button class="logout" {{action "logOut"}}>Logout</button>
             </div>
           </header>
 
@@ -290,7 +298,7 @@
               <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
             </div>
           </section>
-        
+
           <footer>
             <div class="logo"></div>
             <span>&copy; 2014 Name of Company</span>
@@ -300,7 +308,6 @@
       </script>
 
       <!--//////////////// signup ///////////////////-->
-
       <script type="text/x-handlebars" data-template-name="signup/client">
         <div class="container">
           <form>
@@ -324,7 +331,6 @@
 
 
       <!--//////////////// login ///////////////////-->
-      
       <script type="text/x-handlebars" data-template-name="login/client">
         <div class="container">
           <form>
@@ -334,7 +340,7 @@
           </form>
         </div>
       </script>
-      
+
       <script type="text/x-handlebars" data-template-name="login/freelancer">
         <div class="container">
           <form>
@@ -364,13 +370,15 @@
         <script src="scripts/models/signup_client_model.js"></script>
         <script src="scripts/models/final_models.js"></script>
         <script src="scripts/models/signup_freelancer_model.js"></script>
-        <script src="scripts/controllers/application_controller.js"></script>  
-        <script src="scripts/controllers/client/signup_client_controller.js"></script>        
+        <script src="scripts/models/profile_freelancer_model.js"></script>
+        <script src="scripts/controllers/application_controller.js"></script>
+        <script src="scripts/controllers/client/signup_client_controller.js"></script>
         <script src="scripts/controllers/client/login_client_controller.js"></script>
         <script src="scripts/controllers/client/postJob_controller.js"></script>
-        <script src="scripts/controllers/client/clientProfile_controller.js"></script>     
+        <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
-        <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>        
+        <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
+        <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
         <script src="scripts/routes/client_home_route.js"></script>
 

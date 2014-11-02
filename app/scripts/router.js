@@ -24,7 +24,7 @@ Final.Router.map(function(){
 	/* ============ Freelance ============ */
 
 	this.resource('profile', function (){
-		this.route('create');
+		this.route('edit');
 		this.route('myprofile');
 	});
 

@@ -13,17 +13,14 @@ Final.SignupClientController = Ember.Controller.extend({
               id: authData.uid,
               email: credentials.email,
             });
+            localStorage.setItem('userAuth', JSON.stringify(authData));
             user.save();
           });
-          setTimeout(transition, 1000);
+          self.transitionToRoute('login.client');
         } else {
-          console.log('failure');
+          console.log(error);
         }
       });
-
-      function transition () {
-        self.transitionToRoute('login.client');
-      }
     }
   }
 });

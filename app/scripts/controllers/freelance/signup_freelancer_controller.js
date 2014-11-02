@@ -16,18 +16,14 @@ Final.SignupFreelancerController = Ember.Controller.extend({
               email: credentials.email,
               type: credentials.selectedType
             });
+            localStorage.setItem('userAuth', JSON.stringify(authData));
             user.save();
-            console.log("user saved")
-;          });
-          setTimeout(transition, 1000);
+          });
+          self.transitionToRoute('login.freelancer');
         } else {
-          console.log('failure');
+          console.log(error);
         }
       });
-
-      function transition () {
-        self.transitionToRoute('login.freelancer');
-      }
     }
   }
 });
