@@ -18,15 +18,9 @@ Final.ApplicationController = Ember.Controller.extend({
       var localAuthData = JSON.parse(localStorage.getItem('userAuth'));
       Final.ref.authWithCustomToken(localAuthData.token, function(error, authData) {
         if (!error) {
-          if (self.currentPath === 'login.freelancer') {
-            self.store.find('freelancer', authData.uid).then(function(credentials) {
-              self.set('currentUser', credentials);
-            });
-          } else {
-            self.store.find('client', authData.uid).then(function(credentials) {
-              self.set('currentUser', credentials);
-            });
-          }
+          self.store.find('user', authData.uid).then(function(credentials) {
+            self.set('currentUser', credentials);
+          });
         } else {
           console.log('Error authenticating user:', error);
         }

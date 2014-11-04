@@ -220,7 +220,7 @@
         </form>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="profile/myprofile">
+      <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
           <h1>Username</h1>
           <div class="avatar"><img src=""/></div>
@@ -264,7 +264,7 @@
             <div class="logo"></div>
             <div class="login-buttons">
               {{#link-to 'login.client'}}<button class="client-login">Client Login</button>{{/link-to}}
-              {{#link-to 'login.freelancer'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
+              {{#link-to 'freelancer.login'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
               <button class="logout" {{action "logOut"}}>Logout</button>
             </div>
           </header>
@@ -274,7 +274,7 @@
               <h1>Sign Up</h1>
               <p>A place where clients and freelancers can invest in each other to bring your project to life.</p>
               {{#link-to 'signup.client'}}<button class="client-signup">Client Sign Up</button>{{/link-to}}
-              {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
+              {{#link-to 'freelancer.signup'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
             </div>
           </section>
 
@@ -319,12 +319,11 @@
         </div>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="signup/freelancer">
+      <script type="text/x-handlebars" data-template-name="freelancer/signup">
         <div class="container">
           <form>
             {{input type="email" value=email placeholder="Email"}}
             {{input type="password" value=password placeholder="Password"}}
-            {{view Ember.Select content=type value=selectedType}}
             <button {{action "signup"}}>Sign Up</button>
           </form>
         </div>
@@ -342,7 +341,7 @@
         </div>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="login/freelancer">
+      <script type="text/x-handlebars" data-template-name="freelancer/login">
         <div class="container">
           <form>
             {{input type="email" value=email placeholder="Email"}}
@@ -368,9 +367,8 @@
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
-        <script src="scripts/models/signup_client_model.js"></script>
+        <script src="scripts/models/user_model.js"></script>
         <script src="scripts/models/final_models.js"></script>
-        <script src="scripts/models/signup_freelancer_model.js"></script>
         <!--<script src="scripts/models/profile_freelancer_model.js"></script>-->
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
