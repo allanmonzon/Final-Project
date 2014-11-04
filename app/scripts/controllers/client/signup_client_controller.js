@@ -6,7 +6,7 @@ Final.SignupClientController = Ember.Controller.extend({
       var self = this;
       var credentials = this.getProperties('email', 'password');
       Final.ref.createUser(credentials, function(error){
-        if (!error) {
+        if (error === null) {
           self.get('controllers.application').authenticate(credentials)
           .then(function (authData) {
             var user = self.store.createRecord('client', {

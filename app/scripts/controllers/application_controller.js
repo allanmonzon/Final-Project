@@ -1,28 +1,28 @@
 Final.ApplicationController = Ember.Controller.extend({
   currentUser: null,
 
-  init: function(){
-    var self = this;
-    this._super();
+  // init: function(){
+  //   var self = this;
+  //   this._super();
 
-    if (localStorage.getItem('userAuth')) {
-      var localAuthData = JSON.parse(localStorage.getItem('userAuth'));
-      Final.ref.authWithCustomToken(localAuthData.token, function(error, authData) {
-        if (!error) {
-          self.store.find('freelancer' || 'client', authData.uid).then(function(credentials) {
-            self.set('currentUser', credentials);
-            if ('freelancer') {
-              self.transitionToRoute('profile.myprofile');
-            } else {
-              self.transitionToRoute('/my-profile');
-            }
-          });
-        } else {
-          console.log('Error authenticating user:', error);
-        }
-      });
-    }
-  },
+  //   if (localStorage.getItem('userAuth')) {
+  //     var localAuthData = JSON.parse(localStorage.getItem('userAuth'));
+  //     Final.ref.authWithCustomToken(localAuthData.token, function(error, authData) {
+  //       if (!error) {
+  //         self.store.find('client' || 'freelancer', authData.uid).then(function(credentials) {
+  //           self.set('currentUser', credentials);
+  //           if ('freelancer') {
+  //             self.transitionToRoute('profile.myprofile');
+  //           } else {
+  //             self.transitionToRoute('/my-profile');
+  //           }
+  //         });
+  //       } else {
+  //         console.log('Error authenticating user:', error);
+  //       }
+  //     });
+  //   }
+  // },
 
   authenticate: function (credentials) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
