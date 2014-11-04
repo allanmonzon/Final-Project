@@ -1,4 +1,5 @@
 Final.Client = DS.Model.extend({
-  email: DS.attr('string'),
-  jobs: DS.hasMany('postJob', {async: true})
+  jobs: DS.hasMany('postJob', {async: true}),
+  userType: DS.attr('string'),
+  email: DS.attr('string')
 });
