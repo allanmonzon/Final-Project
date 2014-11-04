@@ -3,13 +3,12 @@ Final.PostJobController = Ember.Controller.extend({
 	user: Ember.computed.alias('controllers.application.currentUser'),
 
 	actions: {
-		createJob: function(){
+		createJob: function(){		
 			// var job = this.store.createRecord('PostJob', {
-			// 	typeOfProject: this.get('typeOfProject')
+			// 	typeOfProject: this.get('typeOfProject'),
 			// });
 
 			// console.log(job);
-
 			// job.save();
 			// this.set('typeOfProject', '');
 

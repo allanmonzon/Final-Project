@@ -23,9 +23,14 @@ Final.Router.map(function(){
 
 	/* ============ Freelance ============ */
 
-	this.resource('profile', function (){
-		this.route('edit');
-		this.route('myprofile');
+	this.resource('freelancer', function () {
+		this.route('signup');
+		this.route('login');
+		this.resource('profile', function () {
+			this.route('create');
+			this.route('edit');
+			this.route('my');
+		});
 	});
 
 	this.resource('jobs', function (){
@@ -33,18 +38,6 @@ Final.Router.map(function(){
 	});
 
   this.route('my-bids');
-});
-
-Final.SignupClientRoute = Ember.Route.extend({
-	model: function(){
-		return this.store.find('client');
-	}
-});
-
-Final.SignupFreelancerRoute = Ember.Route.extend({
-	model: function(){
-		return this.store.find('freelancer');
-	}
 });
 
 Final.ProfileEditRoute = Ember.Route.extend({

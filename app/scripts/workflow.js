@@ -17,7 +17,7 @@ Final.PostJobWorkflow = Ember.Object.extend({
 
   addJobToClient: function() {
     this.get('client.jobs').addObject(this.get('postJob'));
-    return this.get('user').save();
+    return this.get('client').save();
   },
 
   run: function() {

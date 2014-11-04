@@ -9,7 +9,7 @@ Final.LoginClientController = Ember.Controller.extend({
 			Final.ref.authWithPassword(credentials, function(error, authData) {
 				if (!error) {
 					localStorage.setItem('userAuth', JSON.stringify(authData));
-					self.store.find('client', authData.uid).then(function(credentials){
+					self.store.find('user', authData.uid).then(function(credentials){
 						self.set('currentUser', credentials);
 					});
 					self.transitionToRoute('/my-profile');

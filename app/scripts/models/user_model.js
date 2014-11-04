@@ -1,4 +1,6 @@
 Final.User = DS.Model.extend({
+  userType: DS.attr('string'),
   email: DS.attr('string'),
-  password: DS.attr('password')
+  jobs: DS.hasMany('job', {async: true}),
+  profile: DS.belongsTo('profile')
 });
