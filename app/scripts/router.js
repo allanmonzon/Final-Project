@@ -35,10 +35,20 @@ Final.Router.map(function(){
   this.route('my-bids');
 });
 
+Final.SignupClientRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('client');
+	}
+});
 
-// actions: {
-//     logOut: function () {
-//       Final.ref.unauth();
-//       this.transitionToRoute('index');
-//     }
-//   }
+Final.SignupFreelancerRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('freelancer');
+	}
+});
+
+Final.ProfileEditRoute = Ember.Route.extend({
+	model: function(){
+		return this.store.find('freelancer');
+	}
+});

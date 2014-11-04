@@ -6,7 +6,7 @@ Final.LoginClientController = Ember.Controller.extend({
 		login: function(){
 			var self = this;
 			var credentials = this.getProperties('email', 'password');
-			Final.ref.authWithPassword(credentials, function(error, authData){
+			Final.ref.authWithPassword(credentials, function(error, authData) {
 				if (!error) {
 					localStorage.setItem('userAuth', JSON.stringify(authData));
 					self.store.find('client', authData.uid).then(function(credentials){

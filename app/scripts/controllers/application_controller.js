@@ -1,6 +1,15 @@
 Final.ApplicationController = Ember.Controller.extend({
   currentUser: null,
 
+  actions: {
+    logOut: function(){
+      this.set('currentUser', null);
+      localStorage.removeItem('userAuth');
+      Final.ref.unauth();
+      this.transitionToRoute('index');
+    }
+  },
+
   init: function(){
     var self = this;
     this._super();
@@ -9,14 +18,15 @@ Final.ApplicationController = Ember.Controller.extend({
       var localAuthData = JSON.parse(localStorage.getItem('userAuth'));
       Final.ref.authWithCustomToken(localAuthData.token, function(error, authData) {
         if (!error) {
-          self.store.find('freelancer' || 'client', authData.uid).then(function(credentials) {
-            self.set('currentUser', credentials);
-            if ('freelancer') {
-              self.transitionToRoute('profile.myprofile');
-            } else {
-              self.transitionToRoute('/my-profile');
-            }
-          });
+          if (self.currentPath === 'login.freelancer') {
+            self.store.find('freelancer', authData.uid).then(function(credentials) {
+              self.set('currentUser', credentials);
+            });
+          } else {
+            self.store.find('client', authData.uid).then(function(credentials) {
+              self.set('currentUser', credentials);
+            });
+          }
         } else {
           console.log('Error authenticating user:', error);
         }
@@ -30,14 +40,5 @@ Final.ApplicationController = Ember.Controller.extend({
         resolve(authData);
       });
     });
-  },
-
-  actions: {
-    logOut: function(){
-      this.set('currentUser', null);
-      localStorage.removeItem('userAuth');
-      Final.ref.unauth();
-      this.transitionToRoute('index');
-    }
   }
 });

@@ -1,3 +1,4 @@
 Final.Client = DS.Model.extend({
-  email: DS.attr('string'),
+  userType: DS.attr('string'),
+  email: DS.attr('string')
 });
