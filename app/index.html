@@ -60,6 +60,8 @@
           </li>
         {{/each}}
         </ul>
+        <button {{action "logOut"}}>Log Out</button>
+        {{#link-to 'client-profile'}}<button>Edit</button>{{/link-to}}
       </script>
 
 
@@ -216,7 +218,6 @@
           </div>
 
           <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
-
         </form>
       </script>
 
@@ -367,14 +368,16 @@
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
         <script src="scripts/router.js"></script>
+        <script src="scripts/workflow.js"></script>
         <script src="scripts/models/user_model.js"></script>
-        <script src="scripts/models/final_models.js"></script>
+        <script src="scripts/models/job.js"></script>
         <!--<script src="scripts/models/profile_freelancer_model.js"></script>-->
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
         <script src="scripts/controllers/client/login_client_controller.js"></script>
         <script src="scripts/controllers/client/postJob_controller.js"></script>
-        <script src="scripts/controllers/client/clientProfile_controller.js"></script>
+        <script src="scripts/controllers/client/client_home_controller.js"></script>
+        <script src="scripts/controllers/client/clientProfile_controller.js"></script>     
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
