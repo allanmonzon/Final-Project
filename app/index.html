@@ -19,7 +19,7 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
-
+        <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
     </head>
     <body>
 
@@ -192,10 +192,9 @@
         <form class="wrapper">
           <div class="profile-img">
             {{input class="name" value=name placeholder="Name"}}
-            <div class="avatar"><img src=""/ id="profileImg"></div>
+            <div class="avatar"><img {{bind-attr src=imgSrc}}/></div>
             <div class="profile-image-upload">
-              <input type="file" id="profileUpload" class="imgUpload">
-              <button>Save</button>
+              <button {{action 'addAvatar'}}>Upload Image</button>
             </div>
             <div class="hourly-rate">
               <span>Hourly Rate</span>
@@ -210,11 +209,6 @@
 
           <div class="portfolio">
             <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
           </div>
 
           <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
@@ -224,7 +218,7 @@
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
           <h1>Username</h1>
-          <div class="avatar"><img src=""/></div>
+          <div class="avatar"><img {{bind-attr src=imgSrc}}></div>
 
           <div class="bio">
             <h3>Bio</h3>
@@ -371,13 +365,13 @@
         <script src="scripts/workflow.js"></script>
         <script src="scripts/models/user_model.js"></script>
         <script src="scripts/models/job.js"></script>
-        <script src="scripts/models/profile_freelancer_model.js"></script>
+        <script src="scripts/models/profile_model.js"></script>
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
         <script src="scripts/controllers/client/login_client_controller.js"></script>
         <script src="scripts/controllers/client/postJob_controller.js"></script>
         <script src="scripts/controllers/client/client_home_controller.js"></script>
-        <script src="scripts/controllers/client/clientProfile_controller.js"></script>     
+        <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>

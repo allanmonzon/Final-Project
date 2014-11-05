@@ -1,26 +1,28 @@
 Final.ProfileEditController = Ember.Controller.extend({
-  needs: ['application', 'SignupFreelancer', 'LoginFreelancer'],
+  needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
   actions: {
 
-    saveProfile: function(){
+    addAvatar: function() {
       var self = this;
-      var name = this.getProperties('name');
-      var rate = this.getProperties('rate');
-      var bio = this.getProperties('bio');
+      filepicker.setKey("A3T6mDAqcRqWxmPxj0ZJJz");
 
-      /*var blah = this.store.find('freelancer').then(function(currentUser) {
-        self.set('currentUser', self.uid);
-      });*/
+      filepicker.pickAndStore({},{},function(Blobs){
+        self.set('imgSrc', Blobs[0].url);
+      });
+    },
 
-      //var store = this.store.find('freelancer');
-      console.log(localStorage.getItem('userAuth.uid'));
+    addPortfolio: function() {
+      var self = this;
+      filepicker.setKey("A3T6mDAqcRqWxmPxj0ZJJz");
 
-    /*  this.store.push({
-        name: name,
-        rate: rate,
-        bio: bio
-      });*/
+      filepicker.pickAndStore({},{},function(Blobs){
+        self.set('imgSrc', Blobs[0].url);
+      });
+    },
+
+    saveProfile: function(){
+
 
     }
 
