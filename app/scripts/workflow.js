@@ -1,7 +1,7 @@
 Final.PostJobWorkflow = Ember.Object.extend({
 	fetchUser: function() {
     var self = this;
-    return this.store.find('client', this.userID)
+    return this.store.find('user', this.userID)
       .then(function(user) {
         self.set('user', user);
       });
@@ -11,19 +11,19 @@ Final.PostJobWorkflow = Ember.Object.extend({
     var config = Ember.merge({
       user: this.user,
     }, this.attributes);
-    this.set('postJob', this.store.createRecord('postJob',config));
-    return this.get('postJob').save();
+    this.set('job', this.store.createRecord('job',config));
+    return this.get('job').save();
   },
 
   addJobToClient: function() {
-    this.get('client.jobs').addObject(this.get('postJob'));
-    return this.get('client').save();
+    this.get('user.jobs').addObject(this.get('job'));
+    return this.get('user').save();
   },
 
   run: function() {
     return this.fetchUser()
       .then(this.postJob.bind(this))
-      .then(this.addJobToClient.bind(this));
+      .then(this.addJobToClient.bind(this))
   }
 
 });

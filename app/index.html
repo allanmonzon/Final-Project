@@ -69,9 +69,6 @@
       <script type="text/x-handlebars" data-template-name="post-job">
         <h1>Post Job</h1>
         Type of project {{input type="text" placeholder="project" value=typeOfProject}}
-        <input type="text">
-        <input type="text">
-        <input type="text">
         <input type="submit" value="Save Job" {{action "createJob"}}>
       </script>
 
@@ -355,7 +352,7 @@
 
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
-      <script src="bower_components/jquery/jquery.js"></script>
+      <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/handlebars/handlebars.js"></script>
       <script src="bower_components/ember/ember.js"></script>
       <script src="bower_components/ember-data/ember-data.js"></script>
@@ -367,11 +364,7 @@
 
         <!-- build:js scripts/**.js -->
         <script src="scripts/application.js"></script>
-        <script src="scripts/router.js"></script>
-        <script src="scripts/workflow.js"></script>
-        <script src="scripts/models/user_model.js"></script>
-        <script src="scripts/models/job.js"></script>
-        <script src="scripts/models/profile_freelancer_model.js"></script>
+        <script src="scripts/router.js"></script>     
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
         <script src="scripts/controllers/client/login_client_controller.js"></script>
@@ -383,6 +376,10 @@
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
         <script src="scripts/routes/client_home_route.js"></script>
+        <script src="scripts/models/user_model.js"></script>
+        <script src="scripts/models/job.js"></script>
+        <script src="scripts/models/profile_freelancer_model.js"></script>
+        <script src="scripts/workflow.js"></script>
 
         <!-- endbuild -->
 
