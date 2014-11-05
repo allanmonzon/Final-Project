@@ -9,10 +9,8 @@ Final.FreelancerLoginController = Ember.Controller.extend({
       Final.ref.authWithPassword(credentials, function(error, authData) {
         if (!error) {
           localStorage.setItem('userAuth', JSON.stringify(authData));
-          self.store.find('user', authData.uid).then(function(credentials){
-            self.set('currentUser', credentials);
-          });
-          self.transitionToRoute('profile.myprofile');
+          self.store.find('user', authData.uid);
+          self.transitionToRoute('profile.my');
         } else {
           console.log('Error authenticating user:', error);
         }

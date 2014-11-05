@@ -39,10 +39,3 @@ Final.Router.map(function(){
 
   this.route('my-bids');
 });
-
-Final.ProfileEditRoute = Ember.Route.extend({
-	model: function(){
-		return this.store.find('freelancer');
-	}
-});
-
