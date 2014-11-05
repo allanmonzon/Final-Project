@@ -22,8 +22,20 @@ Final.ProfileEditController = Ember.Controller.extend({
     },
 
     saveProfile: function(){
+      var user = this.get('controllers.application.currentUser');
+      var name = this.getProperties('name');
+      var bio = this.getProperties('bio');
+      var rate = this.getProperties('rate');
 
+      var profile = this.store.createRecord('freelancerProfile', {
+        name: name,
+        bio: bio,
+        rate: rate
+      });
 
+      user.set('profile', profile);
+      //user.save();
+      console.log(user)
     }
 
   }
