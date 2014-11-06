@@ -1,6 +1,5 @@
 Final.ProfileEditController = Ember.Controller.extend({
   needs: ['application'],
-  currentUser: Ember.computed.alias('controllers.application.currentUser'),
   actions: {
 
     addAvatar: function() {
@@ -32,10 +31,23 @@ Final.ProfileEditController = Ember.Controller.extend({
         bio: bio,
         rate: rate
       });
+      console.log(profile);
 
       user.set('profile', profile);
-      //user.save();
-      console.log(user)
+      var blah = user.get('isDirty');
+      console.log(blah);
+      //user.addObject('profile');
+      user.save();
+      console.log(user);
+
+/*
+      // Add the new comment to the post and save it
+post.get("comments").addObject(comment);
+
+// Saving the post will save the embedded comments
+post.save();
+
+*/
     }
 
   }
