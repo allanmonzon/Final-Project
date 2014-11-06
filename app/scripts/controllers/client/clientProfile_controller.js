@@ -1,20 +1,20 @@
-Final.ClientProfileController = Ember.ArrayController.extend({
+Final.ClientProfileController = Ember.Controller.extend({
   needs: ['application'],
-
+  
   actions: {
 		createProfile: function(){
-			var profile = this.store.createRecord('ClientProfile', {
+			var profile = this.store.createRecord('clientProfile', {
 				name: this.get('name'),
 				info: this.get('info'),
 				email: this.get('email'),
-				number: this.get('number')
+				number: this.get('number'),
 			});
+			console.log(profile);
 
 			profile.save();
-			this.set('name', '');
-			this.set('info', '');
-			this.set('email', '');
-			this.set('number', '');
+			var user = this.get('controllers.application.currentUser');	
+			user.set('profile', profile);
+		  user.save();
 		},
 
     logOut: function(){
@@ -26,5 +26,4 @@ Final.ClientProfileController = Ember.ArrayController.extend({
 	}
 
 });
-
 
