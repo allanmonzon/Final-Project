@@ -3,7 +3,7 @@ Final.PostJobController = Ember.Controller.extend({
 	user: Ember.computed.alias('controllers.application.currentUser'),
 
 	actions: {
-		createJob: function(){		
+		createJob: function(){
 			var self = this;
 			var workflow = Final.PostJobWorkflow.create({
 				attributes: {
@@ -13,7 +13,7 @@ Final.PostJobController = Ember.Controller.extend({
 				userID: this.get('user.id')
 			});
 			workflow.run();
-		} 
+		}
 	}
 
 });

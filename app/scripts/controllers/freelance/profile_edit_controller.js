@@ -22,32 +22,21 @@ Final.ProfileEditController = Ember.Controller.extend({
 
     saveProfile: function(){
       var user = this.get('controllers.application.currentUser');
-      var name = this.getProperties('name');
-      var bio = this.getProperties('bio');
-      var rate = this.getProperties('rate');
 
-      var profile = this.store.createRecord('freelancerProfile', {
-        name: name,
-        bio: bio,
-        rate: rate
+      var profileInfo = this.store.createRecord('freelancerProfile', {
+        name: this.get('name'),
+        bio: this.get('bio'),
+        rate: this.get('rate')
       });
-      console.log(profile);
-
-      user.set('profile', profile);
-      var blah = user.get('isDirty');
-      console.log(blah);
-      //user.addObject('profile');
-      user.save();
+      console.log(profileInfo);
       console.log(user);
 
-/*
-      // Add the new comment to the post and save it
-post.get("comments").addObject(comment);
+      user.set('profile', profileInfo);
+      user.addObject(profileInfo);
 
-// Saving the post will save the embedded comments
-post.save();
-
-*/
+      //user.addObject(profile);
+      //console.log(user);
+      //profile.save();
     }
 
   }
