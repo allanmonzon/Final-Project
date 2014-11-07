@@ -19,7 +19,7 @@ Final.FreelancerSignupController = Ember.Controller.extend({
             localStorage.setItem('userAuth', JSON.stringify(authData));
             user.save();
           });
-          self.transitionToRoute('freelancer.login');
+          self.transitionToRoute('profile.create');
         } else {
           console.log(error);
         }
