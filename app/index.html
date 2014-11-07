@@ -31,8 +31,8 @@
             <!--//////////////// Client ///////////////////-->
 
       <!-- Client Profile Template -->
-      <script type="text/x-handlebars" data-template-name="client-profile">
-        <h1>My Profile</h1>
+      <script type="text/x-handlebars" data-template-name="create-profile">
+        <h1>Create Profile</h1>
         <form>
           <span>Name</span>
           {{input type="text" placeholder="name" value=name}}
@@ -46,6 +46,15 @@
           <button {{action "logOut"}}>Log Out</button>
         </form>
       </script>
+      
+      <script type="text/x-handlebars" data-template-name="profile">
+        <h1>My Profile</h1>
+        {{#each}}
+          <h3>{{typeOfProject}}</h3>
+          
+        {{/each}}
+      </script>
+
 
       <!-- Client Home Template -->
       <script type="text/x-handlebars" data-template-name="client-home">
@@ -466,7 +475,7 @@
         <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
-        <script src="scripts/routes/client_home_route.js"></script>
+        <script src="scripts/routes/client_route.js"></script>
         <script src="scripts/routes/freelancer_route.js"></script>
         <!-- endbuild -->
 
