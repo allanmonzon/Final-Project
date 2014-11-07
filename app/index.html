@@ -184,7 +184,36 @@
 
             <!--//////////////// Freelance ///////////////////-->
 
-      <!-- Create-Profile Template -->
+      <!-- Edit-Profile Template -->
+      <script type="text/x-handlebars" data-template-name="profile/create">
+        <form class="wrapper">
+          <div class="profile-img">
+            {{input class="name" value=name placeholder="Name"}}
+            <div class="avatar"><img {{bind-attr src=imgSrc}}/></div>
+            <div class="profile-image-upload">
+              <button {{action 'addAvatar'}}>Upload Image</button>
+            </div>
+            <div class="hourly-rate">
+              <span>Hourly Rate</span>
+              {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+            </div>
+          </div>
+
+          <div class="bio">
+            <h3>Bio</h3>
+            {{textarea name="bio" value=bio placeholder="Fill out a brief bio about yourself..."}}
+          </div>
+
+          <div class="portfolio">
+            <div class="p-item"><img {{bind-attr src=img-port-src}}/></div>
+          </div>
+
+          <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
+        </form>
+      </script>
+
+
+      <!-- Edit-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/edit">
         <form class="wrapper">
           <div class="profile-img">
@@ -212,6 +241,8 @@
         </form>
       </script>
 
+
+      <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
           <h1>Username</h1>
@@ -343,13 +374,74 @@
         </div>
       </script>
 
+      <!--//////////////// jobs ///////////////////-->
+      <script type="text/x-handlebars" data-template-name="jobs/all">
+        <div>
+          <div>
+            <h1>Job Title</h1>
+            <h4>Client Name or Business Name</h4>
+          </div>
+          <div>
+            <p>This is the description of the project scope<br />
+            I expect there to be a lot of copy here and abouts</p>
+          </div>
+          <div>
+            <p>
+              Needs:</br>
+              &bull; Front-End Developer
+            </p>
+          </div>
+          <div>
+            <button>Place Bid</button>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h1>Job Title</h1>
+            <h4>Client Name or Business Name</h4>
+          </div>
+          <div>
+            <p>This is the description of the project scope<br />
+            I expect there to be a lot of copy here and abouts</p>
+          </div>
+          <div>
+            <p>
+              Needs:</br>
+              &bull; Front-End Developer
+            </p>
+          </div>
+          <div>
+            <button>Place Bid</button>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h1>Job Title</h1>
+            <h4>Client Name or Business Name</h4>
+          </div>
+          <div>
+            <p>This is the description of the project scope<br />
+            I expect there to be a lot of copy here and abouts</p>
+          </div>
+          <div>
+            <p>
+              Needs:</br>
+              &bull; Front-End Developer
+            </p>
+          </div>
+          <div>
+            <button>Place Bid</button>
+          </div>
+        </div>
+      </script>
 
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/handlebars/handlebars.js"></script>
       <script src="bower_components/ember/ember.js"></script>
-      <script src="bower_components/ember-data/index.js"></script>
       <script src="bower_components/firebase/firebase.js"></script>
       <script src="bower_components/ember-data/index.js"></script>
       <script src="bower_components/emberfire/dist/emberfire.min.js"></script>
@@ -371,9 +463,11 @@
         <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
+        <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
         <script src="scripts/routes/client_home_route.js"></script>
+        <script src="scripts/routes/freelancer_route.js"></script>
         <!-- endbuild -->
 
 
