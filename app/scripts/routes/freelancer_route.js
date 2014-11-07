@@ -22,8 +22,17 @@ Final.ProfileEditRoute = Ember.Route.extend({
 });
 
 Final.ProfileMyRoute = Ember.Route.extend({
-  model: function(profile) {
-    var blah = this.store.find('freelancerProfile');
-    console.log(blah);
-  }
+  // model: function(profile) {
+  //   var blah = this.store.find('freelancerProfile');
+  //   console.log(blah);
+  // }
+
+  beforeModel: function() {
+    var user = this.controllerFor('application').get('currentUser');  
+    console.log(user);
+    if (!user) {
+      this.transitionTo('index');
+    }    
+  },
+
 });

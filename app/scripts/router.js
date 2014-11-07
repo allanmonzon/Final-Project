@@ -15,7 +15,7 @@ Final.Router.map(function(){
 	/* ============ Client ============ */
 
 	this.route('post-job');
-	this.resource('profile', {path: '/:profile_id'});
+	this.resource('profil', {path: '/:profile_id'});
 	this.route('create-profile');
 	this.route('client-home');
 
