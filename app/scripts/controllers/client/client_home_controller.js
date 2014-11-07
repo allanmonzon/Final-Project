@@ -1,4 +1,4 @@
-Final.ClientHomeController = Ember.ArrayController.extend({
+Final.ProfileController = Ember.ArrayController.extend({
   needs: ['application'],
 
   actions: {
