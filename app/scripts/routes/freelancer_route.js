@@ -1,9 +1,13 @@
 Final.ProfileEditRoute = Ember.Route.extend({
-  beforeModel: function(){
-    var user = this.controllerFor('application').get('currentUser.id');
-    console.log(user);
+  model: function(){
+    var id = this.controllerFor('application').get('currentUser.id');
+    console.log(id);
+    // console.log(this.store.find('user', id));
+    // console.log(localStorage.getItem('userAuth.uid'));
+    // console.log(localStorage.getItem('userAuth'));
+    return this.controllerFor('application').get('currentUser');
   },
-
+/*
   afterModel: function(){
     var user = this.controllerFor('application').get('currentUser.id');
     console.log(user);

@@ -37,6 +37,8 @@ Final.ProfileCreateController = Ember.Controller.extend({
       profileInfo.save();
       user.set('profile', profileInfo);
       user.save();
+
+      this.transitionToRoute()
     }
 
   }
