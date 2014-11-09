@@ -24,10 +24,11 @@ Final.Router.map(function(){
 	this.resource('freelancer', function () {
 		this.route('signup');
 		this.route('login');
+		this.route('home');
 		this.resource('profile', function () {
 			this.route('create');
-			this.route('edit')//, { path: '/:user_id/edit' });
-			this.route('my');
+			this.route('edit')//, { path: '/:id/edit' });
+			this.route('my', {path: ':freelancerProfile_id'});
 		});
 	});
 

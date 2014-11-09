@@ -15,3 +15,6 @@ Final.ClientProfile = Final.Profile.extend({
   number: DS.attr('string'),
   user: DS.belongsTo('user')
 });
+
+
+// {{#link-to 'profile.my' id}}<div class="p-item">Profile</div>{{/link-to}}

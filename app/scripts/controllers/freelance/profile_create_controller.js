@@ -25,6 +25,7 @@ Final.ProfileCreateController = Ember.Controller.extend({
     },
 
     saveProfile: function(){
+      var self = this;
       var user = this.get('controllers.application.currentUser');
 
       var profileInfo = this.store.createRecord('freelancerProfile', {
@@ -32,13 +33,14 @@ Final.ProfileCreateController = Ember.Controller.extend({
         bio: this.get('bio'),
         rate: this.get('rate'),
         avatar: this.get('imgSrc'),
+        user: user
       });
-
-      profileInfo.save();
+      profileInfo.save().then(function(id){
+        self.transitionToRoute('profile.my', id);
+      });
       user.set('profile', profileInfo);
-      user.save();
+      user.save()
 
-      this.transitionToRoute()
     }
 
   }
