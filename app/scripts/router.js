@@ -26,7 +26,7 @@ Final.Router.map(function(){
 		this.route('login');
 		this.resource('profile', function () {
 			this.route('create');
-			this.route('edit')//, { path: '/:id/edit' });
+			this.route('edit')//, { path: '/:user_id/edit' });
 			this.route('my');
 		});
 	});

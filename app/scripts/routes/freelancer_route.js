@@ -1,10 +1,5 @@
 Final.ProfileEditRoute = Ember.Route.extend({
   model: function(){
-    var id = this.controllerFor('application').get('currentUser.id');
-    console.log(id);
-    // console.log(this.store.find('user', id));
-    // console.log(localStorage.getItem('userAuth.uid'));
-    // console.log(localStorage.getItem('userAuth'));
     return this.controllerFor('application').get('currentUser');
   },
 /*
@@ -22,17 +17,18 @@ Final.ProfileEditRoute = Ember.Route.extend({
 });
 
 Final.ProfileMyRoute = Ember.Route.extend({
-  // model: function(profile) {
-  //   var blah = this.store.find('freelancerProfile');
-  //   console.log(blah);
-  // }
 
   beforeModel: function() {
-    var user = this.controllerFor('application').get('currentUser');  
+    var user = this.controllerFor('application').get('currentUser');
     console.log(user);
-    if (!user) {
+    if (user === null) {
       this.transitionTo('index');
-    }    
+    }
   },
+
+  model: function(profile) {
+    var user = this.controllerFor('application').get('currentUser');
+    return this.store.find('freelancerProfile')
+  }
 
 });

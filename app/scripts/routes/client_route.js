@@ -1,10 +1,10 @@
 Final.CreateProfileRoute = Ember.Route.extend({
 	beforeModel: function(){
-    var user = this.controllerFor('application').get('currentUser');	
+    var user = this.controllerFor('application').get('currentUser');
     console.log(user);
     if (!user) {
       this.transitionTo('index');
-    }    
+    }
   }
 });
 
@@ -17,24 +17,24 @@ Final.CreateProfileRoute = Ember.Route.extend({
 
 // Final.PostJobRoute = Ember.Route.extend({
 // 	 beforeModel: function(){
-// 	 	var user = this.get('controllers.application.currentUser');	
+// 	 	var user = this.get('controllers.application.currentUser');
 //     if (user === null ) {
 //       this.transitionTo('index');
-//     }   
+//     }
 //   },
 // })
 
 Final.ProfileRoute = Ember.Route.extend({
   beforeModel: function(){
-    var user = this.controllerFor('application').get('currentUser');  
-    console.log(user);
+    var user = this.controllerFor('application').get('currentUser');
+    //console.log(user);
     if (!user) {
       this.transitionTo('index');
-    }    
+    }
   },
 
 	model: function(params){
-		var cool =  this.controllerFor('application').get('currentUser');	
-   	console.log(cool);
+		var cool =  this.controllerFor('application').get('currentUser');
+   	//console.log(cool);
 	}
 });
