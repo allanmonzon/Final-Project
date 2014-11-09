@@ -1,4 +1,4 @@
- Final.ProfileMyController = Ember.Controller.extend({
+ Final.ProfileMyController = Ember.ObjectController.extend({
    needs: ['application'],
 
    actions: {

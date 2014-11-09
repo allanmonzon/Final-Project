@@ -192,8 +192,17 @@
 
 
             <!--//////////////// Freelance ///////////////////-->
+      
+      <script type="text/x-handlebars" data-template-name="freelancer/home">
+        <div class="portfolio">
+          {{#each}}
+            <div class="p-item">{{typeOfProject}}</div>
+          {{/each}}
+        </div>
+      </script>
 
-      <!-- Edit-Profile Template -->
+
+      <!-- Create-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/create">
         <form class="wrapper">
           <div class="profile-img">
@@ -248,25 +257,28 @@
 
           <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
         </form>
+        <button {{action "logOut"}}>Log Out</button>
       </script>
 
 
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
-          <h1>Username</h1>
+       
+          <h1>{{name}}</h1>
           <div class="avatar"><img {{bind-attr src=imgSrc}}></div>
 
           <div class="bio">
             <h3>Bio</h3>
-            <p>Chia 3 wolf moon meh Carles, Thundercats YOLO Kickstarter High Life irony kogi occupy asymmetrical fanny pack deep v typewriter. Pop-up messenger bag literally synth dreamcatcher, freegan Carles Truffaut iPhone. Put a bird on it mixtape fingerstache, occupy farm-to-table High Life</p>
+            <p>{{bio}}</p>
           </div>
 
           <div class="hourly-rate">
             <span>Hourly Rate</span>
+            <span>{{rate}}</span>
             {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
           </div>
-
+         
           <div class="portfolio">
             <div class="p-item"></div>
             <div class="p-item"></div>
@@ -283,6 +295,7 @@
         </div>
 
         {{#link-to 'profile.edit'}}<button>Edit</button>{{/link-to}}
+        {{#link-to 'freelancer.home'}}<button>Home</button>{{/link-to}}
 
         <button {{action "logOut"}}>Log Out</button>
       </script>
@@ -471,6 +484,7 @@
         <script src="scripts/controllers/client/client_home_controller.js"></script>
         <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
+        <script src="scripts/controllers/freelance/freelancer_home_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>

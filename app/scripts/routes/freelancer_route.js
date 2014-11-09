@@ -21,18 +21,29 @@ Final.ProfileEditRoute = Ember.Route.extend({
   }*/
 });
 
-Final.ProfileMyRoute = Ember.Route.extend({
-  // model: function(profile) {
-  //   var blah = this.store.find('freelancerProfile');
-  //   console.log(blah);
-  // }
+// Final.ProfileMyRoute = Ember.Route.extend({
+//   // model: function(profile) {
+//   //   var blah = this.store.find('freelancerProfile');
+//   //   console.log(blah);
+//   // }
 
-  beforeModel: function() {
-    var user = this.controllerFor('application').get('currentUser');  
-    console.log(user);
-    if (!user) {
-      this.transitionTo('index');
-    }    
-  },
+//   // beforeModel: function() {
+//   //   var user = this.controllerFor('application').get('currentUser');  
+//   //   console.log(user);
+//   //   if (!user) {
+//   //     this.transitionTo('index');
+//   //   }    
+//   // },
 
+//   // model: function(params) {
+//   //   return this.store.find('freelancerProfile', params.freelancerProfile_id);
+//   // }
+
+// });
+
+Final.FreelancerHomeRoute = Ember.Route.extend({
+   model: function(){
+    
+    return this.store.find('job');
+  }
 });
