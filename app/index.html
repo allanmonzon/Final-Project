@@ -219,6 +219,7 @@
         <div class="portfolio">
           {{#each}}
           <div class="job-item">
+            <span>{{name}}</span>
             <span>{{typeOfProject}}</span>
             <p>{{projectScope}}</p>
             <button {{action 'placeBid'}}>Place Bid</button>
@@ -266,20 +267,20 @@
       <script type="text/x-handlebars" data-template-name="profile/edit">
         <form class="wrapper">
           <div class="profile-img">
-            {{input class="name" value=name placeholder=name}}
+            {{input class="name" value=name placeholder=profile.name}}
             <div class="avatar"><img {{bind-attr src=avatar}}/></div>
             <div class="profile-image-upload">
               <button {{action 'addAvatar'}}>Change Image</button>
             </div>
             <div class="hourly-rate">
               <span>Hourly Rate</span>
-              {{input class="rate" name="rate" value=rate placeholder=rate}}
+              {{input class="rate" name="rate" value=rate placeholder=profile.rate}}
             </div>
           </div>
 
           <div class="bio">
             <h3>Bio</h3>
-            {{textarea name="bio" value=bio placeholder=bio}}
+            {{textarea name="bio" value=bio placeholder=profile.bio}}
           </div>
 
           <div class="portfolio">
@@ -326,7 +327,7 @@
           {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
         </div>
 
-        {{#link-to 'profile.edit'}}<button>Edit</button>{{/link-to}}
+        {{#link-to 'profile.edit' id}}<button>Edit</button>{{/link-to}}
         {{#link-to 'freelancer.home'}}<button>Jobs</button>{{/link-to}}
 
         <button {{action "logOut"}}>Log Out</button>

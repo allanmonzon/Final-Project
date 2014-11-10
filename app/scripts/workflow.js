@@ -37,13 +37,13 @@ Final.BidsWorkflow = Ember.Object.extend({
 			});
 	},
 
-	// fetchJob: function() {
-	// 	var self = this;
-	// 	return this.store.find('job', this.jobID)
-	// 		.then(function(job) {
-	// 			self.set('job', job);
-	// 		});
-	// },
+	fetchJob: function() {
+		var self = this;
+		return this.store.find('job', this.jobID)
+			.then(function(job) {
+				self.set('job', job);
+			});
+	},
 
 	postBid: function() {
 		var config = Ember.merge({
@@ -60,50 +60,17 @@ Final.BidsWorkflow = Ember.Object.extend({
 		return this.get('user').save();
 	},
 
-	// addBidToJob: function() {
-	// 	this.get('job.bids').addObject(this.get('bid'));
-	// 	return this.get('job').save();
-	// },
+	addBidToJob: function() {
+		this.get('job.bids').addObject(this.get('bid'));
+		return this.get('job').save();
+	},
 
 	run: function() {
 		return this.fetchUser()
-			// .then(this.fetchJob.bind(this))
+			.then(this.fetchJob.bind(this))
 			.then(this.postBid.bind(this))
 			.then(this.addBidToUser.bind(this))
-			// .then(this.addBidToJob.bind(this))
-	}
-
-});
-
-
-Final.FreelanceProfileWorkflow = Ember.Object.extend({
-	fetchUser: function() {
-		var self = this;
-		var cool = this.get('controllers.application.currentUser.id')
-		console.log(cool);
-			cool.then(function(user) {
-				self.set('user', user);
-			});
-	},
-
-	create: function() {
-		var config = Ember.merge({
-			user: this.user,
-		}, this.attributes);
-
-		this.set('profile', this.store.createRecord('freelancerProfile',config));
-		return this.get('profile').save();
-	},
-
-	addToUser: function() {
-		this.get('user.profile').addObject(this.get('freelancerProfile'));
-		return this.get('user').save();
-	},
-
-	run: function() {
-		return this.fetchUser()
-			.then(this.create.bind(this))
-			.then(this.addToUser.bind(this))
+			.then(this.addBidToJob.bind(this))
 	}
 
 });

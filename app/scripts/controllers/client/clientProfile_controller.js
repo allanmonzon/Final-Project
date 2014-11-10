@@ -4,13 +4,13 @@ Final.ClientProfileCreateController = Ember.Controller.extend({
   actions: {
 		createProfile: function(){
 			var self = this;
-			var user = this.get('controllers.application.currentUser');	
+			var user = this.get('controllers.application.currentUser');
 			var profile = this.store.createRecord('profile', {
 				name: this.get('name'),
 				bio: this.get('bio'),
 				email: this.get('email'),
 				number: this.get('number'),
-				type: 'client'
+        type: 'client'
 			});
 			profile.save().then(function(id){
 				self.transitionToRoute('client-profile.my', user.id);
@@ -24,9 +24,8 @@ Final.ClientProfileCreateController = Ember.Controller.extend({
       localStorage.removeItem('userAuth');
       Final.ref.unauth();
       this.transitionToRoute('index');
-   
-    } 
+
+    }
 	}
 
 });
-
