@@ -1,6 +1,6 @@
 Final.FreelancerHomeController = Ember.ArrayController.extend({
 	needs: ['application'],
-	user: Ember.computed.alias('controllers.application.currentUser'),
+	// user: Ember.computed.alias('controllers.application.currentUser'),
 
 	actions: {
 

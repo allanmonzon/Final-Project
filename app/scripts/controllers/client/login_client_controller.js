@@ -5,9 +5,10 @@ Final.LoginClientController = Ember.Controller.extend({
 
 		login: function(){   
 			var self = this;
+			var user = this.get('controllers.application.currentUser');	
 			var credentials = this.getProperties('email', 'password');
-			this.get('controllers.application').authenticate(credentials).then(function(user){
-        self.transitionToRoute('create-profile');
+			this.get('controllers.application').authenticate(credentials).then(function(){
+        self.transitionToRoute('client-profile.my', user.id);
       });
 
 		}

@@ -1,6 +1,7 @@
 Final.Bid = DS.Model.extend({
   user: DS.belongsTo('user'),
-  bidSent: DS.attr('boolean')
+  bidSent: DS.attr('boolean'),
+  job: DS.belongsTo('job')
 });
 
 
