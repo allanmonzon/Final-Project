@@ -24,7 +24,7 @@ Final.CreateProfileRoute = Ember.Route.extend({
 //   },
 // })
 
-Final.ProfileRoute = Ember.Route.extend({
+Final.ClientProfileMyRoute = Ember.Route.extend({
   beforeModel: function(){
     var user = this.controllerFor('application').get('currentUser');
     //console.log(user);
@@ -33,8 +33,8 @@ Final.ProfileRoute = Ember.Route.extend({
     }
   },
 
-	model: function(params){
-		var cool =  this.controllerFor('application').get('currentUser');
+	model: function(){
+		return this.controllerFor('application').get('currentUser');
    	//console.log(cool);
 	}
 });

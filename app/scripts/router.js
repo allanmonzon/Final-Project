@@ -17,9 +17,13 @@ Final.Router.map(function(){
 	/* ============ Client ============ */
 
 	this.route('post-job');
-	this.resource('profil', {path: '/:profile_id'});
-	this.route('create-profile');
 	this.route('client-home');
+	this.resource('client-profile', function(){
+		this.route('create');
+		this.route('edit');
+		this.route('my', {path: ':id'});
+	});
+
 
 	/* ============ Freelance ============ */
 

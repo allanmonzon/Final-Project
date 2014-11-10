@@ -17,7 +17,7 @@ Final.SignupClientController = Ember.Controller.extend({
             });
             user.save();
           });
-          self.transitionToRoute('login.client');
+          self.transitionToRoute('client-profile.create');
         } else {
           console.log(error);
         }

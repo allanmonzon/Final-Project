@@ -1,18 +1,20 @@
-Final.CreateProfileController = Ember.Controller.extend({
+Final.ClientProfileCreateController = Ember.Controller.extend({
   needs: ['application'],
 
   actions: {
 		createProfile: function(){
+			var self = this;
+			var user = this.get('controllers.application.currentUser');
 			var profile = this.store.createRecord('profile', {
 				name: this.get('name'),
-				info: this.get('info'),
+				bio: this.get('bio'),
 				email: this.get('email'),
 				number: this.get('number'),
         type: 'client'
 			});
-			profile.save();
-
-			var user = this.get('controllers.application.currentUser');
+			profile.save().then(function(id){
+				self.transitionToRoute('client-profile.my', user.id);
+			});
 			user.set('profile', profile);
 		  user.save();
 		},
