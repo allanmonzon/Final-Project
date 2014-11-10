@@ -155,3 +155,15 @@ body {
   @include shift(5);
   margin-top: 2%;
 }
+
+.job-item {
+  @include span-columns(2.5);
+  background: #eee;
+  height: rem(300);
+  margin-top: rem(10);
+  overflow: scroll;
+}
+
+.hidden {
+  display: none;
+}

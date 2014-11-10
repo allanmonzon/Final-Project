@@ -1,20 +1,12 @@
-Final.Profile = DS.Model.extend({});
-
-Final.FreelancerProfile = Final.Profile.extend({
+Final.Profile = DS.Model.extend({
   name: DS.attr('string'),
   bio: DS.attr('string'),
   rate: DS.attr('number'),
   avatar: DS.attr('string'),
-  user: DS.belongsTo('user')
-});
-
-Final.ClientProfile = Final.Profile.extend({
-  name: DS.attr('string'),
+  //portfolioImages: DS.hasMany('portfolioImage'),
+  user: DS.belongsTo('user'),
   info: DS.attr('string'),
   email: DS.attr('string'),
   number: DS.attr('string'),
-  user: DS.belongsTo('user')
+  type: DS.attr('string')
 });
-
-
-// {{#link-to 'profile.my' id}}<div class="p-item">Profile</div>{{/link-to}}

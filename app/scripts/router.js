@@ -6,10 +6,12 @@ Final.Router.map(function(){
 
 	this.resource('signup', function () {
 		this.route('client');
+		this.route('freelancer');
 	});
 
 	this.resource('login', function() {
 		this.route('client');
+		this.route('freelancer');
 	});
 
 	/* ============ Client ============ */
@@ -22,13 +24,11 @@ Final.Router.map(function(){
 	/* ============ Freelance ============ */
 
 	this.resource('freelancer', function () {
-		this.route('signup');
-		this.route('login');
 		this.route('home');
 		this.resource('profile', function () {
 			this.route('create');
 			this.route('edit')//, { path: '/:id/edit' });
-			this.route('my', {path: ':freelancerProfile_id'});
+			this.route('my', {path: ':id'});
 		});
 	});
 

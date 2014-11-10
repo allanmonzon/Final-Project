@@ -1,4 +1,4 @@
-Final.FreelancerLoginController = Ember.Controller.extend({
+Final.LoginFreelancerController = Ember.Controller.extend({
   needs: ['application'],
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
   actions: {
@@ -18,9 +18,8 @@ Final.FreelancerLoginController = Ember.Controller.extend({
       // remember: 'sessionOnly'
       // });
 
-      this.get('controllers.application').authenticate(credentials).then(function(user){
-        self.transitionToRoute('profile.my');
-      });
+      this.get('controllers.application').authenticate(credentials);
+      self.transitionToRoute('profile.my');
     }
 
   }

@@ -7,7 +7,13 @@ Final.PostJobController = Ember.Controller.extend({
 			var self = this;
 			var workflow = Final.PostJobWorkflow.create({
 				attributes: {
-					typeOfProject: this.get('typeOfProject')
+					typeOfProject: this.get('typeOfProject'),
+					projectScope: this.get('projectScope'),
+					feDeveloper: this.get('feDeveloper'),
+					beDeveloper: this.get('beDeveloper'),
+					webDesigner: this.get('webDesigner'),
+					graphicDesigner: this.get('graphicDesigner'),
+					copywriter: this.get('copywriter')
 				},
 				store: this.get('store'),
 				userID: this.get('user.id')

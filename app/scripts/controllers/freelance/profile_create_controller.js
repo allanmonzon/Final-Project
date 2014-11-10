@@ -1,5 +1,7 @@
 Final.ProfileCreateController = Ember.Controller.extend({
   needs: ['application'],
+  user: Ember.computed.alias('controllers.application.currentUser'),
+
   actions: {
 
     addAvatar: function() {
@@ -18,7 +20,10 @@ Final.ProfileCreateController = Ember.Controller.extend({
       filepicker.setKey("A3T6mDAqcRqWxmPxj0ZJJz");
 
       filepicker.pickAndStore({
-        maxFiles: 6
+
+        maxFiles: 6,
+        multiple: true
+
       },{},function(Blobs){
         self.set('img-port-src', Blobs[0].url);
       });
@@ -28,18 +33,18 @@ Final.ProfileCreateController = Ember.Controller.extend({
       var self = this;
       var user = this.get('controllers.application.currentUser');
 
-      var profileInfo = this.store.createRecord('freelancerProfile', {
+      var profileInfo = this.store.createRecord('profile', {
         name: this.get('name'),
         bio: this.get('bio'),
         rate: this.get('rate'),
         avatar: this.get('imgSrc'),
-        user: user
+        type: 'freelancer'
       });
       profileInfo.save().then(function(id){
-        self.transitionToRoute('profile.my', id);
+        self.transitionToRoute('profile.my', user.id);
       });
       user.set('profile', profileInfo);
-      user.save()
+      user.save();
 
     }
 

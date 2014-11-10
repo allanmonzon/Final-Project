@@ -7,6 +7,16 @@ Final.ProfileEditController = Ember.Controller.extend({
   },
 
   actions: {
+    // saveProfile: function() {
+    //  var info = this.get({
+    //     'name',
+    //     'avatar',
+    //     'rate',
+    //     'bio'
+    //   });
+    //   //this.set
+    // },
+
      logOut: function(){
        this.set('currentUser', null);
        localStorage.removeItem('userAuth');

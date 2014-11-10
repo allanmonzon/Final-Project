@@ -1,11 +1,10 @@
-Final.FreelancerSignupController = Ember.Controller.extend({
+Final.SignupFreelancerController = Ember.Controller.extend({
   needs: ['application'],
-  selectedType: null,
 
     actions: {
     signup: function () {
       var self = this;
-      var credentials = this.getProperties('email', 'password', 'selectedType');
+      var credentials = this.getProperties('email', 'password');
 
       Final.ref.createUser(credentials, function(error){
         if (!error) {
@@ -16,8 +15,8 @@ Final.FreelancerSignupController = Ember.Controller.extend({
               email: credentials.email,
             });
             user.save();
+            self.transitionToRoute('profile.create');
           });
-          self.transitionToRoute('profile.create');
         } else {
           console.log(error);
         }

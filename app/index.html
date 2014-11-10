@@ -46,12 +46,12 @@
           <button {{action "logOut"}}>Log Out</button>
         </form>
       </script>
-      
+
       <script type="text/x-handlebars" data-template-name="profil">
         <h1>My Profile</h1>
         {{#each}}
           <h3>{{typeOfProject}}</h3>
-          
+
         {{/each}}
       </script>
 
@@ -77,7 +77,26 @@
       <!-- Post-Job Template -->
       <script type="text/x-handlebars" data-template-name="post-job">
         <h1>Post Job</h1>
-        Type of project {{input type="text" placeholder="project" value=typeOfProject}}
+        <span>Type of project</span> {{input type="text" placeholder="Web Application, Static Website, Landing Page, Branding, Content, etc." value=typeOfProject}}
+        <span>Project Scope</span>  {{textarea placeholder="Specify the project details, what's being provided by you, what's expected, etc." value=projectScope}}
+        <h4>Personel Needs:</h4>
+        <ul>
+          <li>
+            <label for="feDeveloper">{{input type="checkbox" id="feDeveloper" checked=feDeveloper}} Front-End Developer</label>
+          </li>
+          <li>
+            <label for="beDeveloper">{{input type="checkbox" id="beDeveloper" checked=beDeveloper}} Back-End Developer</label>
+          </li>
+          <li>
+            <label for="webDesigner">{{input type="checkbox" id="webDesigner" checked=webDesigner}} Web Designer</label>
+          </li>
+          <li>
+            <label for="graphicDesigner">{{input type="checkbox" id="graphicDesigner" checked=graphicDesigner}} Graphic Designer</label>
+          </li>
+          <li>
+            <label for="copywriter">{{input type="checkbox" id="copywriter" checked=copywriter}} Copywriter</label>
+          </li>
+        </ul>
         <input type="submit" value="Save Job" {{action "createJob"}}>
       </script>
 
@@ -192,11 +211,15 @@
 
 
             <!--//////////////// Freelance ///////////////////-->
-      
+
       <script type="text/x-handlebars" data-template-name="freelancer/home">
         <div class="portfolio">
           {{#each}}
-            <div class="p-item">{{typeOfProject}}</div>
+          <div class="job-item">
+            <span>{{typeOfProject}}</span>
+            <p>{{projectScope}}</p>
+            <button {{action 'placeBid'}}>Place Bid</button>
+          </div>
           {{/each}}
         </div>
       </script>
@@ -223,7 +246,12 @@
           </div>
 
           <div class="portfolio">
-            <div class="p-item"><img {{bind-attr src=img-port-src}}/></div>
+            <button {{action 'addPortfolio'}}>Upload Images</button>
+            <ul class="p-item">
+
+              <li><img {{bind-attr src=img-port-src}}/></li>
+
+            </ul>
           </div>
 
           <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
@@ -235,24 +263,26 @@
       <script type="text/x-handlebars" data-template-name="profile/edit">
         <form class="wrapper">
           <div class="profile-img">
-            {{input class="name" value=name placeholder="Name"}}
-            <div class="avatar"><img {{bind-attr src=imgSrc}}/></div>
+            {{input class="name" value=name placeholder=name}}
+            <div class="avatar"><img {{bind-attr src=avatar}}/></div>
             <div class="profile-image-upload">
-              <button {{action 'addAvatar'}}>Upload Image</button>
+              <button {{action 'addAvatar'}}>Change Image</button>
             </div>
             <div class="hourly-rate">
               <span>Hourly Rate</span>
-              {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+              {{input class="rate" name="rate" value=rate placeholder=rate}}
             </div>
           </div>
 
           <div class="bio">
             <h3>Bio</h3>
-            {{textarea name="bio" value=bio placeholder="Fill out a brief bio about yourself..."}}
+            {{textarea name="bio" value=bio placeholder=bio}}
           </div>
 
           <div class="portfolio">
-            <div class="p-item"></div>
+            <ul class="p-item">
+              <li><img {{bind-attr src=img-port-src}}/></li>
+            </ul>
           </div>
 
           <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
@@ -264,21 +294,20 @@
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
-       
-          <h1>{{name}}</h1>
-          <div class="avatar"><img {{bind-attr src=imgSrc}}></div>
+
+          <h1>{{profile.name}}</h1>
+          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
 
           <div class="bio">
             <h3>Bio</h3>
-            <p>{{bio}}</p>
+            <p>{{profile.bio}}</p>
           </div>
 
           <div class="hourly-rate">
             <span>Hourly Rate</span>
-            <span>{{rate}}</span>
-            {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+            <span>{{profile.rate}}</span>
           </div>
-         
+
           <div class="portfolio">
             <div class="p-item"></div>
             <div class="p-item"></div>
@@ -290,12 +319,12 @@
         </div>
 
         <div class="jobs-bids">
-          {{#link-to 'jobs.all'}}<span>View All Jobs</span>{{/link-to}}
+          <!--{{#link-to 'jobs.all'}}<span>View All Jobs</span>{{/link-to}} -->
           {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
         </div>
 
         {{#link-to 'profile.edit'}}<button>Edit</button>{{/link-to}}
-        {{#link-to 'freelancer.home'}}<button>Home</button>{{/link-to}}
+        {{#link-to 'freelancer.home'}}<button>Jobs</button>{{/link-to}}
 
         <button {{action "logOut"}}>Log Out</button>
       </script>
@@ -309,7 +338,7 @@
             <div class="logo"></div>
             <div class="login-buttons">
               {{#link-to 'login.client'}}<button class="client-login">Client Login</button>{{/link-to}}
-              {{#link-to 'freelancer.login'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
+              {{#link-to 'login.freelancer'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
               <button class="logout" {{action "logOut"}}>Logout</button>
             </div>
           </header>
@@ -319,7 +348,7 @@
               <h1>Sign Up</h1>
               <p>A place where clients and freelancers can invest in each other to bring your project to life.</p>
               {{#link-to 'signup.client'}}<button class="client-signup">Client Sign Up</button>{{/link-to}}
-              {{#link-to 'freelancer.signup'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
+              {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
             </div>
           </section>
 
@@ -364,7 +393,7 @@
         </div>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="freelancer/signup">
+      <script type="text/x-handlebars" data-template-name="signup/freelancer">
         <div class="container">
           <form>
             {{input type="email" value=email placeholder="Email"}}
@@ -386,7 +415,7 @@
         </div>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="freelancer/login">
+      <script type="text/x-handlebars" data-template-name="login/freelancer">
         <div class="container">
           <form>
             {{input type="email" value=email placeholder="Email"}}
@@ -476,6 +505,7 @@
         <script src="scripts/workflow.js"></script>
         <script src="scripts/models/user_model.js"></script>
         <script src="scripts/models/job.js"></script>
+        <script src="scripts/models/Bids.js"></script>
         <script src="scripts/models/profile_model.js"></script>
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
