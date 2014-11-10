@@ -5,7 +5,7 @@ Final.Profile = DS.Model.extend({
   avatar: DS.attr('string'),
   //portfolioImages: DS.hasMany('portfolioImage'),
   user: DS.belongsTo('user'),
-  info: DS.attr('string'),
+  // info: DS.attr('string'),
   email: DS.attr('string'),
   number: DS.attr('string'),
   type: DS.attr('string')

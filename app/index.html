@@ -31,13 +31,13 @@
             <!--//////////////// Client ///////////////////-->
 
       <!-- Client Profile Template -->
-      <script type="text/x-handlebars" data-template-name="create-profile">
+      <script type="text/x-handlebars" data-template-name="client-profile/create">
         <h1>Create Profile</h1>
         <form>
           <span>Name</span>
           {{input type="text" placeholder="name" value=name}}
           <span>Info</span>
-          {{input type="text" placeholder="info" value=info}}
+          {{input type="text" placeholder="bio" value=bio}}
           <span>Email</span>
           {{input type="email" placeholder="email" value=email}}
           <span>Number</span>
@@ -47,12 +47,15 @@
         </form>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="profil">
-        <h1>My Profile</h1>
-        {{#each}}
-          <h3>{{typeOfProject}}</h3>
+      <script type="text/x-handlebars" data-template-name="client-profile/my">
+        <div class="wrapper">
 
-        {{/each}}
+          <h1>{{profile.name}}</h1>
+          <h2>{{profile.bio}}</h2>
+          <h2>{{profile.email}}</h2>
+          <h2>{{profile.number}}</h2>
+
+        </div>
       </script>
 
 
@@ -513,6 +516,7 @@
         <script src="scripts/controllers/client/postJob_controller.js"></script>
         <script src="scripts/controllers/client/client_home_controller.js"></script>
         <script src="scripts/controllers/client/clientProfile_controller.js"></script>
+        <script src="scripts/controllers/client/client-profile_my.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/freelancer_home_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
