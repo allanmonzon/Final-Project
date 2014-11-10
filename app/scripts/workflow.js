@@ -58,36 +58,3 @@ Final.BidsWorkflow = Ember.Object.extend({
 	}
 
 });
-
-
-Final.FreelanceProfileWorkflow = Ember.Object.extend({
-	fetchUser: function() {
-		var self = this;
-		var cool = this.get('controllers.application.currentUser.id')
-		console.log(cool);
-			cool.then(function(user) {
-				self.set('user', user);
-			});
-	},
-
-	create: function() {
-		var config = Ember.merge({
-			user: this.user,
-		}, this.attributes);
-
-		this.set('profile', this.store.createRecord('freelancerProfile',config));
-		return this.get('profile').save();
-	},
-
-	addToUser: function() {
-		this.get('user.profile').addObject(this.get('freelancerProfile'));
-		return this.get('user').save();
-	},
-
-	run: function() {
-		return this.fetchUser()
-			.then(this.create.bind(this))
-			.then(this.addToUser.bind(this))
-	}
-
-});

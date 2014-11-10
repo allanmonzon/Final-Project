@@ -15,7 +15,6 @@ Final.FreelancerHomeController = Ember.ArrayController.extend({
 				store: this.get('store'),
 				userID: this.get('user.id')
 			});
-			
 			workflow.run();
 			console.log(jobs);
 		}
