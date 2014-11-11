@@ -23,3 +23,5 @@ Final.PostJobController = Ember.Controller.extend({
 	}
 
 });
+
+

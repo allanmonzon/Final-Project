@@ -48,7 +48,7 @@ Final.BidsWorkflow = Ember.Object.extend({
 	postBid: function() {
 		var config = Ember.merge({
 			user: this.user,
-			job: this.job,
+			job: this.job
 		}, this.attributes);
 
 		this.set('bid', this.store.createRecord('bid',config));
@@ -67,7 +67,7 @@ Final.BidsWorkflow = Ember.Object.extend({
 
 	run: function() {
 		return this.fetchUser()
-			.then(this.fetchJob(this))
+			.then(this.fetchJob.bind(this))
 			.then(this.postBid.bind(this))
 			.then(this.addBidToUser.bind(this))
 			.then(this.addBidToJob.bind(this))
