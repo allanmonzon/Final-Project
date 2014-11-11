@@ -56,6 +56,7 @@
         </div>
          <button {{action "logOut"}}>Log Out</button>
          {{#link-to 'post-job'}}<button>Post Job</button>{{/link-to}}
+         {{#link-to 'client-profile.create'}}<button>Create Profile</button>{{/link-to}}
       </script>
 
 
@@ -105,8 +106,18 @@
 
 
       <!-- Job Bids Template -->
-      <script type="text/x-handlebars" data-template-name="job-bids">
-        <h1>Post Job</h1>
+      <script type="text/x-handlebars" data-template-name="my-jobs">
+        <h1>Jobs</h1>
+        <div class="portfolio">
+          {{#each myJobs}}
+          <div class="job-item">
+            Type Of Project<span>{{typeOfProject}}</span>
+            Project Scope<p>{{projectScope}}</p>
+            Bids<span>{{bids.length}}</span>
+          </div>
+          {{/each}}
+        </div>
+
       </script>
 
 

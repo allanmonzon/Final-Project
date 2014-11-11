@@ -17,6 +17,7 @@ Final.Router.map(function(){
 	/* ============ Client ============ */
 
 	this.route('post-job');
+	this.route('my-jobs');
 	this.route('client-home');
 	this.resource('client-profile', function(){
 		this.route('create');

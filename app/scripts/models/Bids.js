@@ -16,3 +16,5 @@ Final.Bid = DS.Model.extend({
 //   copywriter: DS.attr('string'),
 //   //bids: DS.hasMany('bid')
 // });
+
+
