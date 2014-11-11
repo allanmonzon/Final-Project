@@ -218,7 +218,7 @@
       <script type="text/x-handlebars" data-template-name="freelancer/home">
         <div class="portfolio">
           {{#each}}
-          <div class="job-item">
+          <div {{bind-attr class="placedBid:hidden:job-item"}}>
             <span>{{name}}</span>
             <span>{{typeOfProject}}</span>
             <p>{{projectScope}}</p>
@@ -250,11 +250,38 @@
           </div>
 
           <div class="portfolio">
-            <button {{action 'addPortfolio'}}>Upload Images</button>
+
             <ul class="p-item">
 
-              <li><img {{bind-attr src=img-port-src}}/></li>
+              <li>
+                <img {{bind-attr src=img-port-src}}/>
+                <button {{action 'addPortfolio'}}>Upload Images</button>
+              </li>
 
+              <li>
+                <img {{bind-attr src=img-port-src-2}}/>
+                <button {{action 'addPortfolioTwo'}}>Upload Images</button>
+              </li>
+
+              <li>
+                <img {{bind-attr src=img-port-src-3}}/>
+                <button {{action 'addPortfolioThree'}}>Upload Images</button>
+              </li>
+
+              <li>
+                <img {{bind-attr src=img-port-src-4}}/>
+                <button {{action 'addPortfolioFour'}}>Upload Images</button>
+              </li>
+
+              <li>
+                <img {{bind-attr src=img-port-src-5}}/>
+                <button {{action 'addPortfolioFive'}}>Upload Images</button>
+              </li>
+
+              <li>
+                <img {{bind-attr src=img-port-src-6}}/>
+                <button {{action 'addPortfolioSix'}}>Upload Images</button>
+              </li>
             </ul>
           </div>
 
@@ -267,20 +294,21 @@
       <script type="text/x-handlebars" data-template-name="profile/edit">
         <form class="wrapper">
           <div class="profile-img">
-            {{input class="name" value=name placeholder=profile.name}}
-            <div class="avatar"><img {{bind-attr src=avatar}}/></div>
+            {{input class="name" value=name}}
+            <p>{{profile.name}}, cool profile</p>
+            <div class="avatar"><img {{bind-attr src=profile.avatar}}/></div>
             <div class="profile-image-upload">
               <button {{action 'addAvatar'}}>Change Image</button>
             </div>
             <div class="hourly-rate">
               <span>Hourly Rate</span>
-              {{input class="rate" name="rate" value=rate placeholder=profile.rate}}
+              {{input class="rate" name="rate" value=rate}}
             </div>
           </div>
 
           <div class="bio">
             <h3>Bio</h3>
-            {{textarea name="bio" value=bio placeholder=profile.bio}}
+            {{textarea name="bio" value=bio}}
           </div>
 
           <div class="portfolio">
@@ -313,12 +341,12 @@
           </div>
 
           <div class="portfolio">
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
-            <div class="p-item"></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgThree}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFour}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
           </div>
         </div>
 
@@ -337,16 +365,16 @@
       <!--//////////////// Landing Page ///////////////////-->
       <script type="text/x-handlebars" data-template-name="index">
         <div class="container">
-
           <header>
-            <div class="logo"></div>
+            <div class="logo"><img src="images/Market_Place_wh.png"></div>
             <div class="login-buttons">
-              {{#link-to 'login.client'}}<button class="client-login">Client Login</button>{{/link-to}}
-              {{#link-to 'login.freelancer'}}<button class="freelance-login">Freelance Login</button>{{/link-to}}
-              <button class="logout" {{action "logOut"}}>Logout</button>
+              <p>Login</p>
+              <div class="buttons">
+                {{#link-to 'login.client'}}<button class="client-login">C</button>{{/link-to}}
+                {{#link-to 'login.freelancer'}}<button class="freelance-login">F</button>{{/link-to}}
+              </div>
             </div>
           </header>
-
           <section class="signup">
             <div class="signup-button">
               <h1>Sign Up</h1>
@@ -364,36 +392,48 @@
           <section class="steps">
             <div class="step">
               <h3>Step One</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
+              <p>Signup up for an account!<br />If you're a freelancer or a client, get your account and profile setup to start investing in your projects.</p>
             </div>
 
             <div class="step">
               <h3>Step Two</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
+              <p>Clients post a job, with a thorough and detailed description of what you need and what you're expecting. Be sure to mention what content you have. Freelancers bid on a job that sparks your interest and excites you.</p>
             </div>
 
             <div class="step">
               <h3>Step Three</h3>
-              <p>ornhole bitters Pinterest, readymade Banksy pop-up 3 wolf moon Cosby sweater Vice skateboard XOXO heirloom Tonx leggings. Deep v selfies hashtag try-hard, irony ennui vegan 90s Williamsburg gluten-free.</p>
+              <p>Clients go through your bids and choose the freelancer that best meets you're needs. Then begin working together to bring the project to life!</p>
             </div>
           </section>
 
           <footer>
-            <div class="logo"></div>
-            <span>&copy; 2014 Name of Company</span>
+            <div class="logo"><img src="images/Market_Place_wh_footer.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
           </footer>
 
         </div>
       </script>
 
+
       <!--//////////////// signup ///////////////////-->
       <script type="text/x-handlebars" data-template-name="signup/client">
         <div class="container">
-          <form>
-            {{input type="email" value=email placeholder="Email"}}
-            {{input type="password" value=password placeholder="Password"}}
-            <button {{action "signup"}}>Sign Up</button>
-          </form>
+          <div class="header">
+            <div class="logo"><img src="images/Market_Place_wh.png"></div>
+          </div>
+
+          <section class="body">
+            <form class="signup-form">
+              {{input type="email" value=email placeholder="Email"}}
+              {{input type="password" value=password placeholder="Password"}}
+              <button {{action "signup"}}>Sign Up</button>
+            </form>
+          </section>
+
+          <div class="footer">
+            <div class="logo"><img src="images/Market_Place_wh_footer.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
+          </div>
         </div>
       </script>
 
@@ -428,6 +468,7 @@
           </form>
         </div>
       </script>
+
 
       <!--//////////////// jobs ///////////////////-->
       <script type="text/x-handlebars" data-template-name="jobs/all">

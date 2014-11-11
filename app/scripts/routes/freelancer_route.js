@@ -1,4 +1,5 @@
-Final.ProfileEditRoute = Ember.Route.extend({
+Final.ProfileMyRoute = Ember.Route.extend({
+
   beforeModel: function() {
     var user = this.controllerFor('application').get('currentUser.id');
     if (!user) {
@@ -7,12 +8,11 @@ Final.ProfileEditRoute = Ember.Route.extend({
   },
 
   model: function() {
-    return this.controllerFor('application').get('currentUser.profile');
+    return this.controllerFor('application').get('currentUser');
   }
 });
 
-Final.ProfileMyRoute = Ember.Route.extend({
-
+Final.ProfileEditRoute = Ember.Route.extend({
   beforeModel: function() {
     var user = this.controllerFor('application').get('currentUser.id');
     if (!user) {
