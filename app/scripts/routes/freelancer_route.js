@@ -6,8 +6,8 @@ Final.ProfileMyRoute = Ember.Route.extend({
     }
   },
 
-  model: function() {
-    return this.controllerFor('application').get('currentUser');
+  model: function(params) {
+    return this.store.find('user', params.user_id);
   }
 });
 
@@ -19,7 +19,7 @@ Final.ProfileEditRoute = Ember.Route.extend({
     }
   },
 
-  model: function() {
+  model: function(params) {
     return this.controllerFor('application').get('currentUser');
   }
 });

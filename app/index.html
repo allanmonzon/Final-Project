@@ -116,7 +116,7 @@
             Project Scope<p>{{projectScope}}</p>
             <ul>
               {{#each bids}}
-                <li>Bid {{user.name}}</li>
+              <li>Bid   {{#link-to 'profile.my' user.id}}{{user.name}}{{/link-to}}  <button>Accept</button> <button>Decline</button></li>
               {{/each}}
             </ul>
           </div>
