@@ -4,7 +4,7 @@ Final.SignupFreelancerController = Ember.Controller.extend({
     actions: {
     signup: function () {
       var self = this;
-      var credentials = this.getProperties('email', 'password');
+      var credentials = this.getProperties('email', 'password', 'name');
 
       Final.ref.createUser(credentials, function(error){
         if (!error) {
@@ -12,7 +12,8 @@ Final.SignupFreelancerController = Ember.Controller.extend({
           .then(function (user) {
             user.setProperties ({
               userType: 'freelancer',
-              email: credentials.email,
+              name: credentials.name,
+              email: credentials.email
             });
             user.save();
             self.transitionToRoute('profile.create');

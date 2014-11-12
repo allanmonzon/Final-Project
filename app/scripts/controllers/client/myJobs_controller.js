@@ -1,13 +1,13 @@
 Final.MyJobsController = Ember.ArrayController.extend({
-	needs: ['application'],
+	needs: ['application', 'bid'],
 	user: Ember.computed.alias('controllers.application.currentUser'),
-	// itemController: 'bid',
+	//itemController: 'bid',
 
 });
 
-// Final.BidController = Ember.ObjectController.extend({
-// 	needs: ['application'],
+Final.BidController = Ember.ArrayController.extend({
+	needs: ['application'],
 
 
 
-// });
+});

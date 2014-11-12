@@ -106,6 +106,7 @@
 
 
       <!-- Job Bids Template -->
+
       <script type="text/x-handlebars" data-template-name="my-jobs">
         <h1>Jobs</h1>
         <div class="portfolio">
@@ -114,14 +115,13 @@
             Type Of Project<span>{{typeOfProject}}</span>
             Project Scope<p>{{projectScope}}</p>
             <ul>
-              {{#each}}
-                <li>Bids {{bids}}</li>
+              {{#each bids}}
+                <li>Bid {{user.name}}</li>
               {{/each}}
             </ul>
           </div>
           {{/each}}
         </div>
-
       </script>
 
 
