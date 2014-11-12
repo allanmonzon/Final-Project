@@ -19,6 +19,7 @@ Final.PostJobController = Ember.Controller.extend({
 				userID: this.get('user.id')
 			});
 			workflow.run();
+			self.transitionToRoute('my-jobs');
 		}
 	}
 

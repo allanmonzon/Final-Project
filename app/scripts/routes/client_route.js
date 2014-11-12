@@ -17,20 +17,11 @@ Final.ClientProfileMyRoute = Ember.Route.extend({
 
 	model: function(){
 		return this.controllerFor('application').get('currentUser');
-   	//console.log(cool);
 	}
 });
 
 Final.MyJobsRoute = Ember.Route.extend({
-  // setupController: function(controller, model) {
-  //   var myJobs = this.controllerFor('application')
-  //     .get('currentUser.jobs');
-  //   myJobs.then(function() {
-  //     controller.set('myJobs', myJobs.slice(-4));
-  //   });
-  // },
-
-   model: function(){
+  model: function(){
     return this.controllerFor('application').get('currentUser.jobs');
   }
 
