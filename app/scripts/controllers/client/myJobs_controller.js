@@ -13,3 +13,4 @@ Final.MyJobsController = Ember.ArrayController.extend({
 	}
 
 });
+
