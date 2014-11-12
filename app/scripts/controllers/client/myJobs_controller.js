@@ -9,8 +9,12 @@ Final.BidController = Ember.ObjectController.extend({
 
 	init: function() {
 		this._super();
-		var cool = this.get('model', this.model.user);
-		console.log(cool);
+
+		var model = this.get('model');
+		var jobs = model.serialize();
+		var bidsID = jobs.bids;
+		console.log(bidsID);
+		
 	},
 
 });
