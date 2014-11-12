@@ -28,14 +28,15 @@ body {
         width: 60%;
         display: block;
         margin: 0 auto;
+        padding: rem(10) 0 rem(10) rem(10);
       }
     }
 
     .login-buttons {
-      @include span-columns(3);
-      @include outer-container;
+      @include span-columns(1);
+      //@include outer-container;
       float: right;
-      padding: rem(20);
+      padding: rem(10) rem(30) rem(10) rem(10);
 
       p {
         @include span-columns(12);
@@ -49,27 +50,20 @@ body {
     }
 
     .buttons {
-      @include span-columns(6);
-      @include shift(3);
+      //@include span-columns(6);
+      //@include shift(3);
 
       a {
-        display: inline-block;
+        display: block;
         padding: 0;
       }
 
-      a:last-child {
-        float: right;
-      }
-
-      .client-login {
-        padding: .85rem 1rem;
-      }
-
       button {
-        border-radius: 50%;
+        width: rem(50);
         color: #fff;
         border: solid 1px #fff;
         background: #000;
+        margin-bottom: rem(10);
       }
 
       button:hover {
