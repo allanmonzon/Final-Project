@@ -9,13 +9,37 @@ Final.JobController = Ember.ObjectController.extend({
 
 	init: function() {
 		this._super();
-		return this.get('model', this.model.id);
+
+		// if the job has a bid.id that matches the user's bid.id
+		// set placedBid to true
+
+		var model = this.get('model');
+		var jobs = model.serialize();
+		var bidsID = jobs.bids;
+
+		var user = this.get('controllers.application.currentUser');
+		var userInfo = user.serialize();
+		var userBids = userInfo.bids;
+
+		var hasBid = Ember.Object.createWithMixins({
+			jobBid: bidsID,
+			userBid: userBids,
+			bidsInCommon: Ember.computed.intersect('jobBid', 'userBid')
+		});
+
+		var common = hasBid.get('bidsInCommon');
+		var result = !!common.length;
+
+
+		if (result === true) {
+			this.set('placedBid', true);
+		}
+
 	},
 
 	actions: {
 
 		placeBid: function () {
-			var self = this;
 			var user = this.get('controllers.application.currentUser');
 			var jobs = this.get('model');
 
@@ -24,14 +48,13 @@ Final.JobController = Ember.ObjectController.extend({
 				user: user,
 				job: jobs
 			});
-			//bid.save();
+			bid.save();
 
-      //user.get('bids').addObject(bid);
-			//user.save();
-			//jobs.get('bids').addObject(bid);
-			//jobs.save();
+      user.get('bids').addObject(bid);
+			user.save();
+			jobs.get('bids').addObject(bid);
+			jobs.save();
 			this.set('placedBid', true);
-			this.save();
 		}
 	},
 
