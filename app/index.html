@@ -56,7 +56,7 @@
         </div>
          <button {{action "logOut"}}>Log Out</button>
          {{#link-to 'post-job'}}<button>Post Job</button>{{/link-to}}
-         {{#link-to 'client-profile.create'}}<button>Create Profile</button>{{/link-to}}
+         {{#link-to 'my-jobs'}}<button>My Jobs</button>{{/link-to}}
       </script>
 
 
@@ -116,11 +116,40 @@
             Project Scope<p>{{projectScope}}</p>
             <ul>
               {{#each bids}}
-              <li>Bid   {{#link-to 'profile.my' user.id}}{{user.name}}{{/link-to}}  <button>Accept</button> <button>Decline</button></li>
+              <li>Bid   {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button>Accept</button> <button>Decline</button></li>
               {{/each}}
             </ul>
           </div>
           {{/each}}
+        </div>
+      </script>
+
+     
+      <script type="text/x-handlebars" data-template-name="freelancer/static">
+
+        <div class="wrapper">
+
+          <h1>{{profile.name}}</h1>
+          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
+
+          <div class="bio">
+            <h3>Bio</h3>
+            <p>{{profile.bio}}</p>
+          </div>
+
+          <div class="hourly-rate">
+            <span>Hourly Rate</span>
+            <span>{{profile.rate}}</span>
+          </div>
+
+          <div class="portfolio">
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgThree}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFour}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
+          </div>
         </div>
       </script>
 

@@ -24,6 +24,7 @@ Final.Router.map(function(){
 		this.route('create');
 		this.route('edit');
 		this.route('my', {path: ':id'});
+
 	});
 
 
@@ -35,7 +36,9 @@ Final.Router.map(function(){
 			this.route('create');
 			this.route('edit', { path: '/:user_id/edit' });
 			this.route('my', {path: ':user_id'});
+
 		});
+		this.route('static', {path: ':user_id'});
 	});
 
 	this.resource('jobs', function (){
