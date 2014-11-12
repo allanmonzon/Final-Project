@@ -113,7 +113,11 @@
           <div class="job-item">
             Type Of Project<span>{{typeOfProject}}</span>
             Project Scope<p>{{projectScope}}</p>
-            Bids<span> {{bids.length}}</span>
+            <ul>
+              {{#each}}
+                <li>Bids {{bids}}</li>
+              {{/each}}
+            </ul>
           </div>
           {{/each}}
         </div>
