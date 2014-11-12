@@ -27,7 +27,7 @@
         {{outlet}}
       </script>
 
-  
+
             <!--//////////////// Client ///////////////////-->
 
       <!-- Client Profile Template -->
@@ -103,7 +103,7 @@
         </ul>
         <input type="submit" value="Save Job" {{action "createJob"}}>
       </script>
-       
+
 
       <!-- Job Bids Template -->
       <script type="text/x-handlebars" data-template-name="my-jobs">
@@ -113,7 +113,7 @@
           <div class="job-item">
             Type Of Project<span>{{typeOfProject}}</span>
             Project Scope<p>{{projectScope}}</p>
-            Bids<span>{{bids.length}}</span>
+            Bids<span> {{bids.length}}</span>
           </div>
           {{/each}}
         </div>
@@ -362,7 +362,6 @@
         </div>
 
         <div class="jobs-bids">
-          {{#link-to 'jobs.all'}}<span>View All Jobs</span>{{/link-to}} 
           {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
         </div>
 
@@ -435,6 +434,7 @@
 
           <section class="body">
             <form class="signup-form">
+              {{input type="text" value=name placeholder="Name"}}
               {{input type="email" value=email placeholder="Email"}}
               {{input type="password" value=password placeholder="Password"}}
               <button {{action "signup"}}>Sign Up</button>
@@ -451,6 +451,7 @@
       <script type="text/x-handlebars" data-template-name="signup/freelancer">
         <div class="container">
           <form>
+            {{input type="text" value=name placeholder="Name"}}
             {{input type="email" value=email placeholder="Email"}}
             {{input type="password" value=password placeholder="Password"}}
             <button {{action "signup"}}>Sign Up</button>
@@ -481,69 +482,6 @@
       </script>
 
 
-      <!--//////////////// jobs ///////////////////-->
-      <script type="text/x-handlebars" data-template-name="jobs/all">
-        <div>
-          <div>
-            <h1>Job Title</h1>
-            <h4>Client Name or Business Name</h4>
-          </div>
-          <div>
-            <p>This is the description of the project scope<br />
-            I expect there to be a lot of copy here and abouts</p>
-          </div>
-          <div>
-            <p>
-              Needs:</br>
-              &bull; Front-End Developer
-            </p>
-          </div>
-          <div>
-            <button>Place Bid</button>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <h1>Job Title</h1>
-            <h4>Client Name or Business Name</h4>
-          </div>
-          <div>
-            <p>This is the description of the project scope<br />
-            I expect there to be a lot of copy here and abouts</p>
-          </div>
-          <div>
-            <p>
-              Needs:</br>
-              &bull; Front-End Developer
-            </p>
-          </div>
-          <div>
-            <button>Place Bid</button>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <h1>Job Title</h1>
-            <h4>Client Name or Business Name</h4>
-          </div>
-          <div>
-            <p>This is the description of the project scope<br />
-            I expect there to be a lot of copy here and abouts</p>
-          </div>
-          <div>
-            <p>
-              Needs:</br>
-              &bull; Front-End Developer
-            </p>
-          </div>
-          <div>
-            <button>Place Bid</button>
-          </div>
-        </div>
-      </script>
-
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -564,6 +502,7 @@
         <script src="scripts/models/Bids.js"></script>
         <script src="scripts/models/profile_model.js"></script>
         <script src="scripts/controllers/application_controller.js"></script>
+        <script src="scripts/controllers/client/myjobs_controller.js"></script>
         <script src="scripts/controllers/client/signup_client_controller.js"></script>
         <script src="scripts/controllers/client/login_client_controller.js"></script>
         <script src="scripts/controllers/client/postJob_controller.js"></script>

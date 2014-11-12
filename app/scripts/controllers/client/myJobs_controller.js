@@ -1,11 +1,12 @@
 Final.MyJobsController = Ember.ArrayController.extend({
-	needs: 'application',
+	needs: ['application'],
 	user: Ember.computed.alias('controllers.application.currentUser'),
 	itemController: 'bid',
+
 });
 
 Final.BidController = Ember.ObjectController.extend({
-	needs: 'application',
+	needs: ['application'],
 
 	init: function() {
 		this._super();
@@ -14,7 +15,7 @@ Final.BidController = Ember.ObjectController.extend({
 		var jobs = model.serialize();
 		var bidsID = jobs.bids;
 		console.log(bidsID);
-		
-	},
+
+	}
 
 });
