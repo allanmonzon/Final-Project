@@ -42,19 +42,19 @@ Final.JobController = Ember.ObjectController.extend({
 		placeBid: function () {
 			var user = this.get('controllers.application.currentUser');
 			var jobs = this.get('model');
-
+			
 			var bid = this.store.createRecord('bid', {
 				bidSent: true,
 				user: user,
 				job: jobs
-			});
+			}); 
 			bid.save();
 
-      user.get('bids').addObject(bid);
-			user.save();
-			jobs.get('bids').addObject(bid);
-			jobs.save();
-			this.set('placedBid', true);
+   //    user.get('bids').addObject(bid);
+			// user.save();
+			// jobs.get('bids').addObject(bid);
+			// jobs.save();
+			// this.set('placedBid', true);
 		}
 	},
 
