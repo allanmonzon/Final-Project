@@ -45,5 +45,5 @@ Final.Router.map(function(){
 		this.route('all');
 	});
 
-  this.route('my-bids', {path: '/:id/my-bids'});
+  this.route('my-bids', {path: '/:user_id/my-bids'});
 });

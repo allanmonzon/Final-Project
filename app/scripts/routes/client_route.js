@@ -24,5 +24,4 @@ Final.MyJobsRoute = Ember.Route.extend({
   model: function(){
     return this.controllerFor('application').get('currentUser.jobs');
   }
-
 });

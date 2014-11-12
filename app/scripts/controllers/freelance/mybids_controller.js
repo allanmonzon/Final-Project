@@ -6,7 +6,6 @@ Final.MyBidsController = Ember.ArrayController.extend({
 
 Final.SentBidsController = Ember.ObjectController.extend({
   needs: ['application'],
-  userBids: Ember.computed.alias('controllers.application.currentUser.bids'),
 
   init: function() {
     this._super();
@@ -18,15 +17,15 @@ Final.SentBidsController = Ember.ObjectController.extend({
     var jobs = model.serialize();
     var bidsID = jobs.bids;
 
-    // var user = this.get('controllers.application.currentUser');
-    // var ubid = this.get('controllers.application.currentUser.bids');
-    // console.log(ubid);
-    // var userInfo = user.serialize();
-    // var userBids = userInfo.bids;
+    var user = this.get('controllers.application.currentUser');
+    var ubid = this.get('controllers.application.currentUser.bids');
+
+    var userInfo = user.serialize();
+    var userBids = userInfo.bids;
 
     var hasBid = Ember.Object.createWithMixins({
       jobBid: bidsID,
-      userBid: this.get('userBids'),
+      userBid: userBids,
       bidsInCommon: Ember.computed.intersect('jobBid', 'userBid')
     });
 
@@ -41,6 +40,8 @@ Final.SentBidsController = Ember.ObjectController.extend({
   },
 
   placedBid: false,
+  bidAccepted: false,
+  bidRejected: false
   /*
   userBids: Ember.computed.alias('controlers.application.currentUser.bids'),
   bidsInCommon: Ember.computed.intersect('userBids', 'model.bids'),

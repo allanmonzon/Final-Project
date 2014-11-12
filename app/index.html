@@ -116,7 +116,7 @@
             Project Scope<p>{{projectScope}}</p>
             <ul>
               {{#each bids}}
-              <li>Bid   {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button>Accept</button> <button>Decline</button></li>
+              <li>Bid   {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button {{action "acceptBid"}}>Accept</button> <button>Decline</button></li>
               {{/each}}
             </ul>
           </div>
@@ -125,7 +125,7 @@
         {{#link-to 'client-profile.my' user.id}}<button>Home</button>{{/link-to}}
       </script>
 
-     
+
       <script type="text/x-handlebars" data-template-name="freelancer/static">
 
         <div class="wrapper">
@@ -272,6 +272,7 @@
           {{/each}}
         </div>
         {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
+        {{#link-to 'my-bids' user.id}}<button>My Bids</button>{{/link-to}}
       </script>
 
 
@@ -397,7 +398,7 @@
         </div>
 
         <div class="jobs-bids">
-          {{#link-to 'my-bids'}}<span>View My Bids</span>{{/link-to}}
+          {{#link-to 'my-bids' id}}<span>View My Bids</span>{{/link-to}}
         </div>
 
         {{#link-to 'profile.edit' id}}<button>Edit</button>{{/link-to}}
@@ -528,6 +529,8 @@
         </div>
         {{/each}}
       </div>
+      {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
+      {{#link-to 'freelancer.home'}}<button>All Jobs</button>{{/link-to}}
     </script>
 
       <!-- build:js scripts/vendor.js -->
