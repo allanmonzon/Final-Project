@@ -482,6 +482,19 @@
       </script>
 
 
+    <!--//////////////// View Bids ///////////////////-->
+    <script type="text/x-handlebars" data-template-name="my-bids">
+      <div class="portfolio">
+        {{#each}}
+        <div {{bind-attr class="placedBid:job-item:hidden"}}>
+          <span>{{name}}</span>
+          <span>{{typeOfProject}}</span>
+          <p>{{projectScope}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </script>
+
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -515,6 +528,7 @@
         <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
+        <script src="scripts/controllers/freelance/mybids_controller.js"></script>
         <script src="scripts/routes/client_route.js"></script>
         <script src="scripts/routes/freelancer_route.js"></script>
         <!-- endbuild -->
