@@ -27,7 +27,7 @@
         {{outlet}}
       </script>
 
-
+  
             <!--//////////////// Client ///////////////////-->
 
       <!-- Client Profile Template -->
@@ -103,13 +103,13 @@
         </ul>
         <input type="submit" value="Save Job" {{action "createJob"}}>
       </script>
-
+       
 
       <!-- Job Bids Template -->
       <script type="text/x-handlebars" data-template-name="my-jobs">
         <h1>Jobs</h1>
         <div class="portfolio">
-          {{#each myJobs}}
+          {{#each}}
           <div class="job-item">
             Type Of Project<span>{{typeOfProject}}</span>
             Project Scope<p>{{projectScope}}</p>
