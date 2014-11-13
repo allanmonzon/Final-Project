@@ -9,7 +9,7 @@
 
 $primary-color: #000; // Black
 $secondary-color: #fff; // White
-
+$transparent-bg: rgba(0, 0, 0, .0);
 
 // ================= Generic ================= //
 
@@ -159,6 +159,128 @@ header {
 }
 
 footer {
+  @include outer-container;
+  max-width: 100%;
+  background-color: $primary-color;
+  padding: rem(30) 0 rem(25);
+
+  .logo {
+    @include span-columns(2);
+    @include shift(5);
+  }
+
+  p {
+    @include span-columns(2);
+    @include shift(5);
+    clear: both;
+    font-size: rem(12);
+    color: #fff;
+    text-align: center;
+  }
+}
+
+
+// ================= Signup & login Pages ================= //
+
+
+.s-and-l-wrapper {
+  @include outer-container;
+  max-width: 100%;
+  height: 100vh;
+  @include background-image(linear-gradient(to top, rgba(0, 0, 0, .2) 1%, rgba(1, 1, 1, .2) 102%, #fff), url("/images/photo_4.jpg"));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .body {
+    @include span-columns(6);
+    @include shift(3);
+    margin-top: 8%;
+    padding: rem(100);
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: rem(10);
+  }
+
+  .logo {
+    @include span-columns(8);
+    @include shift(2);
+    margin-bottom: rem(30);
+    margin-right: 0;
+  }
+
+  input {
+    color: $secondary-color;
+    border: 0;
+    border-radius: 0;
+    border-bottom: solid 1px $secondary-color;
+    background-color: rgba(0, 0, 0, 0);
+    margin-bottom: rem(30);
+  }
+
+  input:focus {
+    background-color: rgba(0, 0, 0, .3);
+  }
+
+  button {
+    @include span-columns(4);
+    @include shift(4);
+    border: solid 1px $secondary-color;
+    background-color: $transparent-bg;
+    margin-top: rem(10);
+    margin-bottom: rem(10);
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, .3);
+  }
+
+  p {
+    @include span-columns(6);
+    @include shift(3);
+    text-align: center;
+    font-size: rem(12);
+    color: $secondary-color;
+    margin-top: 5%;
+  }
+}
+
+
+// ================= Client ================= //
+
+
+.header {
+  @include span-columns(12);
+  background-color: $primary-color;
+
+  .logo {
+    @include span-columns(3);
+  }
+
+  img {
+    display: inline-block;
+    float: right;
+    padding: rem(20) rem(40);
+  }
+
+  ul {
+    @include span-columns(9);
+    float: right;
+    font-size: rem(14);
+    color: $secondary-color;
+    padding: rem(18) 0;
+  }
+
+  li {
+    float: right;
+    margin-right: rem(10);
+
+    &:first-child {
+      margin-right: rem(40);
+    }
+  }
+}
+
+.footer {
   @include outer-container;
   max-width: 100%;
   background-color: $primary-color;
