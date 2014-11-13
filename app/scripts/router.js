@@ -42,8 +42,5 @@ Final.Router.map(function(){
 			this.route('my', {path: ':user_id'});
 		});	
 	});
-
 	
-
-  
 });
