@@ -11,14 +11,9 @@ Final.ClientMyJobsController = Ember.ArrayController.extend({
 Final.JobItemController = Ember.ObjectController.extend({
 	needs: ['application'],
 	acceptedBids: Ember.computed.filterBy('bids', 'accepted', true),
+
 	// Use a computed filterby to go through the bids and show the accepted bid
 	// Using an if/else statement to show the items if no bid has been accepted
-
-	// bidAccepted: function() {
-	// 	return this.get('bids').findBy('accepted');
-	// }.property('bids'),
-	//
-	// acceptedBids: Ember.computed.``
 
 	actions: {
 		acceptBid: function() {
