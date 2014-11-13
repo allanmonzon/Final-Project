@@ -3,6 +3,8 @@ Final.ClientController = Ember.Controller.extend({
 
   actions: {
     logOut: function () {
+      this.set('currentUser', null);
+      localStorage.removeItem('userAuth');
       Final.ref.unauth();
       this.transitionToRoute('index');
     }
