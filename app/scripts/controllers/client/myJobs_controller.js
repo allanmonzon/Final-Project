@@ -1,34 +1,41 @@
 Final.ClientMyJobsController = Ember.ArrayController.extend({
-	needs: ['application', 'sentBids'],
-
+	needs: ['application'],
 	user: Ember.computed.alias('controllers.application.currentUser'),
-	// bidAccepted: false,
-	bidRejected: false,
-
+	itemController: 'jobItem',
 	// Need to each over the bids associated to the specific job
 	// When a bid is accepted then th rest are automatically rejected
 	// All bids will need to be removed, except for the winning bid
-                                
-	// init: function() {
-	// 	//this.super();
-	// 	/return console.log('cool');
-	// },
 
-	actions: { 
+});
 
+Final.JobItemController = Ember.ObjectController.extend({
+	needs: ['application'],
+	acceptedBids: Ember.computed.filterBy('bids', 'accepted', true),
+
+	// Use a computed filterby to go through the bids and show the accepted bid
+	// Using an if/else statement to show the items if no bid has been accepted
+
+	actions: {
 		acceptBid: function() {
-			// var cool = this.get('model');
-			var cool = this.get('controllers.sentBids.bidAccepted');
-			//this.set('bidAccepted', true);
-			//var cooler = this.store.find('user');
+			var cool = this.get('model');
 			console.log(cool);
-			//console.log(cooler);
-			
-		}      
+			var cooler = cool.get('bids');
+			console.log(cooler);
+		}
 	}
 
 });
 
+Final.BidItemController = Ember.ObjectController.extend({
+	needs: ['application'],
 
+	actions: {
 
+		acceptBid: function() {
+			var cool = this.model;
+			cool.set('accepted', true);
+			cool.save();
+		}
+	}
+});
 

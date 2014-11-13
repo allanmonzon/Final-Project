@@ -24,7 +24,7 @@ Final.ProfileCreateRoute = Ember.Route.extend({
       this.transitionTo('index');
     }
   }
-  
+
 });
 
 Final.ProfileEditRoute = Ember.Route.extend({

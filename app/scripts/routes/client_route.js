@@ -60,4 +60,3 @@ Final.ProfileClientStaticRoute = Ember.Route.extend({
   }
 });
 
-
