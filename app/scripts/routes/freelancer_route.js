@@ -1,7 +1,10 @@
 Final.ProfileMyRoute = Ember.Route.extend({
   beforeModel: function() {
-    var user = this.controllerFor('application').get('currentUser.id');
-    if (!user) {
+    var user = this.controllerFor('application').get('currentUser.userType');
+    console.log(user);
+    if (user ===  'freelancer') {
+      console.log(true);
+    } else {
       this.transitionTo('index');
     }
   },
@@ -9,6 +12,19 @@ Final.ProfileMyRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('user', params.user_id);
   }
+});
+
+Final.ProfileCreateRoute = Ember.Route.extend({
+  beforeModel: function() {
+    var user = this.controllerFor('application').get('currentUser.userType');
+    console.log(user);
+    if (user ===  'freelancer') {
+      console.log(true);
+    } else {
+      this.transitionTo('index');
+    }
+  }
+  
 });
 
 Final.ProfileEditRoute = Ember.Route.extend({
@@ -24,26 +40,39 @@ Final.ProfileEditRoute = Ember.Route.extend({
   }
 });
 
-Final.FreelancerHomeRoute = Ember.Route.extend({
+Final.FreelancerJobsRoute = Ember.Route.extend({
+  beforeModel: function() {
+    var user = this.controllerFor('application').get('currentUser.userType');
+    console.log(user);
+    if (user ===  'freelancer') {
+      console.log(true);
+    } else {
+      this.transitionTo('index');
+    }
+  },
+
    model: function(){
     return this.store.find('job');
   }
 });
 
-Final.MyBidsRoute = Ember.Route.extend({
+Final.FreelancerMyBidsRoute = Ember.Route.extend({
+  beforeModel: function() {
+    var user = this.controllerFor('application').get('currentUser.userType');
+    console.log(user);
+    if (user ===  'freelancer') {
+      console.log(true);
+    } else {
+      this.transitionTo('index');
+    }
+  },
+
   model: function() {
     return this.store.find('job');
   }
 })
 
 Final.FreelancerStaticRoute = Ember.Route.extend({
-  beforeModel: function() {
-    var user = this.controllerFor('application').get('currentUser.id');
-    if (!user) {
-      this.transitionTo('index');
-    }
-  },
-
   model: function(params) {
     return this.store.find('user', params.user_id);
   }

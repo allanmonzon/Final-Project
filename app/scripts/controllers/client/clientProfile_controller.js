@@ -24,7 +24,7 @@ Final.ClientProfileCreateController = Ember.Controller.extend({
       localStorage.removeItem('userAuth');
       Final.ref.unauth();
       this.transitionToRoute('index');
-
+     
     }
 	}
 

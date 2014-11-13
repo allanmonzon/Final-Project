@@ -28,9 +28,125 @@
       </script>
 
 
+      <!--//////////////// Landing Page ///////////////////-->
+      <script type="text/x-handlebars" data-template-name="index">
+        <div class="container">
+          <header>
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <div class="login-buttons">
+              <p>Login</p>
+              <div class="buttons">
+                {{#link-to 'login.client'}}<button class="client-login">C</button>{{/link-to}}
+                {{#link-to 'login.freelancer'}}<button class="freelance-login">F</button>{{/link-to}}
+              </div>
+            </div>
+          </header>
+          <section class="signup">
+            <div class="signup-button">
+              <h1>Sign Up</h1>
+              <p>An app that matches clients and freelancers to bring projects to life. Freelancers bid on projects of interest, and clients choose the freelancer who best fits their needs.</p>
+              <div class='s-buttons'>
+                {{#link-to 'signup.client'}}<button class="client-signup">Client</button>{{/link-to}}
+                {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance</button>{{/link-to}}
+              </div>
+            </div>
+          </section>
+
+          <section class="info">
+            <h1>Info</h1>
+            <p>Wayfarers meditation fingerstache Etsy ennui sustainable. Health goth disrupt occupy, pork belly you probably havent heard of them selvage gastropub squid hoodie cliche normcore chillwave asymmetrical. Mixtape fanny pack forage Pinterest, taxidermy wayfarers Brooklyn Thundercats</p>
+          </section>
+
+          <section class="steps">
+            <div class="step">
+              <h3>Step One</h3>
+              <p>Signup up for an account!<br />If you're a freelancer or a client, get your account and profile setup to start investing in your projects.</p>
+            </div>
+
+            <div class="step">
+              <h3>Step Two</h3>
+              <p>Clients post a job, with a thorough and detailed description of what you need and what you're expecting. Be sure to mention what content you have. Freelancers bid on a job that sparks your interest and excites you.</p>
+            </div>
+
+            <div class="step">
+              <h3>Step Three</h3>
+              <p>Clients go through your bids and choose the freelancer that best meets youre needs. Then begin working together to bring the project to life!</p>
+            </div>
+          </section>
+
+          <footer>
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
+          </footer>
+
+        </div>
+      </script>
+
+
+      <!--//////////////// signup ///////////////////-->
+      <script type="text/x-handlebars" data-template-name="signup/client">
+        <div class="container">
+          <div class="header">
+            <div class="logo"><img src="images/Market_Place_wh.png"></div>
+          </div>
+
+          <section class="body">
+            <form class="signup-form">
+              {{input type="text" value=name placeholder="Name"}}
+              {{input type="email" value=email placeholder="Email"}}
+              {{input type="password" value=password placeholder="Password"}}
+              <button {{action "signup"}}>Sign Up</button>
+            </form>
+          </section>
+
+          <div class="footer">
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
+          </div>
+        </div>
+      </script>
+
+      <script type="text/x-handlebars" data-template-name="signup/freelancer">
+        <div class="container">
+          <form>
+            {{input type="text" value=name placeholder="Name"}}
+            {{input type="email" value=email placeholder="Email"}}
+            {{input type="password" value=password placeholder="Password"}}
+            <button {{action "signup"}}>Sign Up</button>
+          </form>
+        </div>
+      </script>
+
+
+      <!--//////////////// login ///////////////////-->
+      <script type="text/x-handlebars" data-template-name="login/client">
+        <div class="container">
+          <form>
+            {{input type ="email" value=email placeholder="Email"}}
+            {{input type ="password" value=password placeholder="Password"}}
+            <button {{action "login"}}>Login</button>
+          </form>
+        </div>
+      </script>
+
+      <script type="text/x-handlebars" data-template-name="login/freelancer">
+        <div class="container">
+          <form>
+            {{input type="email" value=email placeholder="Email"}}
+            {{input type="password" value=password placeholder="Password"}}
+            <button {{action "login"}}>Login</button>
+          </form>
+        </div>
+      </script>
+
+
             <!--//////////////// Client ///////////////////-->
 
-      <!-- Client Profile Template -->
+      <script type="text/x-handlebars" data-template-name="client">
+        {{outlet}}
+      </script>
+
+      <!-- Create Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/create">
         <h1>Create Profile</h1>
         <form>
@@ -47,6 +163,7 @@
         </form>
       </script>
 
+      <!-- Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/my">
         <div class="wrapper">
           <h1>{{profile.name}}</h1>
@@ -54,32 +171,23 @@
           <h2>{{profile.email}}</h2>
           <h2>{{profile.number}}</h2>
         </div>
-         <button {{action "logOut"}}>Log Out</button>
-         {{#link-to 'post-job'}}<button>Post Job</button>{{/link-to}}
-         {{#link-to 'my-jobs'}}<button>My Jobs</button>{{/link-to}}
-      </script>
-
-
-      <!-- Client Home Template -->
-      <script type="text/x-handlebars" data-template-name="client-home">
-        <h1>Home</h1>
-        <ul>
-        {{#each}}
-          <li>
-            <h3>{{name}}</h3>
-            <h3>{{info}}</h3>
-            <h3>{{email}}</h3>
-            <h3>{{number}}</h3>
-          </li>
-        {{/each}}
-        </ul>
         <button {{action "logOut"}}>Log Out</button>
-        {{#link-to 'client-profile'}}<button>Edit</button>{{/link-to}}
+        {{#link-to 'client.post-job'}}<button>Post Job</button>{{/link-to}}
+        {{#link-to 'client.my-jobs'}}<button>My Jobs</button>{{/link-to}}
       </script>
 
+      <!-- Static Profile -->
+      <script type="text/x-handlebars" data-template-name="client/static">
+        <div class="wrapper">
+          <h1>{{profile.name}}</h1>
+          <h2>{{profile.bio}}</h2>
+          <h2>{{profile.email}}</h2>
+          <h2>{{profile.number}}</h2>
+        </div>
+      </script>
 
       <!-- Post-Job Template -->
-      <script type="text/x-handlebars" data-template-name="post-job">
+      <script type="text/x-handlebars" data-template-name="client/post-job">
         <h1>Post Job</h1>
         <span>Type of project</span> {{input type="text" placeholder="Web Application, Static Website, Landing Page, Branding, Content, etc." value=typeOfProject}}
         <span>Project Scope</span>  {{textarea placeholder="Specify the project details, what's being provided by you, what's expected, etc." value=projectScope}}
@@ -104,10 +212,8 @@
         <input type="submit" value="Save Job" {{action "createJob"}}>
       </script>
 
-
-      <!-- Job Bids Template -->
-
-      <script type="text/x-handlebars" data-template-name="my-jobs">
+      <!-- My-Jobs Template -->
+      <script type="text/x-handlebars" data-template-name="client/my-jobs">
         <h1>Jobs</h1>
         <div class="portfolio">
           {{#each}}
@@ -116,12 +222,7 @@
             Project Scope<p>{{projectScope}}</p>
             <ul>
               {{#each bids}}
-              <li>
-                <span>Bid</span> {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
-                {{#unless bidAccepted}}
-                <button {{action "acceptBid"}}>Accept</button>
-                {{/unless}}
-              </li>
+              <li>Bid  {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button {{action "acceptBid"}}>Accept</button> <button>Decline</button></li>
               {{/each}}
             </ul>
           </div>
@@ -131,155 +232,11 @@
       </script>
 
 
-      <script type="text/x-handlebars" data-template-name="freelancer/static">
-
-        <div class="wrapper">
-
-          <h1>{{profile.name}}</h1>
-          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
-
-          <div class="bio">
-            <h3>Bio</h3>
-            <p>{{profile.bio}}</p>
-          </div>
-
-          <div class="hourly-rate">
-            <span>Hourly Rate</span>
-            <span>{{profile.rate}}</span>
-          </div>
-
-          <div class="portfolio">
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgThree}}/></div>
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFour}}/></div>
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
-            <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
-          </div>
-        </div>
-      </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!--//////////////// Freelance ///////////////////-->
 
-      <script type="text/x-handlebars" data-template-name="freelancer/home">
-        <div class="portfolio">
-          {{#each}}
-          <div {{bind-attr class="placedBid:hidden:job-item"}}>
-            <span>{{name}}</span>
-            <span>{{typeOfProject}}</span>
-            <p>{{projectScope}}</p>
-            <button {{action 'placeBid'}}>Place Bid</button>
-          </div>
-          {{/each}}
-        </div>
-        {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
-        {{#link-to 'my-bids' user.id}}<button>My Bids</button>{{/link-to}}
+      <script type="text/x-handlebars" data-template-name="freelancer">
+        {{outlet}}
       </script>
-
 
       <!-- Create-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/create">
@@ -341,7 +298,6 @@
         </form>
       </script>
 
-
       <!-- Edit-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/edit">
         <form class="wrapper">
@@ -374,7 +330,6 @@
         <button {{action "logOut"}}>Log Out</button>
       </script>
 
-
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="wrapper">
@@ -403,142 +358,75 @@
         </div>
 
         <div class="jobs-bids">
-          {{#link-to 'my-bids' id}}<span>View My Bids</span>{{/link-to}}
+          {{#link-to 'freelancer.my-bids' id}}<span>View My Bids</span>{{/link-to}}
         </div>
 
         {{#link-to 'profile.edit' id}}<button>Edit</button>{{/link-to}}
-        {{#link-to 'freelancer.home'}}<button>Jobs</button>{{/link-to}}
+        {{#link-to 'freelancer.jobs'}}<button>Jobs</button>{{/link-to}}
 
         <button {{action "logOut"}}>Log Out</button>
       </script>
 
+      <!-- Static Profile -->
+      <script type="text/x-handlebars" data-template-name="freelancer/static">
+        <div class="wrapper">
 
-      <!--//////////////// Landing Page ///////////////////-->
-      <script type="text/x-handlebars" data-template-name="index">
-        <div class="container">
-          <header>
-            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
-            <div class="login-buttons">
-              <p>Login</p>
-              <div class="buttons">
-                {{#link-to 'login.client'}}<button class="client-login">C</button>{{/link-to}}
-                {{#link-to 'login.freelancer'}}<button class="freelance-login">F</button>{{/link-to}}
-              </div>
-            </div>
-          </header>
-          <section class="signup">
-            <div class="signup-button">
-              <h1>Sign Up</h1>
-              <p>An app that matches clients and freelancers to bring projects to life. Freelancers bid on projects of interest, and clients choose the freelancer who best fits their needs.</p>
-              <div class="s-buttons">
-                {{#link-to 'signup.client'}}<button class="client-signup">Client</button>{{/link-to}}
-                {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance</button>{{/link-to}}
-              </div>
-            </div>
-          </section>
+          <h1>{{profile.name}}</h1>
+          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
 
-          <section class="info">
-            <h1>Info</h1>
-            <p>Wayfarers meditation fingerstache Etsy ennui sustainable. Health goth disrupt occupy, pork belly you probably havent heard of them selvage gastropub squid hoodie cliche normcore chillwave asymmetrical. Mixtape fanny pack forage Pinterest, taxidermy wayfarers Brooklyn Thundercats</p>
-          </section>
-
-          <section class="steps">
-            <div class="step">
-              <h3>Step One</h3>
-              <p>Signup up for an account!<br />If you're a freelancer or a client, get your account and profile setup to start investing in your projects.</p>
-            </div>
-
-            <div class="step">
-              <h3>Step Two</h3>
-              <p>Clients post a job, with a thorough and detailed description of what you need and what you're expecting. Be sure to mention what content you have. Freelancers bid on a job that sparks your interest and excites you.</p>
-            </div>
-
-            <div class="step">
-              <h3>Step Three</h3>
-              <p>Clients go through your bids and choose the freelancer that best meets you're needs. Then begin working together to bring the project to life!</p>
-            </div>
-          </section>
-
-          <footer>
-            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
-            <p>&copy; 2014. All Rights Reserved.</p>
-          </footer>
-
-        </div>
-      </script>
-
-
-      <!--//////////////// signup ///////////////////-->
-      <script type="text/x-handlebars" data-template-name="signup/client">
-        <div class="container">
-          <div class="header">
-            <div class="logo"><img src="images/Market_Place_wh.png"></div>
+          <div class="bio">
+            <h3>Bio</h3>
+            <p>{{profile.bio}}</p>
           </div>
 
-          <section class="body">
-            <form class="signup-form">
-              {{input type="text" value=name placeholder="Name"}}
-              {{input type="email" value=email placeholder="Email"}}
-              {{input type="password" value=password placeholder="Password"}}
-              <button {{action "signup"}}>Sign Up</button>
-            </form>
-          </section>
+          <div class="hourly-rate">
+            <span>Hourly Rate</span>
+            <span>{{profile.rate}}</span>
+          </div>
 
-          <div class="footer">
-            <div class="logo"><img src="images/Market_Place_wh_footer.png"></div>
-            <p>&copy; 2014. All Rights Reserved.</p>
+          <div class="portfolio">
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgThree}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFour}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
+            <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
           </div>
         </div>
       </script>
 
-      <script type="text/x-handlebars" data-template-name="signup/freelancer">
-        <div class="container">
-          <form>
-            {{input type="text" value=name placeholder="Name"}}
-            {{input type="email" value=email placeholder="Email"}}
-            {{input type="password" value=password placeholder="Password"}}
-            <button {{action "signup"}}>Sign Up</button>
-          </form>
+      <!-- Jobs Template -->
+      <script type="text/x-handlebars" data-template-name="freelancer/jobs">
+        <div class="portfolio">
+          {{#each}}
+          <div {{bind-attr class="placedBid:hidden:job-item"}}>
+            <span>{{name}}</span>
+            <span>{{typeOfProject}}</span>
+            <p>{{projectScope}}</p>
+            <button {{action 'placeBid'}}>Place Bid</button>
+          </div>
+          {{/each}}
         </div>
+        {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
+        {{#link-to 'freelancer.my-bids' user.id}}<button>My Bids</button>{{/link-to}}
       </script>
 
-
-      <!--//////////////// login ///////////////////-->
-      <script type="text/x-handlebars" data-template-name="login/client">
-        <div class="container">
-          <form>
-            {{input type ="email" value=email placeholder="Email"}}
-            {{input type ="password" value=password placeholder="Password"}}
-            <button {{action "login"}}>Login</button>
-          </form>
+      <!-- My-Bids Template -->
+      <script type="text/x-handlebars" data-template-name="freelancer/my-bids">
+        <div class="portfolio">
+          {{#each}}
+          <div {{bind-attr class="placedBid:job-item:hidden"}}>
+            <span>{{name}}</span>
+            <span>{{typeOfProject}}</span>
+            <p>{{projectScope}}</p>
+            {{#link-to 'client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
+          </div>
+          {{/each}}
         </div>
+        {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
+        {{#link-to 'freelancer.jobs'}}<button>All Jobs</button>{{/link-to}}
       </script>
 
-      <script type="text/x-handlebars" data-template-name="login/freelancer">
-        <div class="container">
-          <form>
-            {{input type="email" value=email placeholder="Email"}}
-            {{input type="password" value=password placeholder="Password"}}
-            <button {{action "login"}}>Login</button>
-          </form>
-        </div>
-      </script>
-
-
-    <!--//////////////// View Bids ///////////////////-->
-    <script type="text/x-handlebars" data-template-name="my-bids">
-      <div class="portfolio">
-        {{#each}}
-        <div {{bind-attr class="placedBid:job-item:hidden"}}>
-          <span>{{name}}</span>
-          <span>{{typeOfProject}}</span>
-          <p>{{projectScope}}</p>
-        </div>
-        {{/each}}
-      </div>
-      {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
-      {{#link-to 'freelancer.home'}}<button>All Jobs</button>{{/link-to}}
-    </script>
 
       <!-- build:js scripts/vendor.js -->
       <!-- bower:js -->
@@ -568,7 +456,7 @@
         <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/client/client-profile_my.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
-        <script src="scripts/controllers/freelance/freelancer_home_controller.js"></script>
+        <script src="scripts/controllers/freelance/freelancer_jobs_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
