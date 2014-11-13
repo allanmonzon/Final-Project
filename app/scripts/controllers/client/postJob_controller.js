@@ -1,4 +1,4 @@
-Final.PostJobController = Ember.Controller.extend({
+Final.ClientPostJobController = Ember.Controller.extend({
 	needs: 'application',
 	user: Ember.computed.alias('controllers.application.currentUser'),
 
@@ -19,7 +19,7 @@ Final.PostJobController = Ember.Controller.extend({
 				userID: this.get('user.id')
 			});
 			workflow.run();
-			self.transitionToRoute('my-jobs');
+			self.transitionToRoute('client.my-jobs');
 		}
 	}
 

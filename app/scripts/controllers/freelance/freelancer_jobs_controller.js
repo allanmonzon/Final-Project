@@ -1,4 +1,4 @@
-Final.FreelancerHomeController = Ember.ArrayController.extend({
+Final.FreelancerJobsController = Ember.ArrayController.extend({
 	needs: ['application'],
 	user: Ember.computed.alias('controllers.application.currentUser'),
 	itemController: 'job',

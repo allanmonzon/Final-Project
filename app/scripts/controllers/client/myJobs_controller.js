@@ -1,4 +1,4 @@
-Final.MyJobsController = Ember.ArrayController.extend({
+Final.ClientMyJobsController = Ember.ArrayController.extend({
 	needs: ['application'],
 	user: Ember.computed.alias('controllers.application.currentUser'),
 
