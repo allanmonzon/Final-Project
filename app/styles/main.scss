@@ -276,7 +276,24 @@ footer {
 
     &:first-child {
       margin-right: rem(40);
+      cursor: pointer;
+
+      &:hover {
+        color: #c5c5c5;
+      }
     }
+  }
+
+  a {
+    color: $secondary-color;
+  }
+
+  a:hover {
+    color: #c5c5c5;
+  }
+
+  .active {
+    color: #c5c5c5;
   }
 }
 
@@ -298,5 +315,48 @@ footer {
     font-size: rem(12);
     color: #fff;
     text-align: center;
+  }
+}
+
+// ---- Profile ---- //
+
+.cover-photo {
+  @include span-columns(12);
+  height: rem(300);
+  background-image: url("/images/photo_6.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.client-avatar {
+  width: rem(200);
+  height: rem(200);
+  //border: solid 2px #a91515;
+  border-radius: rem(5);
+  background-color: $secondary-color;
+  -webkit-box-shadow: rem(.5) rem(.5) rem(2) rgba(0, 0, 0, .3);
+
+  position: absolute;
+  top: rem(300);
+  left: rem(200);
+
+  img {
+    margin-top: 25%;
+    position: relative;
+  }
+}
+
+.profile-container {
+  @include outer-container;
+  margin-left: 35%;
+
+  h1 {
+
+  }
+
+  p {
+    @include span-columns(8);
   }
 }
