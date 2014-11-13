@@ -193,19 +193,21 @@
           <img src="images/Market_Place.png">
         </div>
         <div class="profile-container">
-          <h1>{{profile.name}}</h1>
-          <!-- <h2>{{profile.bio}}</h2> -->
+          <h1>Not Just Coffee</h1>
           <p>At Not Just Coffee we are passionate about giving our customers
-excellent service and the highest quality drinks. We want each visit
-to not just be another cup of coffee but an experience you will
-remember. We carefully select every ingredient, and source only the
-finest quality products; including North Carolina roasted Counter
-Culture Coffee, local milk from Homeland Creamery and fair trade
-chocolates and teas. Our caramel and chocolate sauces are made in
-house and we take time to make each drink the way we believe coffee
-should be enjoyed: hand crafted and made to order.</p>
-          <h2>{{profile.email}}</h2>
-          <h2>{{profile.number}}</h2>
+          excellent service and the highest quality drinks. We want each visit
+          to not just be another cup of coffee but an experience you will
+          remember. We carefully select every ingredient, and source only the
+          finest quality products; including North Carolina roasted Counter
+          Culture Coffee, local milk from Homeland Creamery and fair trade
+          chocolates and teas. Our caramel and chocolate sauces are made in
+          house and we take time to make each drink the way we believe coffee
+          should be enjoyed: hand crafted and made to order.</p>
+          <div class="contact-info">
+            <h1>Contact Info</h1>
+            <h4>{{profile.email}}</h4>
+            <h4>{{profile.number}}</h4>
+          </div>
         </div>
       </script>
 
@@ -250,15 +252,24 @@ should be enjoyed: hand crafted and made to order.</p>
         <h1>Jobs</h1>
         <div class="portfolio">
           {{#each}}
-          <div class="job-item">
-            Type Of Project<span>{{typeOfProject}}</span>
-            Project Scope<p>{{projectScope}}</p>
-            <ul>
-              {{#each bids}}
-              <li>Bid  {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button {{action "acceptBid"}}>Accept</button> <button>Decline</button></li>
+            <div class="job-item">
+              Type Of Project<span>{{typeOfProject}}</span>
+              Project Scope<p>{{projectScope}}</p>
+              <ul>
+              {{#each acceptedBids itemController="bidItem"}}
+                  <li class="bid-item"}}>
+                    Bid {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
+                  </li>
+              {{else}}
+                {{#each bids itemController="bidItem"}}
+                  <li class="bid-item"}}>
+                    Bid {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
+                    <button {{action "acceptBid"}}>Accept</button>
+                  </li>
+                {{/each}}
               {{/each}}
-            </ul>
-          </div>
+              </ul>
+            </div>
           {{/each}}
         </div>
         {{#link-to 'client-profile.my' user.id}}<button>Home</button>{{/link-to}}
