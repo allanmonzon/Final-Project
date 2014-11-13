@@ -1,5 +1,6 @@
 Final.ClientController = Ember.Controller.extend({
   needs: ['application'],
+  user: Ember.computed.alias('controllers.application.currentUser'),
 
   actions: {
     logOut: function () {
