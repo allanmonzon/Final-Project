@@ -54,8 +54,9 @@ Final.ClientPostJobRoute = Ember.Route.extend({
   }
 });
 
-Final.ClientStaticRoute = Ember.Route.extend({
+Final.ProfileClientStaticRoute = Ember.Route.extend({  
   model: function(params) {
     return this.store.find('user', params.user_id);
   }
 });
+

@@ -24,7 +24,7 @@
     <body>
 
       <script type="text/x-handlebars" data-template-name="application">
-        {{outlet}}
+        {{outlet}} 
       </script>
 
 
@@ -182,7 +182,6 @@
           <span>Number</span>
           {{input type="tel" placeholder="number" value=number}}
           <button {{action 'createProfile'}}>Submit</button>
-          <button {{action "logOut"}}>Log Out</button>
         </form>
       </script>
 
@@ -193,6 +192,8 @@
           <img src="images/Market_Place.png">
         </div>
         <div class="profile-container">
+          <h1>{{profile.name}}</h1>
+          <h2>{{profile.bio}}</h2> 
           <h1>Not Just Coffee</h1>
           <p>At Not Just Coffee we are passionate about giving our customers
           excellent service and the highest quality drinks. We want each visit
@@ -212,13 +213,48 @@
       </script>
 
       <!-- Static Profile -->
-      <script type="text/x-handlebars" data-template-name="client/static">
-        <div class="wrapper">
-          <h1>{{profile.name}}</h1>
-          <h2>{{profile.bio}}</h2>
-          <h2>{{profile.email}}</h2>
-          <h2>{{profile.number}}</h2>
+      <script type="text/x-handlebars" data-template-name="profile-client/static">
+        <div class="container">
+          <section class="header">
+            <div class="logo">{{#link-to 'profile.my' id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+            <ul class="navigation">
+              <li {{action "logOut"}}>Logout</li>
+              <li>{{#link-to 'freelancer.my-bids' id}}My Bids{{/link-to}}</li>
+              <li>{{#link-to 'freelancer.jobs'}}Jobs{{/link-to}}</li>
+              <li>{{#link-to 'profile.my' id}}Profile{{/link-to}}</li>
+            </ul>
+          </section>
+          <div class="cover-photo"></div>
+          <div class="client-avatar">
+            <img src="images/Market_Place.png">
+          </div>
+          <div class="profile-container">
+            <h1>{{profile.name}}</h1>
+            <h2>{{profile.bio}}</h2> 
+            <h1>Not Just Coffee</h1>
+            <p>At Not Just Coffee we are passionate about giving our customers
+  excellent service and the highest quality drinks. We want each visit
+  to not just be another cup of coffee but an experience you will
+  remember. We carefully select every ingredient, and source only the
+  finest quality products; including North Carolina roasted Counter
+  Culture Coffee, local milk from Homeland Creamery and fair trade
+  chocolates and teas. Our caramel and chocolate sauces are made in
+  house and we take time to make each drink the way we believe coffee
+  should be enjoyed: hand crafted and made to order.</p>
+            <div class="contact-info">
+              <h1>Contact Info</h1>
+              <h4>{{profile.email}}</h4>
+              <h4>{{profile.number}}</h4>
+            </div>
+          </div>
+
+          <section class="footer">
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
+          </section>
         </div>
+
+        
       </script>
 
       <!-- Post-Job Template -->
@@ -226,7 +262,7 @@
         <h1>Post Job</h1>
         <span>Type of project</span> {{input type="text" placeholder="Web Application, Static Website, Landing Page, Branding, Content, etc." value=typeOfProject}}
         <span>Project Scope</span>  {{textarea placeholder="Specify the project details, what's being provided by you, what's expected, etc." value=projectScope}}
-        <h4>Personel Needs:</h4>
+        <h4>Personnel Needs:</h4>
         <ul>
           <li>
             <label for="feDeveloper">{{input type="checkbox" id="feDeveloper" checked=feDeveloper}} Front-End Developer</label>
@@ -463,7 +499,7 @@
             <span>{{name}}</span>
             <span>{{typeOfProject}}</span>
             <p>{{projectScope}}</p>
-            {{#link-to 'client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
+            {{#link-to 'profile-client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
           </div>
           {{/each}}
         </div>

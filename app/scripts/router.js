@@ -15,10 +15,10 @@ Final.Router.map(function(){
 	});
 
 	/* ============ Client ============ */
-	
-	
-	this.resource('client', function(){
+	this.resource('profile-client', function() {
 		this.route('static', {path: ':user_id'});
+	});
+	this.resource('client', function(){
 		this.route('post-job');
 		this.route('my-jobs');
 		this.resource('client-profile', function(){
