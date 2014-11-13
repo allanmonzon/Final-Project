@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-Final.MyJobsController = Ember.ArrayController.extend({
-	needs: ['application', 'sentBids'],
-=======
 Final.ClientMyJobsController = Ember.ArrayController.extend({
 	needs: ['application'],
->>>>>>> b11ff5e3f86b69a85b7fc85d099de07d569cb186
+
 	user: Ember.computed.alias('controllers.application.currentUser'),
 	bidAccepted: false,
 	bidRejected: false,
