@@ -5,10 +5,13 @@ Final.MyBidsController = Ember.ArrayController.extend({
 });
 
 Final.SentBidsController = Ember.ObjectController.extend({
-  needs: ['application'],
+  needs: ['application', 'myjobs'],
+
+  placedBid: false,
+  bidAccepted: false,
+  bidRejected: false,
 
   init: function() {
-    this._super();
 
     // if the job has a bid.id that matches the user's bid.id
     // set placedBid to true
@@ -18,8 +21,6 @@ Final.SentBidsController = Ember.ObjectController.extend({
     var bidsID = jobs.bids;
 
     var user = this.get('controllers.application.currentUser');
-    var ubid = this.get('controllers.application.currentUser.bids');
-
     var userInfo = user.serialize();
     var userBids = userInfo.bids;
 
@@ -37,14 +38,12 @@ Final.SentBidsController = Ember.ObjectController.extend({
       this.set('placedBid', true);
     }
 
-  },
+  }
 
-  placedBid: false,
-  bidAccepted: false,
-  bidRejected: false
   /*
   userBids: Ember.computed.alias('controlers.application.currentUser.bids'),
   bidsInCommon: Ember.computed.intersect('userBids', 'model.bids'),
   placedBid: Ember.computed.notEmpty('bidsInCommon')
   */
+
 });

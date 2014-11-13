@@ -116,7 +116,12 @@
             Project Scope<p>{{projectScope}}</p>
             <ul>
               {{#each bids}}
-              <li>Bid   {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}  <button {{action "acceptBid"}}>Accept</button> <button>Decline</button></li>
+              <li>
+                <span>Bid</span> {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
+                {{#unless bidAccepted}}
+                <button {{action "acceptBid"}}>Accept</button>
+                {{/unless}}
+              </li>
               {{/each}}
             </ul>
           </div>
@@ -412,7 +417,7 @@
       <script type="text/x-handlebars" data-template-name="index">
         <div class="container">
           <header>
-            <div class="logo"><img src="images/Market_Place_wh.png"></div>
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
             <div class="login-buttons">
               <p>Login</p>
               <div class="buttons">
@@ -424,9 +429,11 @@
           <section class="signup">
             <div class="signup-button">
               <h1>Sign Up</h1>
-              <p>A place where clients and freelancers can invest in each other to bring your project to life.</p>
-              {{#link-to 'signup.client'}}<button class="client-signup">Client Sign Up</button>{{/link-to}}
-              {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance Sign Up</button>{{/link-to}}
+              <p>An app that matches clients and freelancers to bring projects to life. Freelancers bid on projects of interest, and clients choose the freelancer who best fits their needs.</p>
+              <div class="s-buttons">
+                {{#link-to 'signup.client'}}<button class="client-signup">Client</button>{{/link-to}}
+                {{#link-to 'signup.freelancer'}}<button class="freelance-signup">Freelance</button>{{/link-to}}
+              </div>
             </div>
           </section>
 
@@ -453,7 +460,7 @@
           </section>
 
           <footer>
-            <div class="logo"><img src="images/Market_Place_wh_footer.png"></div>
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
             <p>&copy; 2014. All Rights Reserved.</p>
           </footer>
 
