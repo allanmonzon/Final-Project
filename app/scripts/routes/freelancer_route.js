@@ -24,13 +24,13 @@ Final.ProfileEditRoute = Ember.Route.extend({
   }
 });
 
-Final.FreelancerHomeRoute = Ember.Route.extend({
+Final.FreelancerJobsRoute = Ember.Route.extend({
    model: function(){
     return this.store.find('job');
   }
 });
 
-Final.MyBidsRoute = Ember.Route.extend({
+Final.FreelancerMyBidsRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('job');
   }
