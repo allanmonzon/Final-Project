@@ -10,7 +10,7 @@ Final.SentBidsController = Ember.ObjectController.extend({
   placedBid: false,
   bidAccepted: false,
   bidRejected: false,
-                   
+               
   init: function() {
 
     // if the job has a bid.id that matches the user's bid.id
@@ -32,12 +32,17 @@ Final.SentBidsController = Ember.ObjectController.extend({
     var common = hasBid.get('bidsInCommon');
     var result = !!common.length;
   
-
     if (result === true) {
       this.set('placedBid', true);
     }
 
-  } 
+   
+
+  },
+
+  
+
+
 
   /*
   userBids: Ember.computed.alias('controlers.application.currentUser.bids'),
