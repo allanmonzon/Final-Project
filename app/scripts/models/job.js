@@ -7,5 +7,6 @@ Final.Job = DS.Model.extend({
 	webDesigner: DS.attr('string'),
 	graphicDesigner: DS.attr('string'),
 	copywriter: DS.attr('string'),
-	bids: DS.hasMany('bid', {async: true})
+	bids: DS.hasMany('bid', {async: true}),
+	messages: DS.hasMany('message', {async: true})
 });

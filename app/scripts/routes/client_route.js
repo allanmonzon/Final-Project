@@ -60,3 +60,10 @@ Final.ProfileClientStaticRoute = Ember.Route.extend({
   }
 });
 
+Final.CommunicationJobRoute = Ember.Route.extend({
+  model: function(params){
+    return this.store.find('job', params.job_id);
+  }
+});
+
+

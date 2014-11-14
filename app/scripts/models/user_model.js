@@ -5,5 +5,5 @@ Final.User = DS.Model.extend({
   jobs: DS.hasMany('job', {async: true}),
   profile: DS.belongsTo('profile', {async: true}),
   bids: DS.hasMany('bid', {async: true}),
-  messages: DS.hasMany('message', {async: true})
+  // messages: DS.hasMany('message', {async: true})
 });
