@@ -458,30 +458,19 @@
         <div class="job-container">
           <h1>My Bids</h1>
           {{#each}}
-<<<<<<< HEAD
-          <div {{bind-attr class="placedBid:job-item:hidden"}}>
-            <span>{{name}}</span>
-            <span>{{typeOfProject}}</span>
-            <p>{{projectScope}}</p>
-            {{#link-to 'profile-client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
-            {{#if bids}}
-              {{bid.accepted}}{{#link-to 'communication.job' id}}<h1>You Won!</h1>{{/link-to}}
-            {{/if}}
-          </div>
-=======
+
             <div {{bind-attr class="placedBid:job-tile:hidden"}}>
               <h2>{{typeOfProject}}</h2>
               <p>{{projectScope}}</p>
               <p>Posted by: {{#link-to 'profile-client.static' user.id}} {{user.email}}{{/link-to}}</p>
 
-              {{#each bids}}
+              {{#if bids}}
                 {{bid.accepted}}
                   <div class="accepted">
-                      <img src="images/Check.png"><span>Bid has been accepted!</span>
+                      {{#link-to 'communication.job' id}}<img src="images/Check.png"><span>Bid has been accepted!</span>{{/link-to}}
                   </div>
-              {{/each}}
+              {{/if}}
             </div>
->>>>>>> a76feb496bc3ce6d5c432687966b858be6301f54
           {{/each}}
         </div>
       </script>
