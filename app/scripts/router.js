@@ -31,9 +31,11 @@ Final.Router.map(function(){
 
 
 	/* ============ Freelance ============ */
+	this.resource('profile-freelancer', function () {
+		this.route('static', {path: 'user_id'})
+	});
 
 	this.resource('freelancer', function () {
-		this.route('static', {path: ':user_id'});
 		this.route('jobs');
 		this.route('my-bids', {path: '/:user_id/my-bids'});
 		this.resource('profile', function () {
