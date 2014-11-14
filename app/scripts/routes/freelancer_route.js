@@ -66,7 +66,7 @@ Final.FreelancerMyBidsRoute = Ember.Route.extend({
   },
 
   model: function() {
-    return this.store.find('job');
+    return this.controllerFor('application').get('currentUser.bids');
   }
 });
 

@@ -524,14 +524,54 @@ footer {
   }
 }
 
+.portfolio {
+  @include span-columns(8);
+  padding: rem(40) 0;
+  border-bottom: $border-bottom;
+
+  .p-item {
+    @include span-columns(3);
+    height: rem(100);
+    border: solid 1px #eee;
+    background-image: url('/images/port_1.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .p-item2 {
+    @include span-columns(3);
+    height: rem(100);
+    border: solid 1px #eee;
+    background-image: url('/images/port_2.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .p-item3 {
+    @include span-columns(3);
+    height: rem(100);
+    border: solid 1px #eee;
+    background-image: url('/images/port_3.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .p-item4 {
+    @include span-columns(3);
+    height: rem(100);
+    border: solid 1px #eee;
+    background-image: url('/images/port_4.png');
+    background-size: cover;
+    background-position: center;
+  }
+}
 
 // ================= View Bids and Jobs ================= //
 
 
 .job-container {
   @include outer-container;
-  margin-bottom: rem(100);
-  padding-bottom: 372px;
+  margin-bottom: rem(200);
 
   h1 {
     font-size: rem(24);
@@ -659,7 +699,7 @@ footer {
 .posted-job-container {
   @include outer-container;
   margin-bottom: rem(100);
-  padding-bottom: 380px; 
+  padding-bottom: 380px;
 
   h1 {
     font-size: rem(24);
