@@ -475,8 +475,7 @@
               <p>{{projectScope}}</p>
               <p>Posted by: {{#link-to 'profile-client.static' user.id}} {{user.email}}{{/link-to}}</p>
 
-              {{#if bids}}
-                {{bid.accepted}}
+              {{#if acceptedBids}}
                   <div class="accepted">
                       {{#link-to 'communication.job' id}}<img src="images/Check.png"><span>Bid has been accepted!</span>{{/link-to}}
                   </div>
