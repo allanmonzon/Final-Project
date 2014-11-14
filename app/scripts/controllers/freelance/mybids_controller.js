@@ -43,6 +43,31 @@ Final.SentBidsController = Ember.ObjectController.extend({
     if (result === true) {
       this.set('placedBid', true);
     }
+
+    //var cool = this.get('model.bids');
+
+    //console.log(cool);
+    // if (s === true) {
+    //   console.log('cool');
+    // } else {
+    //   console.log('not quite');
+    // }
+  },
+
+  acceptedBids: Ember.computed.filter('bids', function(bid, index) {
+    return bid.accepted;
+  }),
+
+  bidsAccepted: function() {
+    var cool = this.store.find('bid');
+    var yes = cool.get('accepted');
+    console.log(yes);
+    if (yes === true) {
+      return true;
+    } else {
+      return false;
+    }
+    console.log(cool);
   }
 
 });

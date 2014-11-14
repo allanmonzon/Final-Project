@@ -3,5 +3,4 @@ Final.Bid = DS.Model.extend({
   job: DS.belongsTo('job', {async: true}),
   bidSent: DS.attr('boolean'),
   accepted: DS.attr('boolean'),
-  rejected: DS.attr('boolean')
 });

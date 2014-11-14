@@ -15,13 +15,6 @@ Final.JobItemController = Ember.ObjectController.extend({
 	// Use a computed filterby to go through the bids and show the accepted bid
 	// Using an if/else statement to show the items if no bid has been accepted
 
-	actions: {
-		acceptBid: function() {
-			var cool = this.get('model');
-			var cooler = cool.get('bids');
-		}
-	}
-
 });
 
 Final.BidItemController = Ember.ObjectController.extend({
