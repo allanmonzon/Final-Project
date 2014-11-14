@@ -24,7 +24,7 @@
     <body>
 
       <script type="text/x-handlebars" data-template-name="application">
-        {{outlet}} 
+        {{outlet}}
       </script>
 
 
@@ -163,7 +163,7 @@
           {{outlet}}
 
           <section class="footer">
-            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <div class="logo">{{#link-to 'index'}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
             <p>&copy; 2014. All Rights Reserved.</p>
           </section>
         </div>
@@ -171,39 +171,49 @@
 
       <!-- Create Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/create">
-        <h1>Create Profile</h1>
-        <form>
-          <span>Name</span>
-          {{input type="text" placeholder="name" value=name}}
-          <span>Info</span>
-          {{input type="text" placeholder="bio" value=bio}}
-          <span>Email</span>
-          {{input type="email" placeholder="email" value=email}}
-          <span>Number</span>
-          {{input type="tel" placeholder="number" value=number}}
-          <button {{action 'createProfile'}}>Submit</button>
-        </form>
+        <div class="cover-photo-container">
+          <div class="add-cover-photo" {{action 'addCover'}}>
+            <div>
+              <span class="flaticon-plus32"></span>
+              <p>Add Cover Photo</p>
+              </div>
+          </div>
+          <img id="cover-photo" {{bind-attr src=addCover}}>
+        </div>
+        <div class="avatar">
+          <div class="add-avatar" {{action 'addAvatar'}}>
+            <div>
+              <span class="flaticon-plus32"></span>
+              <p>Add Profile Photo</p>
+            </div>
+          </div>
+          <img id="avatar" {{bind-attr src=addAvatar}}>
+        </div>
+        <div class="profile-container">
+          <form>
+            {{input class="name" type="text" placeholder="Name" value=name}}
+            {{textarea type="text" placeholder="Information about you or your business" value=bio}}
+            <div class="contact-info">
+              <h1>Contact Info</h1>
+              {{input type="email" placeholder="Email" value=email}}
+              {{input type="tel" placeholder="Phone Number" value=number}}
+            </div>
+            <div class="save">
+              <button {{action 'createProfile'}}>Create</button>
+            </div>
+          </form>
+        </div>
       </script>
 
       <!-- Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/my">
-        <div class="cover-photo"></div>
-        <div class="client-avatar">
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+        <div class="avatar">
           <img src="images/Market_Place.png">
         </div>
         <div class="profile-container">
           <h1>{{profile.name}}</h1>
-          <h2>{{profile.bio}}</h2> 
-          <h1>Not Just Coffee</h1>
-          <p>At Not Just Coffee we are passionate about giving our customers
-          excellent service and the highest quality drinks. We want each visit
-          to not just be another cup of coffee but an experience you will
-          remember. We carefully select every ingredient, and source only the
-          finest quality products; including North Carolina roasted Counter
-          Culture Coffee, local milk from Homeland Creamery and fair trade
-          chocolates and teas. Our caramel and chocolate sauces are made in
-          house and we take time to make each drink the way we believe coffee
-          should be enjoyed: hand crafted and made to order.</p>
+          <p>{{profile.bio}}</p>
           <div class="contact-info">
             <h1>Contact Info</h1>
             <h4>{{profile.email}}</h4>
@@ -230,17 +240,7 @@
           </div>
           <div class="profile-container">
             <h1>{{profile.name}}</h1>
-            <h2>{{profile.bio}}</h2> 
-            <h1>Not Just Coffee</h1>
-            <p>At Not Just Coffee we are passionate about giving our customers
-  excellent service and the highest quality drinks. We want each visit
-  to not just be another cup of coffee but an experience you will
-  remember. We carefully select every ingredient, and source only the
-  finest quality products; including North Carolina roasted Counter
-  Culture Coffee, local milk from Homeland Creamery and fair trade
-  chocolates and teas. Our caramel and chocolate sauces are made in
-  house and we take time to make each drink the way we believe coffee
-  should be enjoyed: hand crafted and made to order.</p>
+            <p>{{profile.bio}}</p>
             <div class="contact-info">
               <h1>Contact Info</h1>
               <h4>{{profile.email}}</h4>
@@ -254,7 +254,7 @@
           </section>
         </div>
 
-        
+
       </script>
 
       <!-- Post-Job Template -->
@@ -315,67 +315,68 @@
             <!--//////////////// Freelance ///////////////////-->
 
       <script type="text/x-handlebars" data-template-name="freelancer">
+        <div class="container">
+          <section class="header">
+            <div class="logo">{{#link-to 'profile.my' user.id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+            <ul class="navigation">
+              <li {{action 'logOut'}}>Logout</li>
+              <li>{{#link-to 'freelancer.jobs'}}Jobs{{/link-to}}</li>
+              <li>{{#link-to 'freelancer.my-bids' id}}My Bids{{/link-to}}</li>
+              <li>{{#link-to 'profile.my' user.id}}Profile{{/link-to}}</li>
+            </ul>
+          </section>
+        </div>
+
         {{outlet}}
+
+        <section class="footer">
+          <div class="logo">{{#link-to 'index'}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+          <p>&copy; 2014. All Rights Reserved.</p>
+        </section>
       </script>
 
       <!-- Create-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/create">
-        <form class="wrapper">
-          <div class="profile-img">
-            {{input class="name" value=name placeholder="Name"}}
-            <div class="avatar"><img {{bind-attr src=imgSrc}}/></div>
-            <div class="profile-image-upload">
-              <button {{action 'addAvatar'}}>Upload Image</button>
+        <div class="cover-photo-container">
+          <div class="add-cover-photo" {{action 'addCover'}}>
+            <div>
+              <span class="flaticon-plus32"></span>
+              <p>Add Cover Photo</p>
+              </div>
+          </div>
+          <img id="cover-photo" {{bind-attr src=addCover}}>
+        </div>
+        <div class="avatar">
+          <div class="add-avatar" {{action 'addAvatar'}}>
+            <div>
+              <span class="flaticon-plus32"></span>
+              <p>Add Profile Photo</p>
             </div>
-            <div class="hourly-rate">
-              <span>Hourly Rate</span>
-              {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+          </div>
+          <img id="avatar" {{bind-attr src=addAvatar}}>
+        </div>
+
+        <div class="profile-container">
+          <form>
+            {{input class="name" type="text" placeholder="Name" value=name}}
+            {{input class="rate" name="rate" value=rate placeholder="Hourly Rate"}}
+            {{textarea type="text" placeholder="Information about yourself and some of your qualifications" value=bio}}
+
+            <div class="portfolio">
+
             </div>
-          </div>
 
-          <div class="bio">
-            <h3>Bio</h3>
-            {{textarea name="bio" value=bio placeholder="Fill out a brief bio about yourself..."}}
-          </div>
+            <div class="contact-info">
+              <h1>Contact Info</h1>
+              {{input type="email" placeholder="Email" value=email}}
+              {{input type="tel" placeholder="Phone Number" value=number}}
+            </div>
 
-          <div class="portfolio">
-
-            <ul class="p-item">
-
-              <li>
-                <img {{bind-attr src=img-port-src}}/>
-                <button {{action 'addPortfolio'}}>Upload Images</button>
-              </li>
-
-              <li>
-                <img {{bind-attr src=img-port-src-2}}/>
-                <button {{action 'addPortfolioTwo'}}>Upload Images</button>
-              </li>
-
-              <li>
-                <img {{bind-attr src=img-port-src-3}}/>
-                <button {{action 'addPortfolioThree'}}>Upload Images</button>
-              </li>
-
-              <li>
-                <img {{bind-attr src=img-port-src-4}}/>
-                <button {{action 'addPortfolioFour'}}>Upload Images</button>
-              </li>
-
-              <li>
-                <img {{bind-attr src=img-port-src-5}}/>
-                <button {{action 'addPortfolioFive'}}>Upload Images</button>
-              </li>
-
-              <li>
-                <img {{bind-attr src=img-port-src-6}}/>
-                <button {{action 'addPortfolioSix'}}>Upload Images</button>
-              </li>
-            </ul>
-          </div>
-
-          <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
-        </form>
+            <div class="save">
+              <button {{action 'createProfile'}}>Create</button>
+            </div>
+          </form>
+        </div>
       </script>
 
       <!-- Edit-Profile Template -->
@@ -412,21 +413,14 @@
 
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
-        <div class="wrapper">
-
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+        <div class="avatar">
+          <img {{bind-attr src=profile.avatar}}>
+        </div>
+        <div class="profile-container">
           <h1>{{profile.name}}</h1>
-          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
-
-          <div class="bio">
-            <h3>Bio</h3>
-            <p>{{profile.bio}}</p>
-          </div>
-
-          <div class="hourly-rate">
-            <span>Hourly Rate</span>
-            <span>{{profile.rate}}</span>
-          </div>
-
+          <p>${{profile.rate}}/Hr</p>
+          <p>{{profile.bio}}</p>
           <div class="portfolio">
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
@@ -435,16 +429,12 @@
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
           </div>
+          <div class="contact-info">
+            <h1>Contact Info</h1>
+            <h4>{{profile.email}}</h4>
+            <h4>{{profile.number}}</h4>
+          </div>
         </div>
-
-        <div class="jobs-bids">
-          {{#link-to 'freelancer.my-bids' id}}<span>View My Bids</span>{{/link-to}}
-        </div>
-
-        {{#link-to 'profile.edit' id}}<button>Edit</button>{{/link-to}}
-        {{#link-to 'freelancer.jobs'}}<button>Jobs</button>{{/link-to}}
-
-        <button {{action "logOut"}}>Log Out</button>
       </script>
 
       <!-- Static Profile -->

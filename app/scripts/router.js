@@ -28,7 +28,7 @@ Final.Router.map(function(){
 			this.route('my', {path: ':user_id'});
 		});
 	});
-	
+
 
 
 	/* ============ Freelance ============ */
@@ -41,9 +41,9 @@ Final.Router.map(function(){
 			this.route('create');
 			this.route('edit', { path: '/:user_id/edit' });
 			this.route('my', {path: ':user_id'});
-		});	
+		});
 	});
-	
+
 });
 
 
