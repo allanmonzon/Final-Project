@@ -240,17 +240,7 @@
           </div>
           <div class="profile-container">
             <h1>{{profile.name}}</h1>
-            <h2>{{profile.bio}}</h2>
-            <h1>Not Just Coffee</h1>
-            <p>At Not Just Coffee we are passionate about giving our customers
-            excellent service and the highest quality drinks. We want each visit
-            to not just be another cup of coffee but an experience you will
-            remember. We carefully select every ingredient, and source only the
-            finest quality products; including North Carolina roasted Counter
-            Culture Coffee, local milk from Homeland Creamery and fair trade
-            chocolates and teas. Our caramel and chocolate sauces are made in
-            house and we take time to make each drink the way we believe coffee
-            should be enjoyed: hand crafted and made to order.</p>
+            <p>{{profile.bio}}</p>
             <div class="contact-info">
               <h1>Contact Info</h1>
               <h4>{{profile.email}}</h4>
@@ -423,7 +413,7 @@
 
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
-        <div class="cover-photo-container"><img id="cover-photo" src="images/photo_6.jpg"></div>
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
         <div class="avatar">
           <img {{bind-attr src=profile.avatar}}>
         </div>
