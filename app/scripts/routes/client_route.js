@@ -61,6 +61,13 @@ Final.ProfileClientStaticRoute = Ember.Route.extend({
 });
 
 Final.CommunicationJobRoute = Ember.Route.extend({
+  beforeModel: function(){
+    var user = this.controllerFor('application').get('currentUser');
+    if (!user) {
+       this.transitionTo('index');
+    } 
+  },
+
   model: function(params){
     return this.store.find('job', params.job_id);
   }
