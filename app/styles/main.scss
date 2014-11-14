@@ -430,6 +430,7 @@ footer {
     cursor: pointer;
     background-color: rgba(0, 0, 0, .1);
     position: inherit;
+    background-size: cover;
 
     div {
       padding-top: rem(70);
@@ -730,11 +731,13 @@ footer {
 
   .chat {
     @include outer-container;
+    height: 80%;
   }
 
   .chat-box {
     height: 85%;
     padding: rem(80) rem(50) rem(20);
+    overflow: scroll;
   }
 
   .chat-input {
@@ -787,6 +790,7 @@ footer {
     max-width: 100%;
     background-color: $primary-color;
     padding: rem(12) 0 rem(5);
+    margin-top: 70px;
 
     .logo {
       @include span-columns(2);

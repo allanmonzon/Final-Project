@@ -47,7 +47,7 @@ Final.JobController = Ember.ObjectController.extend({
 				bidSent: true,
 				user: user,
 				job: jobs,
-				accepted: false
+				// accepted: false
 			});
 
 			bid.save();

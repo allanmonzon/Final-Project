@@ -4,7 +4,7 @@ Final.SignupClientController = Ember.Controller.extend({
   actions: {
     signup: function () {
       var self = this;
-      var credentials = this.getProperties('email', 'password');
+      var credentials = this.getProperties('email', 'password', 'name');
 
       Final.ref.createUser(credentials, function(error){
         if (!error) {
@@ -12,6 +12,7 @@ Final.SignupClientController = Ember.Controller.extend({
           .then(function (user) {
             user.setProperties ({
               // id: authData.uid,
+              name: credentials.name,
               userType: 'client',
               email: credentials.email,
             });

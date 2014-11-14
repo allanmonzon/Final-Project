@@ -54,9 +54,9 @@ Final.SentBidsController = Ember.ObjectController.extend({
     // }
   },
 
-  acceptedBids: Ember.computed.filter('bids', function(bid, index) {
-    return bid.accepted;
-  }),
+  // acceptedBids: Ember.computed.filter('bids', function(bid, index) {
+  //   return bid.accepted;
+  // }),
 
   bidsAccepted: function() {
     var cool = this.store.find('bid');
