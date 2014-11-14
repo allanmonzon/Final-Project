@@ -18,9 +18,7 @@ Final.JobItemController = Ember.ObjectController.extend({
 	actions: {
 		acceptBid: function() {
 			var cool = this.get('model');
-			console.log(cool);
 			var cooler = cool.get('bids');
-			console.log(cooler);
 		}
 	}
 
@@ -32,9 +30,9 @@ Final.BidItemController = Ember.ObjectController.extend({
 	actions: {
 
 		acceptBid: function() {
-			var cool = this.model;
-			cool.set('accepted', true);
-			cool.save();
+			var accept = this.model;
+			accept.set('accepted', true);
+			accept.save();
 		}
 	}
 });

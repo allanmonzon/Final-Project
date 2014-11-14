@@ -24,7 +24,6 @@ Final.Router.map(function(){
 		this.route('my-jobs');
 		this.resource('client-profile', function(){
 			this.route('create');
-			this.route('edit');
 			this.route('my', {path: ':user_id'});
 		});
 	});
@@ -33,7 +32,7 @@ Final.Router.map(function(){
 
 	/* ============ Freelance ============ */
 	this.resource('profile-freelancer', function () {
-		this.route('static', {path: 'user_id'})
+		this.route('static', {path: ':user_id'});
 	});
 
 	this.resource('freelancer', function () {
@@ -41,7 +40,6 @@ Final.Router.map(function(){
 		this.route('my-bids', {path: '/:user_id/my-bids'});
 		this.resource('profile', function () {
 			this.route('create');
-			this.route('edit', { path: '/:user_id/edit' });
 			this.route('my', {path: ':user_id'});
 		});
 	});
@@ -63,8 +61,8 @@ Final.CoolController = Ember.ArrayController.extend({
 		post: function(){
 			var user = this.get('controllers.application.currentUser');
 			var chat = this.store.createRecord('message', {
-				message: this.get('newMessage'),	
-				user: user		
+				message: this.get('newMessage'),
+				user: user
 			});
 			chat.save();
 			user.get('messages').addObject('chat');
@@ -78,41 +76,3 @@ Final.CoolRoute = Ember.Route.extend({
 		return this.store.find('message');
 	}
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

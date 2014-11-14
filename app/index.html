@@ -70,7 +70,7 @@
 
             <div class="step">
               <h3>Step Three</h3>
-              <p>Clients go through your bids and choose the freelancer that best meets youre needs. Then begin working together to bring the project to life!</p>
+              <p>Clients go through your bids and choose the freelancer that best meets your needs. Then begin working together to bring the project to life!</p>
             </div>
           </section>
 
@@ -172,8 +172,8 @@
       <!-- Create Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/create">
         <div class="cover-photo-container">
-          <div class="add-cover-photo" {{action 'addCover'}}>
-            <div>
+          <div class="add-cover-photo">
+            <div class="add-cover-action" {{action 'addCover'}}>
               <span class="flaticon-plus32"></span>
               <p>Add Cover Photo</p>
               </div>
@@ -231,11 +231,11 @@
               <li {{action "logOut"}}>Logout</li>
               <li>{{#link-to 'freelancer.my-bids' id}}My Bids{{/link-to}}</li>
               <li>{{#link-to 'freelancer.jobs'}}Jobs{{/link-to}}</li>
-              <li>{{#link-to 'profile.my' id}}Profile{{/link-to}}</li>
+              <li>{{#link-to 'profile.my'id}}Profile{{/link-to}}</li>
             </ul>
           </section>
-          <div class="cover-photo"></div>
-          <div class="client-avatar">
+          <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+          <div class="avatar">
             <img src="images/Market_Place.png">
           </div>
           <div class="profile-container">
@@ -259,28 +259,20 @@
 
       <!-- Post-Job Template -->
       <script type="text/x-handlebars" data-template-name="client/post-job">
-        <h1>Post Job</h1>
-        <span>Type of project</span> {{input type="text" placeholder="Web Application, Static Website, Landing Page, Branding, Content, etc." value=typeOfProject}}
-        <span>Project Scope</span>  {{textarea placeholder="Specify the project details, what's being provided by you, what's expected, etc." value=projectScope}}
-        <h4>Personnel Needs:</h4>
-        <ul>
-          <li>
-            <label for="feDeveloper">{{input type="checkbox" id="feDeveloper" checked=feDeveloper}} Front-End Developer</label>
-          </li>
-          <li>
-            <label for="beDeveloper">{{input type="checkbox" id="beDeveloper" checked=beDeveloper}} Back-End Developer</label>
-          </li>
-          <li>
-            <label for="webDesigner">{{input type="checkbox" id="webDesigner" checked=webDesigner}} Web Designer</label>
-          </li>
-          <li>
-            <label for="graphicDesigner">{{input type="checkbox" id="graphicDesigner" checked=graphicDesigner}} Graphic Designer</label>
-          </li>
-          <li>
-            <label for="copywriter">{{input type="checkbox" id="copywriter" checked=copywriter}} Copywriter</label>
-          </li>
-        </ul>
-        <input type="submit" value="Save Job" {{action "createJob"}}>
+        <div class="post-container">
+          <h1>Post Job</h1>
+          <div class="project-type">
+            <h3>Type of project</h3>
+            {{input type="text" placeholder="Web Application, Static Website, Landing Page, Branding, Content, etc." value=typeOfProject}}
+          </div>
+          <div class="project-scope">
+            <h3>Project Scope</h3>
+            {{textarea class="scope" placeholder="Specify the project details, what's being provided by you, what's expected, etc." value=projectScope}}
+          </div>
+          <div class="post">
+            <button {{action "createJob"}}>Post Job</button>
+          </div>
+        </div>
       </script>
 
       <!-- My-Jobs Template -->
@@ -294,12 +286,12 @@
               <ul>
               {{#each acceptedBids itemController="bidItem"}}
                   <li class="bid-item"}}>
-                    Bid {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
+                    Bid {{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}
                   </li>
               {{else}}
                 {{#each bids itemController="bidItem"}}
                   <li class="bid-item"}}>
-                    Bid {{#link-to 'freelancer.static' user.id}}{{user.name}}{{/link-to}}
+                    Bid {{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}
                     <button {{action "acceptBid"}}>Accept</button>
                   </li>
                 {{/each}}
@@ -338,8 +330,8 @@
       <!-- Create-Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/create">
         <div class="cover-photo-container">
-          <div class="add-cover-photo" {{action 'addCover'}}>
-            <div>
+          <div class="add-cover-photo">
+            <div class="add-cover-action" {{action 'addCover'}}>
               <span class="flaticon-plus32"></span>
               <p>Add Cover Photo</p>
               </div>
@@ -379,38 +371,6 @@
         </div>
       </script>
 
-      <!-- Edit-Profile Template -->
-      <script type="text/x-handlebars" data-template-name="profile/edit">
-        <form class="wrapper">
-          <div class="profile-img">
-            {{input class="name" value=name}}
-            <p>{{profile.name}}, cool profile</p>
-            <div class="avatar"><img {{bind-attr src=profile.avatar}}/></div>
-            <div class="profile-image-upload">
-              <button {{action 'addAvatar'}}>Change Image</button>
-            </div>
-            <div class="hourly-rate">
-              <span>Hourly Rate</span>
-              {{input class="rate" name="rate" value=rate}}
-            </div>
-          </div>
-
-          <div class="bio">
-            <h3>Bio</h3>
-            {{textarea name="bio" value=bio}}
-          </div>
-
-          <div class="portfolio">
-            <ul class="p-item">
-              <li><img {{bind-attr src=img-port-src}}/></li>
-            </ul>
-          </div>
-
-          <button class="saveProfile" {{action "saveProfile"}}>Save Profile</button>
-        </form>
-        <button {{action "logOut"}}>Log Out</button>
-      </script>
-
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
         <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
@@ -439,21 +399,24 @@
 
       <!-- Static Profile -->
       <script type="text/x-handlebars" data-template-name="profile-freelancer/static">
-        <div class="wrapper">
+        <section class="header">
+          <div class="logo">{{#link-to 'client-profile.my' user.id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+          <ul class="navigation">
+            <li {{action "logOut"}}>Logout</li>
+            <li>{{#link-to 'client.my-jobs'}}All My Jobs{{/link-to}}</li>
+            <li>{{#link-to 'client.post-job'}}Post A Job{{/link-to}}</li>
+            <li>{{#link-to 'client-profile.my' user.id}}Profile{{/link-to}}</li>
+          </ul>
+        </section>
 
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+        <div class="avatar">
+          <img {{bind-attr src=profile.avatar}}>
+        </div>
+        <div class="profile-container">
           <h1>{{profile.name}}</h1>
-          <div class="avatar"><img {{bind-attr src=profile.avatar}}></div>
-
-          <div class="bio">
-            <h3>Bio</h3>
-            <p>{{profile.bio}}</p>
-          </div>
-
-          <div class="hourly-rate">
-            <span>Hourly Rate</span>
-            <span>{{profile.rate}}</span>
-          </div>
-
+          <p>${{profile.rate}}/Hr</p>
+          <p>{{profile.bio}}</p>
           <div class="portfolio">
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgOne}}/></div>
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgTwo}}/></div>
@@ -462,42 +425,53 @@
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgFive}}/></div>
             <div class="p-item"><img {{bind-attr src=profile.portfolioImgSix}}/></div>
           </div>
+          <div class="contact-info">
+            <h1>Contact Info</h1>
+            <h4>{{profile.email}}</h4>
+            <h4>{{profile.number}}</h4>
+          </div>
         </div>
+
+        <section class="footer">
+          <div class="logo">{{#link-to 'index'}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+          <p>&copy; 2014. All Rights Reserved.</p>
+        </section>
       </script>
 
       <!-- Jobs Template -->
       <script type="text/x-handlebars" data-template-name="freelancer/jobs">
-        <div class="portfolio">
+        <div class="job-container">
+          <h1>Jobs</h1>
           {{#each}}
-          <div {{bind-attr class="placedBid:hidden:job-item"}}>
-            <span>{{name}}</span>
-            <span>{{typeOfProject}}</span>
-            <p>{{projectScope}}</p>
-            <button {{action 'placeBid'}}>Place Bid</button>
-          </div>
+            <div {{bind-attr class="placedBid:hidden:job-tile"}}>
+              <h2>{{typeOfProject}}</h2>
+              <p>{{projectScope}}</p>
+              <p>Posted by: {{#link-to 'profile-client.static' user.id}} {{user.email}}{{/link-to}}</p>
+              <button {{action 'placeBid'}}>Place Bid</button>
+            </div>
           {{/each}}
         </div>
-        {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
-        {{#link-to 'freelancer.my-bids' user.id}}<button>My Bids</button>{{/link-to}}
       </script>
 
       <!-- My-Bids Template -->
       <script type="text/x-handlebars" data-template-name="freelancer/my-bids">
-        <div class="portfolio">
+        <div class="job-container">
+          <h1>My Bids</h1>
           {{#each}}
-          <div {{bind-attr class="placedBid:job-item:hidden"}}>
-            <span>{{name}}</span>
-            <span>{{typeOfProject}}</span>
-            <p>{{projectScope}}</p>
-            {{#link-to 'profile-client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
-            {{#each bids}}
-              {{bid.accepted}}<h1>You Won!</h1>
-            {{/each}}
-          </div>
+            <div {{bind-attr class="placedBid:job-tile:hidden"}}>
+              <h2>{{typeOfProject}}</h2>
+              <p>{{projectScope}}</p>
+              <p>Posted by: {{#link-to 'profile-client.static' user.id}} {{user.email}}{{/link-to}}</p>
+
+              {{#each bids}}
+                {{bid.accepted}}
+                  <div class="accepted">
+                      <img src="images/Check.png"><span>Bid has been accepted!</span>
+                  </div>
+              {{/each}}
+            </div>
           {{/each}}
         </div>
-        {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
-        {{#link-to 'freelancer.jobs'}}<button>All Jobs</button>{{/link-to}}
       </script>
 
       <script type="text/x-handlebars" data-template-name="cool">
@@ -543,7 +517,6 @@
         <script src="scripts/controllers/freelance/freelancer_jobs_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_myprofile_controller.js"></script>
         <script src="scripts/controllers/freelance/profile_create_controller.js"></script>
-        <script src="scripts/controllers/freelance/profile_edit_controller.js"></script>
         <script src="scripts/controllers/freelance/signup_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/mybids_controller.js"></script>
         <script src="scripts/routes/client_route.js"></script>
