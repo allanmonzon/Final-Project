@@ -38,4 +38,3 @@ Final.BidItemController = Ember.ObjectController.extend({
 		}
 	}
 });
-
