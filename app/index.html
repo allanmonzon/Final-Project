@@ -226,7 +226,7 @@
       <script type="text/x-handlebars" data-template-name="profile-client/static">
         <div class="container">
           <section class="header">
-            <div class="logo">{{#link-to 'profile.my' id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+            <div class="logo">{{#link-to 'profile.my' user.id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
             <ul class="navigation">
               <li {{action "logOut"}}>Logout</li>
               <li>{{#link-to 'freelancer.my-bids' id}}My Bids{{/link-to}}</li>
@@ -277,30 +277,41 @@
 
       <!-- My-Jobs Template -->
       <script type="text/x-handlebars" data-template-name="client/my-jobs">
-        <h1>Jobs</h1>
-        <div class="portfolio">
-          {{#each}}
-            <div class="job-item">
-              Type Of Project<span>{{typeOfProject}}</span>
-              Project Scope<p>{{projectScope}}</p>
-              <ul>
-              {{#each acceptedBids itemController="bidItem"}}
-                  <li class="bid-item"}}>
-                    Bid {{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}
-                  </li>
-              {{else}}
-                {{#each bids itemController="bidItem"}}
-                  <li class="bid-item"}}>
-                    Bid {{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}
-                    <button {{action "acceptBid"}}>Accept</button>
-                  </li>
+        <div class="posted-job-container">
+          <h1 class="my-jobs-h1">Jobs</h1>
+            {{#each}}
+              <div class="posted-job-tile">
+                <h2>{{typeOfProject}}</h2>
+                <p>{{projectScope}}</p>
+
+                <ul>
+                {{#each acceptedBids itemController="bidItem"}}
+                    <li class="bid-item"}}>
+                      <div>
+                        <span>Bid by: </span>
+                        <span>{{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}</span>
+                        <img src="images/accept.png" {{action "acceptBid"}}>
+                      </div>
+                      <div class="chat">
+                        {{#link-to 'communication.job' job.id}}Iron out the details here{{/link-to}}
+                      </div>
+                    </li>
+                {{else}}
+                  {{#each bids itemController="bidItem"}}
+                    <li class="bid-item"}}>
+                      <div>
+                        <span>Bid by: </span>
+                        <span>{{#link-to 'profile-freelancer.static' user.id}}{{user.name}}{{/link-to}}</span>
+                        <img src="images/bid.png" {{action "acceptBid"}}>
+                      </div>
+                    </li>
+                  {{/each}}
                 {{/each}}
-              {{/each}}
-              </ul>
-            </div>
-          {{/each}}
+                </ul>
+
+              </div>
+            {{/each}}
         </div>
-        {{#link-to 'client-profile.my' user.id}}<button>Home</button>{{/link-to}}
       </script>
 
 
@@ -477,7 +488,7 @@
 
       <!-- Chat -->
       <script type="text/x-handlebars" data-template-name="communication/job">
-      <div class="container">
+        <div class="chat-container">
           <section class="header">
             <div class="logo">{{#link-to 'profile.my' user.id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
             <ul class="navigation">
@@ -487,18 +498,33 @@
               <li>{{#link-to 'profile.my' user.id}}Profile{{/link-to}}</li>
             </ul>
           </section>
-        {{#each messages}}
-          <h4>{{user.id}}</h4>
-          <span>{{date-format date}}</span>
-          <p>{{message}}</p>
-        {{/each}}
-        {{input value=newMessage placeholder="Type Here" action='postMessage'}}
-       <section class="footer">
-          <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
-          <p>&copy; 2014. All Rights Reserved.</p>
-        </section>
-      </div>
- 
+
+          <div class="chat">
+            <div class="chat-box">
+              {{#each messages}}
+                <div class="chat-message">
+                  <div class="chat-person">
+                    <div class="chat-avatar">
+                      <img {{bind-attr src=user.profile.avatar}}>
+                    </div>
+                  </div>
+                  <div class="message">
+                    <p class="user">{{user.id}} <span>{{date-format date}}</span></p>
+                    <p>{{message}}</p>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+            <div class="chat-input">
+              {{input value=newMessage placeholder="Talk about the project" action='postMessage'}}
+            </div>
+          </div>
+
+          <section class="chat-footer">
+            <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+            <p>&copy; 2014. All Rights Reserved.</p>
+          </section>
+        </div>
       </script>
 
 
