@@ -40,7 +40,7 @@ Final.ProfileCreateController = Ember.ArrayController.extend({
         number: this.get('number'),
         type: 'freelancer'
       });
-      profileInfo.save().then(function(){
+      profileInfo.save().then(function(id){
         self.transitionToRoute('profile.my', user.id);
       });
       user.set('profile', profileInfo);
