@@ -9,11 +9,6 @@ Final.ClientPostJobController = Ember.Controller.extend({
 				attributes: {
 					typeOfProject: this.get('typeOfProject'),
 					projectScope: this.get('projectScope'),
-					feDeveloper: this.get('feDeveloper'),
-					beDeveloper: this.get('beDeveloper'),
-					webDesigner: this.get('webDesigner'),
-					graphicDesigner: this.get('graphicDesigner'),
-					copywriter: this.get('copywriter')
 				},
 				store: this.get('store'),
 				userID: this.get('user.id')
@@ -24,5 +19,3 @@ Final.ClientPostJobController = Ember.Controller.extend({
 	}
 
 });
-
-

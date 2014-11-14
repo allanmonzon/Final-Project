@@ -26,32 +26,34 @@ Final.Router.map(function(){
 		this.route('my-jobs');
 		this.resource('client-profile', function(){
 			this.route('create');
-			this.route('edit');
 			this.route('my', {path: '/:user_id'});
 		});
 	});
 
 
 	/* ============ Freelance ============ */
+	this.resource('profile-freelancer', function () {
+		this.route('static', {path: ':user_id'});
+	});
 
 	this.resource('freelancer', function () {
-		this.route('static', {path: '/:user_id'});
 		this.route('jobs');
 		this.route('my-bids', {path: '/:user_id/my-bids'});
 		this.resource('profile', function () {
 			this.route('create');
-			this.route('edit', { path: '/:user_id/edit' });
 			this.route('my', {path: '/:user_id'});
 		});
 	});
 
 
-	/* ============ Freelance ============ */
+	/* ============ Chat ============ */
 
 	this.resource('communication', function(){
 		this.route('job', {path: '/:job_id'});
 	});
 });
+
+
 
 
 

@@ -1,7 +1,6 @@
 Final.ProfileMyRoute = Ember.Route.extend({
   beforeModel: function() {
     var user = this.controllerFor('application').get('currentUser.userType');
-    console.log(user);
     if (user ===  'freelancer') {
       console.log(true);
     } else {
@@ -17,7 +16,6 @@ Final.ProfileMyRoute = Ember.Route.extend({
 Final.ProfileCreateRoute = Ember.Route.extend({
   beforeModel: function() {
     var user = this.controllerFor('application').get('currentUser.userType');
-    console.log(user);
     if (user ===  'freelancer') {
       console.log(true);
     } else {
@@ -72,7 +70,7 @@ Final.FreelancerMyBidsRoute = Ember.Route.extend({
   }
 });
 
-Final.FreelancerStaticRoute = Ember.Route.extend({
+Final.ProfileFreelancerStaticRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('user', params.user_id);
   }
