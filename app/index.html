@@ -490,9 +490,9 @@
             <span>{{typeOfProject}}</span>
             <p>{{projectScope}}</p>
             {{#link-to 'profile-client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
-            {{#each bids}}
-              {{bid.accepted}}<h1>You Won!</h1>
-            {{/each}}
+            {{#if bids}}
+              {{bid.accepted}}{{#link-to 'communication.job' id}}<h1>You Won!</h1>{{/link-to}}
+            {{/if}}
           </div>
           {{/each}}
         </div>
@@ -500,12 +500,30 @@
         {{#link-to 'freelancer.jobs'}}<button>All Jobs</button>{{/link-to}}
       </script>
 
-      <script type="text/x-handlebars" data-template-name="cool">
-        {{#each }}
+      <!-- Chat -->
+      <script type="text/x-handlebars" data-template-name="communication/job">
+      <div class="container">
+          <section class="header">
+            <div class="logo">{{#link-to 'profile.my' user.id}}<img src="images/Market_Place_wh_horz.png">{{/link-to}}</div>
+            <ul class="navigation">
+              <li {{action 'logOut'}}>Logout</li>
+              <li>{{#link-to 'freelancer.jobs'}}Jobs{{/link-to}}</li>
+              <li>{{#link-to 'freelancer.my-bids' user.id}}My Bids{{/link-to}}</li>
+              <li>{{#link-to 'profile.my' user.id}}Profile{{/link-to}}</li>
+            </ul>
+          </section>
+        {{#each messages}}
           <h4>{{user.id}}</h4>
+          <span>{{date-format date}}</span>
           <p>{{message}}</p>
         {{/each}}
-        {{input value=newMessage placeholder="Write Here" action='post'}}
+        {{input value=newMessage placeholder="Type Here" action='postMessage'}}
+       <section class="footer">
+          <div class="logo"><img src="images/Market_Place_wh_horz.png"></div>
+          <p>&copy; 2014. All Rights Reserved.</p>
+        </section>
+      </div>
+ 
       </script>
 
 
@@ -519,6 +537,7 @@
       <script src="bower_components/firebase/firebase.js"></script>
       <script src="bower_components/ember-data/index.js"></script>
       <script src="bower_components/emberfire/dist/emberfire.min.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
       <!-- endbower -->
       <!-- endbuild -->
 
@@ -529,6 +548,7 @@
         <script src="scripts/models/user_model.js"></script>
         <script src="scripts/models/job.js"></script>
         <script src="scripts/models/Bids.js"></script>
+        <script src="scripts/models/message_model.js"></script>
         <script src="scripts/models/profile_model.js"></script>
         <script src="scripts/controllers/application_controller.js"></script>
         <script src="scripts/controllers/client/myjobs_controller.js"></script>
@@ -538,6 +558,7 @@
         <script src="scripts/controllers/client/client_controller.js"></script>
         <script src="scripts/controllers/client/clientProfile_controller.js"></script>
         <script src="scripts/controllers/client/client-profile_my.js"></script>
+        <script src="scripts/controllers/client/chat_controller.js"></script>
         <script src="scripts/controllers/freelance/freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/login_freelancer_controller.js"></script>
         <script src="scripts/controllers/freelance/freelancer_jobs_controller.js"></script>

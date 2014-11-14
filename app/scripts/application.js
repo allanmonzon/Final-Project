@@ -22,3 +22,7 @@ Final.initializer({
 		} else {application.advanceReadiness();}
 	}
 });
+
+Ember.Handlebars.helper('date-format', function(date) {
+  return moment(date).fromNow();
+});
