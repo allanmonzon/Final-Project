@@ -385,13 +385,16 @@ footer {
   background-color: #eee;
 
   .add-cover-photo {
+    @include span-columns(1.5);
+    @include shift(5.5);
     background-color: rgba(255, 255, 255, .5);
     cursor: pointer;
     text-align: center;
+    margin-top: 5%;
+    position: absolute;
+    z-index: 1000;
 
     .add-cover-action {
-      @include span-columns(1.5);
-      @include shift(5.5);
       margin-top: 6%;
       background-color: rgba(255, 255, 255, .3);
       border-radius: rem(5);
@@ -413,10 +416,10 @@ footer {
   position: absolute;
   top: rem(300);
   left: rem(200);
+  overflow: hidden;
 
   img {
     width: 100%;
-    margin-top: rem(10);
   }
 
   .add-avatar {
@@ -426,6 +429,7 @@ footer {
     border-radius: rem(5);
     cursor: pointer;
     background-color: rgba(0, 0, 0, .1);
+    position: inherit;
 
     div {
       padding-top: rem(70);

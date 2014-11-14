@@ -207,9 +207,9 @@
 
       <!-- Profile -->
       <script type="text/x-handlebars" data-template-name="client-profile/my">
-        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=profile.coverPhoto}}></div>
         <div class="avatar">
-          <img src="images/Market_Place.png">
+          <img {{bind-attr src=profile.avatar}}>
         </div>
         <div class="profile-container">
           <h1>{{profile.name}}</h1>
@@ -384,7 +384,7 @@
 
       <!-- Profile Template -->
       <script type="text/x-handlebars" data-template-name="profile/my">
-        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=addCover}}></div>
+        <div class="cover-photo-container"><img id="cover-photo" {{bind-attr src=profile.coverPhoto}}></div>
         <div class="avatar">
           <img {{bind-attr src=profile.avatar}}>
         </div>

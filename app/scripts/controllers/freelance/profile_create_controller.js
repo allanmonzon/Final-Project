@@ -32,7 +32,7 @@ Final.ProfileCreateController = Ember.ArrayController.extend({
 
       var profileInfo = this.store.createRecord('profile', {
         avatar: this.get('addAvatar'),
-        coverPhoto: this.get('addAvatar'),
+        coverPhoto: this.get('addCover'),
         name: this.get('name'),
         rate: this.get('rate'),
         bio: this.get('bio'),
