@@ -38,8 +38,8 @@ Final.SentBidsController = Ember.ObjectController.extend({
 
     var common = hasBid.get('bidsInCommon');
     var result = !!common.length;
-
-
+  
+  
     if (result === true) {
       this.set('placedBid', true);
     }

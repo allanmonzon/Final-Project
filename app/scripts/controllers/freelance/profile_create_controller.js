@@ -37,7 +37,7 @@ Final.ProfileCreateController = Ember.ArrayController.extend({
         rate: this.get('rate'),
         bio: this.get('bio'),
         email: this.get('email'),
-        number: this.get('number')
+        number: this.get('number'),
         type: 'freelancer'
       });
       profileInfo.save().then(function(){
