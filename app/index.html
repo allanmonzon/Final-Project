@@ -321,7 +321,7 @@
             <ul class="navigation">
               <li {{action 'logOut'}}>Logout</li>
               <li>{{#link-to 'freelancer.jobs'}}Jobs{{/link-to}}</li>
-              <li>{{#link-to 'freelancer.my-bids' id}}My Bids{{/link-to}}</li>
+              <li>{{#link-to 'freelancer.my-bids' user.id}}My Bids{{/link-to}}</li>
               <li>{{#link-to 'profile.my' user.id}}Profile{{/link-to}}</li>
             </ul>
           </section>
@@ -490,12 +490,25 @@
             <span>{{typeOfProject}}</span>
             <p>{{projectScope}}</p>
             {{#link-to 'profile-client.static' user.id}}<span>{{user.email}}</span>{{/link-to}}
+            {{#each bids}}
+              {{bid.accepted}}<h1>You Won!</h1>
+            {{/each}}
           </div>
           {{/each}}
         </div>
         {{#link-to 'profile.my' user.id}}<button>Home</button>{{/link-to}}
         {{#link-to 'freelancer.jobs'}}<button>All Jobs</button>{{/link-to}}
       </script>
+
+      <script type="text/x-handlebars" data-template-name="cool">
+        {{#each }}
+          <h4>{{user.id}}</h4>
+          <p>{{message}}</p>
+        {{/each}}
+        {{input value=newMessage placeholder="Write Here" action='post'}}
+      </script>
+
+
 
 
       <!-- build:js scripts/vendor.js -->

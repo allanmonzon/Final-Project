@@ -70,7 +70,7 @@ Final.FreelancerMyBidsRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('job');
   }
-})
+});
 
 Final.FreelancerStaticRoute = Ember.Route.extend({
   model: function(params) {
